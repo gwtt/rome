@@ -17,15 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameState="*res://AutoLoad/GameState.gd"
-Global="*res://AutoLoad/Global.gd"
-GlobalInput="*res://AutoLoad/GlobalInput.gd"
-SceneManager="*res://AutoLoad/SceneManager.gd"
-Settings="*res://AutoLoad/Settings.gd"
-GlobalSonic="*res://AutoLoad/GlobalSonic.tscn"
-GlobalUI="*res://AutoLoad/GlobalUI.tscn"
-Debug="*res://AutoLoad/Debug.tscn"
-TurnBasedCoordinator="*res://AutoLoad/TurnBasedCoordinator.tscn"
+DebugSystem="*res://addons/rome/system/debug_system.gd"
+SaveSystem="*res://addons/rome/system/save_system.gd"
 
 [editor_plugins]
 
