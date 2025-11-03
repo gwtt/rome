@@ -1,33 +1,33 @@
-## AutoLoad
-## Displays a list of variables updated per frame. To watch a variable, add it to the `watchList` property
+## 自动加载
+## 每帧用来展示一系列的变量更新情况，需要监控一个变量需要添加它到watchList属性里面
 
 extends Node
 
-
 #region Parameters
 
-## Sets the visibility of "debug"-level messages in the log.
-## NOTE: Does NOT affect normal logging.
-@export var shouldPrintDebugLogs: bool = OS.is_debug_build() # TBD: Should this be a constant to improve performance?
+## 设置debug级别的信息在log中的可见性
+## NOTE: 不会影响普通日志
+@export var shouldPrintDebugLogs: bool = OS.is_debug_build() # TBD：为了提升性能，这应该是一个常量吗？
 
-## Sets the visibility of the debug information overlay text, as well as the [member watchList].
-## NOTE: Does NOT affect the visibility of the framework warning label.
+
+## 设置调试信息覆盖文本以及[member watchList]的可见性。
+## 注意：不会影响框架警告标签的可见性。
 @export var showDebugLabels: bool = OS.is_debug_build():
 	set(newValue):
 		showDebugLabels = newValue
-		self.set_process(showDebugLabels) # PERFORMANCE: Don't update per-frame if not needed
+		self.set_process(showDebugLabels) # 性能：不需要时不要每帧更新
 
-## A [Dictionary] of variables to monitor at runtime. The keys are the names of the variables or properties from other nodes.
-## Updating the value of an existing key will update the label for that property i.e. to show its value at runtime.
-## EXAMPLE: `Debug.watchList.velocity = characterBody.velocity`
-## NOTE: Clearing the list will not cause [member watchListLabel] to be cleared because the per-frame [method _process] is skipped when [member watchList] is empty.
-## ALERT: Replace "[" & "]" in variable values to avoid BBCode injection! Tags like "[color]" or "[url]" may wonk the entire [member watchListLabel] and may even be intentionally malicious!
+## 运行时监控的变量[Dictionary]。键是其他节点的变量或属性名称。
+## 更新现有键的值将更新该属性的标签，即在运行时显示其值。
+## 示例：`Debug.watchList.velocity = characterBody.velocity`
+## 注意：清空列表不会导致[member watchListLabel]被清空，因为当[member watchList]为空时，每帧[method _process]会被跳过。
+## 警告：替换变量值中的"["和"]"以避免BBCode注入！像"[color]"或"[url]"这样的标签可能会破坏整个[member watchListLabel]，甚至可能是恶意的！
 ## `watchList[value].replace("[", "[lb]")`
 @export var watchList: Dictionary[StringName, Variant] = {}
 
-## Affects the `force_readable_name` parameter of [method Node.add_child] at some call sites such as [method Tools.addChildAndSetOwner].
-## If `true`, each child node added dynamically at runtime will have a unique and "readable" name to aid debugging etc.
-## WARNING: PERFORMANCE: `force_readable_name` may be "very slow" according to Godot documentation.
+## 影响某些调用点如[method Tools.addChildAndSetOwner]的[method Node.add_child]的`force_readable_name`参数。
+## 如果为`true`，运行时动态添加的每个子节点将有一个独特的"可读"名称来辅助调试等。
+## 警告：性能：根据Godot文档，`force_readable_name`可能"非常慢"。
 @export var shouldForceReadableName: bool = OS.is_debug_build()
 
 const customLogMaximumEntries: int = 100
@@ -37,28 +37,28 @@ const customLogMaximumEntries: int = 100
 
 #region State
 
-@onready var debugWindow:	 Window = %DebugWindow
-@onready var logWindow:		 Window = %CustomLogWindow
-
-@onready var labels:		 Node   = %Labels
-@onready var label:			 Label  = %Label
-@onready var warningLabel:	 Label  = %WarningLabel
-@onready var watchListLabel: RichTextLabel  = %WatchListLabel # TBD: PERFORMANCE: Should we stick to a regular [Label]? or performance doesn't matter anyway while debugging?
-@onready var customLogList:	 Container = %CustomLogList
-
-@onready var debugBackground: Node2D = %DebugBackground
+#@onready var debugWindow:	 Window = %DebugWindow
+#@onready var logWindow:		 Window = %CustomLogWindow
+#
+#@onready var labels:		 Node   = %Labels
+#@onready var label:			 Label  = %Label
+#@onready var warningLabel:	 Label  = %WarningLabel
+#@onready var watchListLabel: RichTextLabel  = %WatchListLabel # TBD：性能：我们应该坚持使用普通的[Label]吗？还是在调试时性能无关紧要？
+#@onready var customLogList:	 Container = %CustomLogList
+#
+#@onready var debugBackground: Node2D = %DebugBackground
 
 var previousChartWindowInitialPosition: Vector2i
 
-static var lastFrameLogged:		 int  = -1 # Start at -1 so the first frame 0 can be printed.
-static var isTraceLogAlternateRow: bool = false ## Used by [method printTrace] to alternate the row background etc. for clarity.
+static var lastFrameLogged:		 int  = -1 # 从-1开始，这样第一个帧0才能被打印。
+static var isTraceLogAlternateRow: bool = false ## 被[method printTrace]用于交替行背景等以提高清晰度。
 static var customLogColorFlag:	 bool
 
-## A custom log that holds extra on-demand information for each component and its parent entity etc.
+## 一个自定义日志，为每个组件及其父实体等保存额外按需信息。
 ## @experimental
 static var customLog:			Array[Dictionary]
 
-static var testMode:			bool ## Set by [TestMode].gd for use by other scripts, for temporary gameplay testing.
+static var testMode:			bool ## 被[TestMode].gd设置，供其他脚本使用，用于临时游戏玩法测试。
 
 #endregion
 
@@ -67,72 +67,72 @@ static var testMode:			bool ## Set by [TestMode].gd for use by other scripts, fo
 
 func printLog(message: String = "", object: Variant = null, messageColor: String = "", objectColor: String = "") -> void:
 	updateLastFrameLogged()
-	print_rich(str("[color=", objectColor, "]", object, "[/color] [color=", messageColor, "]", message)) # [/color] not necessary
+	print_rich(str("[color=", objectColor, "]", object, "[/color] [color=", messageColor, "]", message)) # [/color] 不必要
 
 
-## Prints a log message for an AutoLoad script without using any state variables such as the current frame.
-## Useful for logging entries before the framework is completely ready.
+## 为AutoLoad脚本打印日志消息，不使用任何状态变量，如当前帧。
+## 在框架完全准备就绪之前记录条目很有用。
 func printAutoLoadLog(message: String = "") -> void:
 	var caller: String = get_stack()[1].source.get_file().trim_suffix(".gd")
 	print_rich(str("[color=ORANGE]", caller, "[/color] ", message))
 
 
-## Prints a faded message to reduce visual clutter.
-## Affected by [member shouldPrintDebugLogs]
+## 打印淡化消息以减少视觉混乱。
+## 受[member shouldPrintDebugLogs]影响
 func printDebug(message: String = "", object: Variant = null, _objectColor: String = "") -> void:
-	#updateLastFrameLogged() # OMIT: Do not print frames on a separate line, to reduce clutter.
-	#print_debug(str(Engine.get_frames_drawn()) + " " + message) # OMIT: Not useful because it will always say it was called from this Debug script.
-	print_rich(str("[right][color=dimgray]F", Engine.get_frames_drawn(), " ", object, " ", message)) # [/color] not necessary
+	#updateLastFrameLogged() # 省略：不要在单独一行打印帧，以减少混乱。
+	#print_debug(str(Engine.get_frames_drawn()) + " " + message) # 省略：没用，因为总是会显示是从这个Debug脚本调用的。
+	print_rich(str("[right][color=dimgray]F", Engine.get_frames_drawn(), " ", object, " ", message)) # [/color] 不必要
 
 
-## Prints a warning message in the Output Log and Godot Debugger Console.
-## TIP: To see the chain of recent function calls which led to a warning, use [method Debug.printTrace]
+## 在输出日志和Godot调试器控制台中打印警告消息。
+## 提示：要查看导致警告的最近函数调用链，请使用[method Debug.printTrace]
 func printWarning(message: String = "", object: Variant = null, _objectColor: String = "") -> void:
 	updateLastFrameLogged()
-	var callerOfLogger: String = " ← " + getCaller(3) # Get the stack index 3 for the function that called the function which called this print function :)
-	push_warning(str("⚠️ ", object, " ", message, callerOfLogger)) # push_warning() does not add a line to the output log, so we can add a color-formatted message ourselves.
-	print_rich(str("[indent]􀇿 [color=yellow]", object, " ", message, "[color=orange]", callerOfLogger)) # [/color] not necessary
+	var callerOfLogger: String = " ← " + getCaller(3) # 获取堆栈索引3，这是调用调用这个打印函数的函数的函数 :)
+	push_warning(str("⚠️ ", object, " ", message, callerOfLogger)) # push_warning()不会在输出日志中添加行，所以我们可以自己添加颜色格式化的消息。
+	print_rich(str("[indent]⚠️[color=yellow]", object, " ", message, "[color=orange]", callerOfLogger)) # [/color] 不必要
 
 
-## Prints an error message in the Output Log and Godot Debugger Console. Includes the caller's file and method.
-## NOTE: In release builds, if [member Settings.shouldAlertOnError] is true, displays an OS alert which blocks engine execution.
-## TIP: To see the chain of recent function calls which led to an error, use [method Debug.printTrace]
+## 在输出日志和Godot调试器控制台中打印错误消息。包括调用者的文件和方法。
+## 注意：在发布版本中，如果[member Settings.shouldAlertOnError]为true，会显示一个阻止引擎执行的OS警报。
+## 提示：要查看导致错误的最近函数调用链，请使用[method Debug.printTrace]
 func printError(message: String = "", object: Variant = null, _objectColor: String = "") -> void:
 	updateLastFrameLogged()
-	var plainText: String = str("❗️ ", object, " ", message, " ← ", getCaller(3)) # Get the stack index 3 for the function that called the function which called this print function :)
+	var plainText: String = str("❗️ ", object, " ", message, " ← ", getCaller(3)) # 获取堆栈索引3，这是调用调用这个打印函数的函数的函数 :)
 	push_error(plainText)
 	printerr(plainText)
-	# Don't print a duplicate line, to reduce clutter.
-	#print_rich("[indent]❗️ [color=red]" + objectName + " " + message) # [/color] not necessary
+	# 不要打印重复行，以减少混乱。
+	#print_rich("[indent]❗️ [color=red]" + objectName + " " + message) # [/color] 不必要
 
-	# WARNING: Crash on error if not developing in the editor.
+	# 警告：如果不是在编辑器中开发，错误时崩溃。
 	if not OS.is_debug_build():
 		OS.alert(message, "Framework Error")
 
 
-## Prints the message in bold and a bright color, with empty lines on each side.
-## Helpful for finding important messages quickly in the debug console.
+## 用粗体和鲜艳颜色打印消息，两侧有空行。
+## 有助于在调试控制台中快速找到重要消息。
 func printHighlight(message: String = "", object: Variant = null, _objectColor: String = "") -> void:
-	print_rich(str("\n[indent]􀢒 [b][color=white]", object, " ", message, "\n")) # [/color][/b] not necessary
+	print_rich(str("\n[indent]>[b][color=white]", object, " ", message, "\n")) # [/color][/b] 不必要
 
 
-## Prints an array of variables in a highlighted color.
-## Affected by [member shouldPrintDebugLogs]
+## 用高亮颜色打印变量数组。
+## 受[member shouldPrintDebugLogs]影响
 func printVariables(values: Array[Variant], separator: String = "\t ", color: String = "orange") -> void:
 	if shouldPrintDebugLogs:
 		print_rich(str("[color=", color, "][b]", separator.join(values)))
 
 
-## Logs and returns a string showing a variable's previous and new values, IF there is a change and [member shouldPrintDebugLogs]
-## TIP: [param logAsTrace] lists recent function calls to assist in tracking what caused the variable to change.
-## Affected by [member shouldPrintDebugLogs]
+## 记录并返回一个显示变量之前和之后值的字符串，如果有变化且[member shouldPrintDebugLogs]为true
+## 提示：[param logAsTrace]列出最近的函数调用以帮助跟踪是什么导致变量发生变化。
+## 受[member shouldPrintDebugLogs]影响
 func printChange(variableName: String, previousValue: Variant, newValue: Variant, logAsTrace: bool = false) -> String:
-	# TODO: Optional charting? :)
+	# TODO：可选的图表？:)
 	if shouldPrintDebugLogs and previousValue != newValue:
 		var difference: String
 		if (newValue is int or newValue is float) and (previousValue is int or previousValue is float):
 			difference = " (%+f" % (newValue - previousValue) + ")"
-		var string: String = str(previousValue, " → ", newValue, difference) # TBD: Write difference after previousValue?
+		var string: String = str(previousValue, " → ", newValue, difference) # TBD：在previousValue之后写差值？
 		if not logAsTrace: printLog(string, variableName, "dimgray", "gray")
 		else: printTrace([string], variableName, 3)
 		return string
@@ -140,9 +140,9 @@ func printChange(variableName: String, previousValue: Variant, newValue: Variant
 		return ""
 
 
-## Prints an array of variables in a highlighted color, along with a "stack trace" of the 3 most recent functions and their filenames before the log method was called.
-## TIP: Helpful for quick/temporary debugging of bugs currently under attention.
-## NOTE: NOT affected by [member shouldPrintDebugLogs] but only prints if running in a debug build.
+## 用高亮颜色打印变量数组，以及在调用日志方法之前3个最近函数及其文件名的"堆栈跟踪"。
+## 提示：有助于快速/临时调试当前关注的bug。
+## 注意：不受[member shouldPrintDebugLogs]影响，但只在调试版本中运行时才打印。
 func printTrace(values: Array[Variant] = [], object: Variant = null, stackPosition: int = 2, separator: String = " [color=dimgray]•[/color] ") -> void:
 	if OS.is_debug_build():
 		const textColorA1: String = "[color=FF80FF]"
@@ -159,8 +159,8 @@ func printTrace(values: Array[Variant] = [], object: Variant = null, stackPositi
 		print_rich(str(backgroundColor, textColor1, bullet, "F", Engine.get_frames_drawn(), " ", float(Time.get_ticks_msec()) / 1000, " [b]", object if object else "", "[/b] @ ", getCaller(stackPosition), textColor2, " ← ", getCaller(stackPosition+1), " ← ", getCaller(stackPosition+2)))
 
 		if not values.is_empty():
-			# SORRY: This mess instead of just `separator.join(values)` is so we can alternate color between values for better readability
-			# PERFORMANCE: Watch out for any FPS impact! :')
+			# 抱歉：这个混乱的代码而不是简单的`separator.join(values)`是为了在值之间交替颜色以提高可读性
+			# 性能：注意任何FPS影响！:')
 			var joinedValues: String = ""
 			var isAlternateValueColor: bool
 			var valueColor: String
@@ -173,7 +173,7 @@ func printTrace(values: Array[Variant] = [], object: Variant = null, stackPositi
 		isTraceLogAlternateRow = not isTraceLogAlternateRow
 
 
-## Prints a pretty stack dump, including all child nodes and variables.
+## 打印漂亮的堆栈转储，包括所有子节点和变量。
 func printStackDump(object: Variant, includeChildNodes: bool = true, includeLocalVariables: bool = true, includeMemberVariables: bool = false, includeGlobalVariables: bool = false) -> void:
 	const globalVariableColor:	String = "[color=dimgray]"
 	const memberVariableColor:	String = "[color=dimgray]"
@@ -185,20 +185,22 @@ func printStackDump(object: Variant, includeChildNodes: bool = true, includeLoca
 	"\n\t[color=cyan][b]", object, "[/b] ← ", object.get_parent() if object is Node else null)
 
 	if includeChildNodes and object is Node:
-		print_rich(str("\t[color=lightblue]", object.get_children(true))) # include_internal
+		print_rich(str("\t[color=lightblue]", object.get_children(true))) # 包含内部节点
 
 	var backtrace: ScriptBacktrace
 	for backtraceIndex in stack.size():
 		backtrace = stack[backtraceIndex]
 		if stack.size() > 1: print(str("Backtrace ", backtraceIndex))
 
+		# 函数调用
+
 		if includeGlobalVariables:
 			for globalVariableIndex in backtrace.get_global_variable_count():
 				print_rich(str(globalVariableColor, "\t[b]", backtrace.get_global_variable_name(globalVariableIndex), "[/b]:\t", backtrace.get_global_variable_value(globalVariableIndex)))
 
-		# The function calls
+		# 函数调用
 
-		print_rich("\t[color=dimgray]0: The logging function")
+		print_rich("\t[color=dimgray]0: 日志记录函数")
 
 		var topColor: String
 		for frameIndex in backtrace.get_frame_count():
@@ -216,19 +218,19 @@ func printStackDump(object: Variant, includeChildNodes: bool = true, includeLoca
 					print_rich(str(memberVariableColor, "\t\t[b]", backtrace.get_member_variable_name(frameIndex, memberVariableIndex), "[/b]:\t", backtrace.get_member_variable_value(frameIndex, memberVariableIndex)))
 
 
-## Returns a string denoting the script file & function name from the specified [param stackPosition] on the call stack.
-## Default: 2 which is the function that called the CALLER of this method.
-## Example: If `_ready()` in `Component.gd` calls [method Debug.printError], then `printError()` calls `getCaller()`, then `get_stack()[2]` is `Component.gd:_ready()`
-## [0] is `getCaller()` itself, [1] would be `printError()` and so on.
-## If the position is larger than the stack, a "?" is returned.
-## NOTE: Does NOT include function arguments.
+## 返回一个表示调用堆栈中指定[param stackPosition]的脚本文件和函数名称的字符串。
+## 默认值：2，即调用这个方法的调用者的函数。
+## 示例：如果`Component.gd`中的`_ready()`调用[method Debug.printError]，然后`printError()`调用`getCaller()`，那么`get_stack()[2]`就是`Component.gd:_ready()`
+## [0]是`getCaller()`本身，[1]将是`printError()`等等。
+## 如果位置大于堆栈大小，返回"?"。
+## 注意：不包含函数参数。
 static func getCaller(stackPosition: int = 2) -> String:
-	if stackPosition > get_stack().size() - 1: return "?" # TBD: Return an empty string or what?
-	var caller: Dictionary = get_stack()[stackPosition] # CHECK: Get the caller of the caller (function that wants to log → log function → this function)
+	if stackPosition > get_stack().size() - 1: return "?" # TBD：返回空字符串还是什么？
+	var caller: Dictionary = get_stack()[stackPosition] # 检查：获取调用者的调用者（想要记录的函数 → 日志函数 → 这个函数）
 	return caller.source.get_file() + ":" + caller.function + "()"
 
 
-## Updates the frame counter and prints an extra line between logs from different frames for clarity of readability.
+## 更新帧计数器，并在不同帧的日志之间打印额外行以提高可读性。
 static func updateLastFrameLogged() -> void:
 	if not lastFrameLogged == Engine.get_frames_drawn():
 		lastFrameLogged = Engine.get_frames_drawn()
@@ -240,7 +242,7 @@ static func updateLastFrameLogged() -> void:
 #region Custom Log UI
 
 class CustomLogKeys:
-	# NOTE: Must be all lower case for `Tools.setLabelsWithDictionary()`
+	# 注意：必须全部小写以供`Tools.setLabelsWithDictionary()`使用
 	const message	= &"message"
 	const frameTime	= &"frametime"
 	const object	= &"object"
@@ -257,15 +259,15 @@ class CustomLogKeys:
 func addCustomLog(object: Variant, parent: Variant, message: String) -> void:
 	var customLogEntry: Dictionary[StringName, Variant] = getObjectDetails(object)
 
-	# Unless the object specified a custom parent, like a Component mentioning its Entity, just get the parent Node in the scene
+	# 除非对象指定了自定义父级（如组件提到其实体），否则只获取场景中的父节点
 	if parent: customLogEntry[CustomLogKeys.parent] = parent
 	elif object is Node: customLogEntry[CustomLogKeys.parent] = object.get_parent()
 
 	customLogEntry[CustomLogKeys.message] = message
 
-## Returns a dictionary of almost all details about an object, using the [Debug.CustomLogKeys]
+## 返回一个包含对象几乎所有详细信息的字典，使用[Debug.CustomLogKeys]
 static func getObjectDetails(object: Variant) -> Dictionary[StringName, Variant]:
-	# TBD: Should the values be actual variables or Strings?
+	# TBD：值应该是实际变量还是字符串？
 
 	var dictionary: Dictionary[StringName, Variant] = {
 		CustomLogKeys.frameTime:	str("F", Engine.get_frames_drawn(), " ", float(Time.get_ticks_msec()) / 1000),

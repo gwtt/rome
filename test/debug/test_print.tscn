@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0oa7i4vtshrm"]
+
+[ext_resource type="Script" uid="uid://dynw1vlgl6nue" path="res://test/debug/test_print.gd" id="1_kjl6s"]
+
+[node name="TestPrint" type="Node"]
+script = ExtResource("1_kjl6s")

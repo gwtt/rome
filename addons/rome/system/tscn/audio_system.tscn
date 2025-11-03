@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2olidpxwpt0w"]
+
+[ext_resource type="Script" uid="uid://da3t7fi36x8vc" path="res://addons/rome/system/audio_system.gd" id="1_f6m6k"]
+[ext_resource type="Script" uid="uid://yl35t6f15xxs" path="res://addons/rome/system/audio/audio_system_omni.gd" id="2_ognb2"]
+[ext_resource type="AudioStream" uid="uid://wh5ymsu6gkjn" path="res://asset/music/背景音乐1.mp3" id="3_as5xx"]
+[ext_resource type="AudioStream" uid="uid://vrsxnpscghlk" path="res://asset/music/背景音乐2.mp3" id="4_as5xx"]
+
+[sub_resource type="Resource" id="Resource_iiwsx"]
+script = ExtResource("2_ognb2")
+audio_name = "背景音乐1"
+audio_stream = ExtResource("3_as5xx")
+metadata/_custom_type_script = "uid://yl35t6f15xxs"
+
+[sub_resource type="Resource" id="Resource_wp8yv"]
+script = ExtResource("2_ognb2")
+audio_name = "背景音乐2"
+audio_stream = ExtResource("4_as5xx")
+metadata/_custom_type_script = "uid://yl35t6f15xxs"
+
+[node name="AudioSystem" type="Node"]
+script = ExtResource("1_f6m6k")
+audios_omni = Array[ExtResource("2_ognb2")]([SubResource("Resource_iiwsx"), SubResource("Resource_wp8yv")])
+audios_2d = null
+audios_3d = null

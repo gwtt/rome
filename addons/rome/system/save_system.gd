@@ -15,7 +15,7 @@ func _ready() -> void:
 	# 初始化读取配置
 	var err := file.load(config_path)
 	if err != OK:
-		push_warning("文件加载失败：%d" % err)
+		DebugSystem.printWarning("文件加载失败：%d" % err, self)
 
 ## 是否存在该配置
 func has_config(section: String, key: String) -> bool:
@@ -29,13 +29,13 @@ func save_config(section: String, key: String, value: Variant) -> void:
 	file.set_value(section, key, value)
 	var err := file.save(config_path)
 	if err != OK:
-		DebugSystem.printError("文件保存失败：%d" % err)
+		DebugSystem.printError("文件保存失败：%d" % err, self)
 
 ## 配置保存
 func load_config(section: String, key: String, default: Variant) -> Variant:
 	var err := file.load(config_path)
 	if err != OK:
-		DebugSystem.printDebug("文件加载失败：%d" % err)
+		DebugSystem.printDebug("文件加载失败：%d" % err, self)
 		return file.get_value(section, key, default)
 	else:
 		return file.get_value(section, key, default)
@@ -45,13 +45,13 @@ func seve_system_config(section: String, key: String, value: Variant) -> void:
 	system_file.set_value(section, key, value)
 	var err := system_file.save(override_path)
 	if err != OK:
-		DebugSystem.printError("文件保存失败：%d" % err)
+		DebugSystem.printError("文件保存失败：%d" % err, self)
 
 ## 系统配置加载
 func load_system_config(section: String, key: String, value: Variant) -> Variant:
 	var err := system_file.save(override_path)
 	if err != OK:
-		DebugSystem.printWarning("文件加载失败：%d" % err)
+		DebugSystem.printWarning("文件加载失败：%d" % err, self)
 		return system_file.get_value(section, key, value)
 	else:
 		return system_file.get_value(section, key, value)
@@ -62,9 +62,9 @@ func erase_section(section: String) -> void:
 		file.erase_section(section)
 		var err := file.save(config_path)
 		if err != OK:
-			DebugSystem.printError("文件保存失败：%d" % err)
+			DebugSystem.printError("文件保存失败：%d" % err, self)
 	else:
-		DebugSystem.printError("不存在该 section：%s" % section)
+		DebugSystem.printError("不存在该 section：%s" % section, self)
 
 ## 彻底配置清除
 func config_clear() -> void:
