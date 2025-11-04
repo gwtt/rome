@@ -37,6 +37,8 @@ const customLogMaximumEntries: int = 100
 
 #region State
 
+var info := "FPS: %d Draw calls: %s GPU时间: %.3fms CPU时间: %.3fms"
+@onready var fps_label: Label = %FPSLabel
 #@onready var debugWindow:	 Window = %DebugWindow
 #@onready var logWindow:		 Window = %CustomLogWindow
 #
@@ -57,10 +59,16 @@ static var customLogColorFlag:	 bool
 ## 一个自定义日志，为每个组件及其父实体等保存额外按需信息。
 ## @experimental
 static var customLog:			Array[Dictionary]
-
 static var testMode:			bool ## 被[TestMode].gd设置，供其他脚本使用，用于临时游戏玩法测试。
 
 #endregion
+
+func _process(delta):
+	var fps = Performance.get_monitor(Performance.TIME_FPS)
+	var draw_calls = Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+	var process = Performance.get_monitor(Performance.TIME_PROCESS) * 1000
+	var physics = Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000
+	fps_label.text = info % [fps, draw_calls, process, physics]
 
 
 #region Logging

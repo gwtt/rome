@@ -12,15 +12,18 @@ config_version=5
 
 config/name="Rome"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=240
 boot_splash/bg_color=Color(0.08627451, 0.003921569, 0.2, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-DebugSystem="*res://addons/rome/system/debug_system.gd"
+Enums="*res://global/enums.gd"
+DebugSystem="*res://addons/rome/system/tscn/debug_system.tscn"
 SaveSystem="*res://addons/rome/system/save_system.gd"
 GlobalSystem="*res://addons/rome/system/global_system.gd"
 AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
+CapabilitySystem="*res://addons/rome/capabilities/capability_system.gd"
 
 [editor_plugins]
 
@@ -240,4 +243,7 @@ debugBreak={
 
 [rendering]
 
+textures/default_filters/use_nearest_mipmap_filter=true
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_3d=2
 environment/defaults/default_clear_color=Color(0.08627451, 0.003921569, 0.2, 1)
