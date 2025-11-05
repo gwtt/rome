@@ -27,6 +27,7 @@ mouse_filter = 2
 
 [node name="FPSLabel" type="Label" parent="Canvas/Labels/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "General Label"

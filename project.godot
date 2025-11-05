@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Rome"
+run/main_scene="uid://ccam6vsn5hhx"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=240
 boot_splash/bg_color=Color(0.08627451, 0.003921569, 0.2, 1)
@@ -25,6 +26,15 @@ GlobalSystem="*res://addons/rome/system/global_system.gd"
 AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
 CapabilitySystem="*res://addons/rome/capabilities/capability_system.gd"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/folder_labels/plugin.cfg", "res://addons/rome/plugin.cfg", "res://addons/script-ide/plugin.cfg")
@@ -35,6 +45,34 @@ folder_colors={
 "res://addons/": "red",
 "res://asset/": "orange",
 "res://test/": "green"
+}
+
+[importer_defaults]
+
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"compress/rdo_quality_loss": 0.0,
+"compress/uastc_level": 0,
+"detect_3d/compress_to": 1,
+"mipmaps/generate": true,
+"mipmaps/limit": -1,
+"process/channel_remap/alpha": 3,
+"process/channel_remap/blue": 2,
+"process/channel_remap/green": 1,
+"process/channel_remap/red": 0,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
 }
 
 [input]
@@ -241,8 +279,13 @@ debugBreak={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="GROUND"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 textures/default_filters/use_nearest_mipmap_filter=true
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=2
