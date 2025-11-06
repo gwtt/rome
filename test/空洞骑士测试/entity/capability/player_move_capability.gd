@@ -1,17 +1,18 @@
 extends BaseCapability
 class_name PlayerMoveCapability
 
-var body : CharacterBody2D 
+func should_activate() -> bool:
+	return !component.is_block(Enums.CapabilityTags.Move)
 
-func on_active():
-	body = owner as CharacterBody2D
+func should_deactivate() -> bool:
+	return component.is_block(Enums.CapabilityTags.Move)
 
-func tick_active(delta):
+func tick_active(delta) -> void:
 	var move_vector = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
-	var velocity := body.velocity
-	velocity.x = move_vector * component.accelerate_speed * delta
+	var velocity: Vector2 = owner.velocity
+	velocity.x += move_vector * component.horizontal_accelerate_speed * delta
 	velocity.x = clamp(velocity.x, -component.max_speed, component.max_speed)
 	if move_vector == 0:
 		velocity.x = lerp(0.0, velocity.x, pow(2, -50 * delta))
-	body.velocity.x = velocity.x
-	body.move_and_slide()
+	owner.velocity.x = velocity.x
+	owner.move_and_slide()

@@ -23,14 +23,15 @@ func _load_sheets(sheets: Array[CapabilitySheet]):
 			
 ## 阻塞标签
 func block_capabilities(tag: Enums.CapabilityTags, capability: BaseCapability) -> void:
+	#DebugSystem.printHighlight("阻塞了标签:" + str(tag), capability)
 	if !tag_blockers.has(tag):
 		tag_blockers[tag] = []
-		return
 	if tag_blockers[tag].has(capability):
 		return	
 	tag_blockers[tag].append(capability)
 
 func unblock_capabilities(tag: Enums.CapabilityTags, capability: BaseCapability) -> void:
+	#DebugSystem.printHighlight("解锁了标签:" + str(tag), capability)
 	if !tag_blockers.has(tag):
 		return
 	tag_blockers[tag].erase(capability)
