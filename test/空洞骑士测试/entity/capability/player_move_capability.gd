@@ -1,12 +1,6 @@
 extends BaseCapability
 class_name PlayerMoveCapability
 
-func should_activate() -> bool:
-	return !component.is_block(Enums.CapabilityTags.Move)
-
-func should_deactivate() -> bool:
-	return component.is_block(Enums.CapabilityTags.Move)
-
 func tick_active(delta) -> void:
 	var move_vector = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
 	var velocity: Vector2 = owner.velocity

@@ -1,26 +1,32 @@
 extends Node
 class_name BaseCapability
 
-var tags = []
-var tick_group: Enums.ETickGroup = Enums.ETickGroup.GamePlay
-var tick_group_order = 100
+#region 标签
+@export var tags: Array[Enums.CapabilityTags]
+@export  var tick_group: Enums.ETickGroup = Enums.ETickGroup.GamePlay
+@export var tick_group_order = 100
+#endregion
 var active := false;
 
 # 激活持续时间
 var active_duration: float = 0
 # 非激活持续时间
 var deactive_duration: float = 0
+var capability_component: CapabilityComponent
 var component: CapabilityComponent
+# 阻塞状态缓存，避免每帧检查
+var is_blocked: bool = false
+
 
 func _ready() -> void:
 	await owner.ready
-	## 进行注册
-	var node := get_node("..")
-	## 判断是否为组件
-	if node is CapabilityComponent:
-		component = node
+	component = get_node("..")
+	capability_component = owner.get_node_or_null("CapabilityComponent") 
 	set_up()
-	component.tree_exiting.connect(on_owner_destroyed)
+	# 注册到 capability_component，用于阻塞状态管理
+	if capability_component:
+		capability_component.register_capability(self)
+	owner.tree_exiting.connect(on_owner_destroyed)
 
 # GameObject实例化时启动, 主动激活
 func set_up() -> void:
@@ -50,6 +56,9 @@ func tick_active(_delta_time: float) -> void:
 func on_owner_destroyed():
 	if (active):
 		on_deactivate()
+	# 从 component 中移除
+	if capability_component:
+		capability_component.unregister_capability(self)
 	CapabilitySystem.unregister(self)
 
 # 切换激活状态,返回切换后的值

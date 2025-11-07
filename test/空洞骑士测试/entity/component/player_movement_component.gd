@@ -8,7 +8,15 @@ class_name PlayerMoveMentComponent
 @export var dash_speed := 400.0
 @export var gravity := 580
 @export var jump_speed := 280
+@export var double_jump_speed := 240
 @export var jump_higher := 4
+
+var can_dash: bool = true
+var is_dashing: bool = false
+
+var can_jump: bool = true
+var can_double_jump: bool = false
+var is_double_jumping: bool = false
 
 var anim_callback: Callable  # 动画播放结束的回调
 
@@ -35,3 +43,7 @@ func turn_direction() -> void:
 	var velocity:Vector2 = owner.velocity
 	if velocity.x != 0:
 		sprite.scale.x = -1 if velocity.x < 0 else 1
+
+## 是否在地上
+func is_on_floor() -> bool:
+	return owner.is_on_floor()
