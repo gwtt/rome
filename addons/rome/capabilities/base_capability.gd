@@ -13,7 +13,7 @@ var active_duration: float = 0
 # 非激活持续时间
 var deactive_duration: float = 0
 var capability_component: CapabilityComponent
-var component: CapabilityComponent
+var component: Node
 # 阻塞状态缓存，避免每帧检查
 var is_blocked: bool = false
 
@@ -38,7 +38,7 @@ func should_activate() -> bool:
 
 # 非激活状态时每帧检查
 func should_deactivate() -> bool:
-	return false
+	return !should_activate()
 
 # 激活时运行
 func on_active() -> void:

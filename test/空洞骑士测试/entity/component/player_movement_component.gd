@@ -1,4 +1,4 @@
-extends CapabilityComponent
+extends Node
 class_name PlayerMoveMentComponent
 
 @export var sprite: Sprite2D
@@ -20,11 +20,10 @@ var can_double_jump: bool = false
 var is_double_jumping: bool = false
 
 func _ready():
-	super._ready()
 	animation_player.animation_finished.connect(_on_animation_finished)
 
 ## 播放动画
-func play_anim(anim_name: String, callback: Callable = Callable()) -> void:
+func play_anim(anim_name: String, _callback: Callable = Callable()) -> void:
 	if !animation_player.has_animation(anim_name):
 		DebugSystem.printWarning("玩家角色无动画:" + anim_name)
 		return

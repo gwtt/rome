@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=32 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Texture2D" uid="uid://dkk2e5m3igvx7" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士待机精灵表.png" id="2_ofg15"]
@@ -8,9 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://svrvav81yxth" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士帝王之翼.png" id="5_l34fv"]
 [ext_resource type="Script" uid="uid://dyvo3w1nb2n4n" path="res://test/空洞骑士测试/entity/component/player_movement_component.gd" id="5_pqjec"]
 [ext_resource type="Script" uid="uid://cchc8qyee4c4e" path="res://test/空洞骑士测试/entity/capability/player_move_capability.gd" id="6_bs4of"]
+[ext_resource type="Texture2D" uid="uid://dlc3su7agv4lg" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈1.png" id="6_enlou"]
+[ext_resource type="Texture2D" uid="uid://m2ktftafi8r3" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈2.png" id="7_8ipr7"]
 [ext_resource type="Script" uid="uid://vs7bp4a6iul7" path="res://test/空洞骑士测试/entity/capability/player_jump_capability.gd" id="7_rwp4b"]
-[ext_resource type="Script" uid="uid://buu77op5xdt4j" path="res://test/空洞骑士测试/entity/capability/player_animation_capability.gd" id="8_hb5gd"]
+[ext_resource type="Script" uid="uid://buu77op5xdt4j" path="res://test/空洞骑士测试/entity/capability/player_movement_animation_capability.gd" id="8_hb5gd"]
+[ext_resource type="Texture2D" uid="uid://cf3jaejot8tbi" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士上劈.png" id="8_vcee1"]
+[ext_resource type="Texture2D" uid="uid://mrxg0rot7i1s" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士下劈.png" id="9_elhbc"]
+[ext_resource type="Texture2D" uid="uid://bpa5b6lavig7u" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士黑冲.png" id="10_amvc6"]
 [ext_resource type="Script" uid="uid://bg38mgpt6dq1e" path="res://test/空洞骑士测试/entity/capability/player_dash_capability.gd" id="11_6dxs2"]
+[ext_resource type="Script" uid="uid://b5tc5gndwxc3p" path="res://test/空洞骑士测试/entity/component/player_attack_component.gd" id="17_sqeek"]
+[ext_resource type="Script" uid="uid://d12s8l8m2rp50" path="res://test/空洞骑士测试/entity/capability/player_attack_animation_capability.gd" id="18_6le0j"]
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
@@ -61,6 +68,136 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-16, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_elhbc"]
+resource_name = "上劈"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_vcee1")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_amvc6"]
+resource_name = "下劈"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_elhbc")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 14)]
 }
 
 [sub_resource type="Animation" id="Animation_3al0k"]
@@ -258,6 +395,136 @@ tracks/4/keys = {
 "values": [Vector2(-16, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_8ipr7"]
+resource_name = "横劈1"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_enlou")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vcee1"]
+resource_name = "横劈2"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_8ipr7")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_jb3x7"]
 resource_name = "移动"
 step = 0.16666667
@@ -452,15 +719,85 @@ tracks/4/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_sqeek"]
+resource_name = "黑冲"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_amvc6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4qbo"]
 _data = {
 &"RESET": SubResource("Animation_0r08a"),
+&"上劈": SubResource("Animation_elhbc"),
+&"下劈": SubResource("Animation_amvc6"),
 &"下落": SubResource("Animation_3al0k"),
 &"二段跳": SubResource("Animation_fwriv"),
 &"冲刺": SubResource("Animation_hb5gd"),
+&"横劈1": SubResource("Animation_8ipr7"),
+&"横劈2": SubResource("Animation_vcee1"),
 &"移动": SubResource("Animation_jb3x7"),
 &"站立": SubResource("Animation_u04wk"),
-&"跳跃": SubResource("Animation_o4qbo")
+&"跳跃": SubResource("Animation_o4qbo"),
+&"黑冲": SubResource("Animation_sqeek")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -500,7 +837,7 @@ script = ExtResource("7_rwp4b")
 tags = Array[int]([3])
 metadata/_custom_type_script = "uid://vs7bp4a6iul7"
 
-[node name="PlayerAnimationCapability" type="Node" parent="PlayerMoveMentComponent"]
+[node name="PlayerMovementAnimationCapability" type="Node" parent="PlayerMoveMentComponent"]
 script = ExtResource("8_hb5gd")
 metadata/_custom_type_script = "uid://buu77op5xdt4j"
 
@@ -508,3 +845,13 @@ metadata/_custom_type_script = "uid://buu77op5xdt4j"
 script = ExtResource("11_6dxs2")
 tags = Array[int]([2])
 metadata/_custom_type_script = "uid://bg38mgpt6dq1e"
+
+[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "animation_player")]
+script = ExtResource("17_sqeek")
+sprite = NodePath("../Sprite2D")
+animation_player = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://b5tc5gndwxc3p"
+
+[node name="PlayerAttackAnimationCapability" type="Node" parent="PlayerAttackComponent"]
+script = ExtResource("18_6le0j")
+metadata/_custom_type_script = "uid://d12s8l8m2rp50"
