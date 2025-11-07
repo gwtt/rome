@@ -1,29 +1,39 @@
 extends BaseCapability
 class_name PlayerAnimationCapability
 
+var current_anim: String = ""
+
 func on_active() -> void:
 	tick_group = Enums.ETickGroup.AfterMovement
 	
 func tick_active(_delta: float) -> void:
 	component.turn_direction()
 
+	var next_anim := _get_next_animation()
+	
+	# 只在动画需要改变时播放，避免重复播放
+	if next_anim != current_anim:
+		component.play_anim(next_anim)
+		current_anim = next_anim
+
+## 根据当前状态决定下一个动画
+func _get_next_animation() -> String:
 	# 冲刺动画优先级最高
 	if component.is_dashing:
-		return
-
+		return "冲刺"
+	
 	var velocity = owner.velocity
 	var on_floor = component.is_on_floor()
-	var next_anim := "站立"
 	
 	if not on_floor:
 		# 空中状态：根据是否二段跳和速度方向选择动画
 		if component.is_double_jumping:
-			next_anim = "二段跳" if velocity.y < 0.0 else "下落"
+			return "二段跳" if velocity.y < 0.0 else "下落"
 		else:
-			next_anim = "跳跃" if velocity.y < 0.0 else "下落"
-	elif abs(velocity.x) > 1.0:
+			return "跳跃" if velocity.y < 0.0 else "下落"
+	elif abs(velocity.x) > 0.0:
 		# 地面移动
-		next_anim = "移动"
-	# else: 保持默认的 "站立"
-	
-	component.play_anim(next_anim)
+		return "移动"
+	else:
+		# 地面站立
+		return "站立"
