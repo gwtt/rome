@@ -15,7 +15,11 @@ func _on_dash_state_physics_processing(delta: float) -> void:
 	var velocity: Vector2 = owner.velocity
 	velocity.x = lerp(0.0, velocity.x, pow(2, -6 * delta))
 	owner.velocity = velocity
-	if state_machine.get_current_node() != "冲刺":
+	
+	var current_pos := state_machine.get_current_play_position()
+	var current_len := state_machine.get_current_length()
+
+	if current_pos >= current_len:
 		stat_component.state_chart.send_event("to_movement")
 		state_machine.state_finished.disconnect(on_dash_finished)
 
