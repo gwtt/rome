@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://ccam6vsn5hhx"]
+[gd_scene load_steps=4 format=4 uid="uid://ccam6vsn5hhx"]
 
 [ext_resource type="TileSet" uid="uid://j451nc4y48nm" path="res://test/空洞骑士测试/assets/MainScene.tres" id="1_yeq3q"]
 [ext_resource type="PackedScene" uid="uid://uy0e1rgag31n" path="res://test/空洞骑士测试/entity/player/player.tscn" id="2_78o6r"]
+[ext_resource type="PackedScene" uid="uid://btr68a4h85d0m" path="res://test/空洞骑士测试/entity/boss/boss.tscn" id="3_lavwf"]
 
 [node name="MainScene" type="Node"]
 
@@ -10,6 +11,9 @@ tile_map_data = PackedByteArray("AAAKAAUAAAACAAIAAAAKAAQAAAACAAEAAAAKAAMAAAACAAE
 tile_set = ExtResource("1_yeq3q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Boss" parent="." instance=ExtResource("3_lavwf")]
+position = Vector2(128, 64)
 
 [node name="Player" parent="." instance=ExtResource("2_78o6r")]
 position = Vector2(-48, 48)

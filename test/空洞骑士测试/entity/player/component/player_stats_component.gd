@@ -11,6 +11,7 @@ class_name PlayerStatsComponent
 @export var state_chart:StateChart
 @export var has_black_dash = true
 
+var flip_h: bool
 var can_dash: bool
 var can_jump: bool
 var can_double_jump: bool

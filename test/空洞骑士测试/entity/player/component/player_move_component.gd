@@ -14,9 +14,10 @@ func _on_move_state_physics_processing(delta: float) -> void:
 	owner.velocity = velocity
 	
 	if not owner.is_on_floor(): return
-	if velocity.x <= 0.005:
+	if abs(velocity.x)<= 0.1:
 		state_machine.travel("站立")	
-	state_machine.travel("移动")
+	else:
+		state_machine.travel("移动")
 
 ## 处理水平移动
 func _handle_horizontal_movement(delta: float, move_vector: float, velocity: Vector2) -> Vector2:

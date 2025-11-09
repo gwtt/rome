@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @onready var player_stats_component: PlayerStatsComponent = $PlayerStatsComponent
+
+@onready var hurt_box_area: Area2D = $HurtBoxArea
+@onready var attack_area: Area2D = $AttackArea
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _physics_process(_delta: float) -> void:
@@ -11,4 +14,6 @@ func _physics_process(_delta: float) -> void:
 func turn_direction() -> void:
 	if velocity.x != 0:
 		sprite.scale.x = -1 if velocity.x < 0 else 1
-
+		hurt_box_area.scale.x = -1 if velocity.x < 0 else 1
+		attack_area.scale.x = -1 if velocity.x < 0 else 1
+		player_stats_component.flip_h = false if velocity.x < 0 else true
