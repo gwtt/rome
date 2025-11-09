@@ -1,11 +1,18 @@
 extends BaseComponent
 class_name PlayerDashComponent
 
+@export var player_black_dash_component: PlayerBlackDashComponent
+
 func _on_dash_state_entered() -> void:
 	var velocity: Vector2 = owner.velocity	
 	stat_component.can_dash = false
 	state_machine.state_finished.connect(on_dash_finished)
-	state_machine.travel("冲刺")
+	if stat_component.has_black_dash:
+		stat_component.has_black_dash = false
+		player_black_dash_component.spawn_blackdash()
+		state_machine.travel("黑冲")
+	else:
+		state_machine.travel("冲刺")
 	var dash_direction = sign(velocity.x)
 	velocity.x = stat_component.dash_speed * dash_direction
 	velocity.y = 0

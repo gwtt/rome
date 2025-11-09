@@ -9,6 +9,7 @@ class_name PlayerStatsComponent
 @export var double_jump_speed := 240
 @export var jump_higher := 4
 @export var state_chart:StateChart
+@export var has_black_dash = true
 
 var can_dash: bool
 var can_jump: bool

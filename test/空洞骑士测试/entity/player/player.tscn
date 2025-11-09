@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=83 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="20_4dg15"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="22_7r0p4"]
+[ext_resource type="PackedScene" uid="uid://hb41o0gfu5dx" path="res://test/空洞骑士测试/entity/player/player_black_dash_component.tscn" id="22_bbpi2"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="23_rp4ax"]
 [ext_resource type="Script" uid="uid://cw46mrs1t0p2p" path="res://test/空洞骑士测试/entity/player/component/player_attack_component.gd" id="24_ohcur"]
 [ext_resource type="Script" uid="uid://b532djitr7faa" path="res://test/空洞骑士测试/entity/player/component/player_move_component.gd" id="24_rp4ax"]
@@ -799,6 +800,9 @@ animation = &"站立"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ohcur"]
 animation = &"跳跃"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d3rm2"]
+animation = &"黑冲"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r0p4"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rp4ax"]
@@ -885,7 +889,7 @@ states/End/position = Vector2(1367, 106)
 "states/二段跳/node" = SubResource("AnimationNodeAnimation_rp4ax")
 "states/二段跳/position" = Vector2(249, 466)
 "states/冲刺/node" = SubResource("AnimationNodeAnimation_s5wiw")
-"states/冲刺/position" = Vector2(1236, 82)
+"states/冲刺/position" = Vector2(1194, 100)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
 "states/横劈1/position" = Vector2(1216, 379)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
@@ -896,8 +900,10 @@ states/End/position = Vector2(1367, 106)
 "states/站立/position" = Vector2(307, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_ohcur")
 "states/跳跃/position" = Vector2(278, 293)
+"states/黑冲/node" = SubResource("AnimationNodeAnimation_d3rm2")
+"states/黑冲/position" = Vector2(1226, 27)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h")]
-graph_offset = Vector2(-47, -55)
+graph_offset = Vector2(-26, -76)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
@@ -905,10 +911,7 @@ script = ExtResource("1_ohcur")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
-texture = ExtResource("6_enlou")
-offset = Vector2(10, 0)
 hframes = 3
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -920,7 +923,6 @@ tree_root = SubResource("AnimationNodeStateMachine_4dg15")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("19_rqp6k")
@@ -993,8 +995,9 @@ animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://bf7ggufv5jbdl"
 
-[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("player_black_dash_component", "animation_player", "animation_tree", "stat_component")]
 script = ExtResource("27_sg63p")
+player_black_dash_component = NodePath("../PlayerBlackDashComponent")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
@@ -1014,6 +1017,9 @@ animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://cw46mrs1t0p2p"
+
+[node name="PlayerBlackDashComponent" parent="." node_paths=PackedStringArray("stat_component") instance=ExtResource("22_bbpi2")]
+stat_component = NodePath("../PlayerStatsComponent")
 
 [connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent" to="PlayerDashComponent" method="_on_move_ment_state_physics_processing"]
 [connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent/Jump" to="PlayerJumpComponent" method="_on_jump_state_physics_processing"]
