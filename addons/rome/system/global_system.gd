@@ -1,67 +1,105 @@
+## AutoLoad
+## Global data and code provided by the framework for all games, such as constants, flags and helper functions etc.
+## For scene management & transitions: see SceneManager.gd
+## For player control & input actions: see GlobalInput.gd
+## For window management, & visuals & sounds that must be present in every scene: see GlobalUI.gd
+## To save & load the game state: see GameState.gd
+
+# class_name Global
 extends Node
 
-## 音频总线定义
+
+#region Project-Specific Flags
+
+## ATTENTION: This flag is set by the [Start] script which must be attached to the root node of the main scene of your game.
+static var hasStartScript:		bool = false
+
+#endregion
+
+
+#region Constants
+
+# NOTE: Classes containing a list of constants are named plural, so as to be more intuitive and not be confused with a more general type, i.e. "Actions" vs "Action".
+
+const frameworkTitle	:= &"Comedot"
+
+
+class Groups:
+	const components	:= &"components"
+	const entities		:= &"entities"
+
+	const players		:= &"players"
+	const enemies		:= &"enemies"
+	const hazards		:= &"hazards" ## Areas & objects such as spikes or pools of lava etc.
+	const collectibles	:= &"collectibles" ## Loot, powerups, inventory items etc. See [CollectibleComponent]
+	const interactions	:= &"interactions" ## Objects such as switches, doors, chests etc. See [InteractionComponent]
+	const targetables	:= &"targetables"  ## Objects that can be the target of an explicit/special [Action]. See [ActionTargetableComponent]
+	const climbable		:= &"climbable" ## Areas & objects representing ladders, ropes or cliffs etc. See [ClimbComponent]
+	const props			:= &"props" ## Miscellaneous objects & superfluous decorations etc.
+	const zones			:= &"zones" ## Special game-specific areas representing different maps, regions or sections of the gameplay.
+	
+	const turnBased		:= &"turnBased"
+	const audio			:= &"audio" ## Temporary sound effects
+
+
 class AudioBuses:
 	const master:= &"Master"
 	const sfx	:= &"SFX"
 	const music	:= &"Music"
 
-## 音频配置
-class AudioConfig:
-	const MUSIC_FOLDER = "res://Assets/Audio/Music"
-	const SUPPORTED_EXTENSIONS = ["mp3", "wav", "ogg"]
 
-	## 默认音量设置
-	static var master_volume: float = 1.0
-	static var music_volume: float = 0.8
-	static var sfx_volume: float = 1.0
+## A list of names for the custom data layer types that [TileMapLayer] Tile Sets may set on Tiles.
+## For dynamic runtime data on CELLS, use [TileMapLayerWithCellData] or [TileMapCellData].
+class TileMapCustomData:
+	const isWalkable	:= &"isWalkable"	## Tile is vacant. # TBD: Rename to isOccupiable?
+	const isBlocked		:= &"isBlocked"		## Impassable terrain or object
 
-	## 音乐设置
-	static var shuffle_music: bool = true
-	static var auto_play_music: bool = false
+	const isOccupied	:= &"isOccupied"	## Is occupied by a character
+	const occupant		:= &"occupant"		## The entity occupying the tile
 
-	## 音效设置
-	static var max_sound_instances: int = 16
-	static var use_sound_pool: bool = true
+	const isDestructible	:= &"isDestructible"	## Tile may be damaged by a [TileDamageComponent]
+	const nextTileOnDamage	:= &"nextTileOnDamage"	## If [member isDestructible], the Cell will be changed to the Tile coordinates specified here. If there is no next tile, the Cell will be destroyed/removed from the Map.
 
-	## 从 SaveManager 加载配置
-	static func load_config() -> void:
-		if Engine.has_singleton("SaveManager"):
-			var save_manager = Engine.get_singleton("SaveManager")
-			master_volume = save_manager.load_config("Audio", "master_volume", 1.0)
-			music_volume = save_manager.load_config("Audio", "music_volume", 0.8)
-			sfx_volume = save_manager.load_config("Audio", "sfx_volume", 1.0)
-			shuffle_music = save_manager.load_config("Audio", "shuffle_music", true)
-			auto_play_music = save_manager.load_config("Audio", "auto_play_music", false)
-			max_sound_instances = save_manager.load_config("Audio", "max_sound_instances", 16)
-			use_sound_pool = save_manager.load_config("Audio", "use_sound_pool", true)
 
-	## 保存配置到 SaveManager
-	static func save_config() -> void:
-		if Engine.has_singleton("SaveManager"):
-			var save_manager = Engine.get_singleton("SaveManager")
-			save_manager.save_config("Audio", "master_volume", master_volume)
-			save_manager.save_config("Audio", "music_volume", music_volume)
-			save_manager.save_config("Audio", "sfx_volume", sfx_volume)
-			save_manager.save_config("Audio", "shuffle_music", shuffle_music)
-			save_manager.save_config("Audio", "auto_play_music", auto_play_music)
-			save_manager.save_config("Audio", "max_sound_instances", max_sound_instances)
-			save_manager.save_config("Audio", "use_sound_pool", use_sound_pool)
+class Colors:
+	const logResource	:= "pink"
+#endregion
 
-	## 设置主音量
-	static func set_master_volume(volume: float) -> void:
-		master_volume = clamp(volume, 0.0, 1.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(AudioBuses.master), linear_to_db(master_volume))
-		save_config()
 
-	## 设置音乐音量
-	static func set_music_volume(volume: float) -> void:
-		music_volume = clamp(volume, 0.0, 1.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(AudioBuses.music), linear_to_db(music_volume))
-		save_config()
+#region Initialization
 
-	## 设置音效音量
-	static func set_sfx_volume(volume: float) -> void:
-		sfx_volume = clamp(volume, 0.0, 1.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(AudioBuses.sfx), linear_to_db(sfx_volume))
-		save_config()
+static func _static_init() -> void:
+	print_rich("[color=white]Global.gd[/color] _static_init()")
+	printInitializationMessage()
+
+
+static func printInitializationMessage() -> void:
+	print_rich("[color=white][b]" + GlobalSystem.frameworkTitle)
+
+	var projectTitle: String = ProjectSettings.get_setting("application/config/name", "rome")
+	if projectTitle.to_upper() != GlobalSystem.frameworkTitle.to_upper():
+		print_rich("[color=white]Project: " + projectTitle)
+
+#endregion
+
+
+#region Save & Load
+
+## Takes a screenshot and saves it as a JPEG file in the "user://" folder.
+## @experimental
+func screenshot(titleSuffix: String = "") -> void:  # NOTE: Cannot be `static` because of `self.get_viewport()`
+	# THANKS: CREDIT: https://stackoverflow.com/users/4423341/bugfish — https://stackoverflow.com/questions/77586404/take-screenshots-in-godot-4-1-stable
+	# TBD: Is the `await` necessary?
+	var date: String = Time.get_date_string_from_system().replace(".","-")
+	var time: String = Time.get_time_string_from_system().replace(":","-")
+
+	var screenshotPath: String = "user://" + "rome Screenshot " + date + " " + time
+	if not titleSuffix.is_empty(): screenshotPath += " " + titleSuffix
+	screenshotPath += ".jpeg"
+
+	var screenshotImage: Image = self.get_viewport().get_texture().get_image() # Capture what the player sees
+	screenshotImage.save_jpg(screenshotPath)
+
+	#GlobalUI.createTemporaryLabel(str("Screenshot ", time + " " + titleSuffix))
+
+#endregion

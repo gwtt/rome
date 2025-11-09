@@ -7,8 +7,8 @@ func tick_active(delta: float) -> void:
 	
 	# 处理水平移动
 	velocity = _handle_horizontal_movement(delta, move_vector, velocity)
-	
 	owner.velocity = velocity
+	component.turn_direction()
 	owner.move_and_slide()
 
 ## 处理水平移动

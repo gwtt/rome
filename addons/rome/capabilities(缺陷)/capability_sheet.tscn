@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://8gepy0iqguqs"]
 
-[ext_resource type="Script" uid="uid://c8e65lhmqbbwj" path="res://addons/rome/capabilities/capability_sheet.gd" id="1_ccuxe"]
+[ext_resource type="Script" uid="uid://c8e65lhmqbbwj" path="res://addons/rome/capabilities(缺陷)/capability_sheet.gd" id="1_ccuxe"]
 
 [node name="CapabilitySheet" type="Node"]
 script = ExtResource("1_ccuxe")

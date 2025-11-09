@@ -1,22 +1,14 @@
 extends BaseCapability
 class_name PlayerMovementAnimationCapability
 
-func on_active() -> void:
-	tick_group = Enums.ETickGroup.AfterMovement
-	
-func tick_active(_delta: float) -> void:
-	component.turn_direction()
 
+func tick_active(_delta: float) -> void:
 	var next_anim := _get_next_animation()
 	
 	component.play_anim(next_anim)
 
 ## 根据当前状态决定下一个动画
 func _get_next_animation() -> String:
-	# 冲刺动画优先级最高
-	if component.is_dashing:
-		return "冲刺"
-	
 	var velocity = owner.velocity
 	var on_floor = component.is_on_floor()
 	

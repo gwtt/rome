@@ -13,8 +13,7 @@ func tick_active(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and component.can_dash:
 		component.can_dash = false
 		component.is_dashing = true
-		# 设置 dash 结束回调（动画由 animation_capability 处理）
-		component.dash_finished_callback = _on_dash_finished
+		component.play_anim("冲刺", _on_dash_finished)
 		# 设置 dash 速度
 		var dash_direction = sign(velocity.x)
 		velocity.x = component.dash_speed * dash_direction
@@ -23,6 +22,7 @@ func tick_active(delta: float) -> void:
 		# 阻塞移动和跳跃能力
 		capability_component.block_capabilities(Enums.CapabilityTags.Move, self)
 		capability_component.block_capabilities(Enums.CapabilityTags.Jump, self)
+		capability_component.block_capabilities(Enums.CapabilityTags.MoveAnimation, self)	
 
 	# Dash 期间的速度衰减
 	if component.is_dashing:
@@ -34,5 +34,5 @@ func tick_active(delta: float) -> void:
 func _on_dash_finished() -> void:
 	capability_component.unblock_capabilities(Enums.CapabilityTags.Move, self)
 	capability_component.unblock_capabilities(Enums.CapabilityTags.Jump, self)
+	capability_component.unblock_capabilities(Enums.CapabilityTags.MoveAnimation, self)		
 	component.is_dashing = false
-	component.dash_finished_callback = Callable()

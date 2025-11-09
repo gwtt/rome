@@ -1,78 +1,45 @@
-[gd_scene load_steps=32 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=82 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
+[ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
 [ext_resource type="Texture2D" uid="uid://dkk2e5m3igvx7" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士待机精灵表.png" id="2_ofg15"]
 [ext_resource type="Texture2D" uid="uid://c23v5s05hagqw" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士跳跃精灵表.png" id="3_pqjec"]
 [ext_resource type="Texture2D" uid="uid://cr2gpqjkotgub" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士蛾翼披风.png" id="4_fwriv"]
-[ext_resource type="Script" uid="uid://b3u6d2qt7q6bj" path="res://addons/rome/capabilities/capability_component.gd" id="4_ofg15"]
 [ext_resource type="Texture2D" uid="uid://svrvav81yxth" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士帝王之翼.png" id="5_l34fv"]
-[ext_resource type="Script" uid="uid://dyvo3w1nb2n4n" path="res://test/空洞骑士测试/entity/component/player_movement_component.gd" id="5_pqjec"]
-[ext_resource type="Script" uid="uid://cchc8qyee4c4e" path="res://test/空洞骑士测试/entity/capability/player_move_capability.gd" id="6_bs4of"]
 [ext_resource type="Texture2D" uid="uid://dlc3su7agv4lg" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈1.png" id="6_enlou"]
 [ext_resource type="Texture2D" uid="uid://m2ktftafi8r3" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈2.png" id="7_8ipr7"]
-[ext_resource type="Script" uid="uid://vs7bp4a6iul7" path="res://test/空洞骑士测试/entity/capability/player_jump_capability.gd" id="7_rwp4b"]
-[ext_resource type="Script" uid="uid://buu77op5xdt4j" path="res://test/空洞骑士测试/entity/capability/player_movement_animation_capability.gd" id="8_hb5gd"]
 [ext_resource type="Texture2D" uid="uid://cf3jaejot8tbi" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士上劈.png" id="8_vcee1"]
 [ext_resource type="Texture2D" uid="uid://mrxg0rot7i1s" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士下劈.png" id="9_elhbc"]
 [ext_resource type="Texture2D" uid="uid://bpa5b6lavig7u" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士黑冲.png" id="10_amvc6"]
-[ext_resource type="Script" uid="uid://bg38mgpt6dq1e" path="res://test/空洞骑士测试/entity/capability/player_dash_capability.gd" id="11_6dxs2"]
-[ext_resource type="Script" uid="uid://b5tc5gndwxc3p" path="res://test/空洞骑士测试/entity/component/player_attack_component.gd" id="17_sqeek"]
-[ext_resource type="Script" uid="uid://d12s8l8m2rp50" path="res://test/空洞骑士测试/entity/capability/player_attack_animation_capability.gd" id="18_6le0j"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="19_rqp6k"]
+[ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="20_4dg15"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="22_7r0p4"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="23_rp4ax"]
+[ext_resource type="Script" uid="uid://cw46mrs1t0p2p" path="res://test/空洞骑士测试/entity/player/component/player_attack_component.gd" id="24_ohcur"]
+[ext_resource type="Script" uid="uid://b532djitr7faa" path="res://test/空洞骑士测试/entity/player/component/player_move_component.gd" id="24_rp4ax"]
+[ext_resource type="Script" uid="uid://bf7ggufv5jbdl" path="res://test/空洞骑士测试/entity/player/component/player_jump_component.gd" id="26_s5wiw"]
+[ext_resource type="Script" uid="uid://datuaetsqoev0" path="res://test/空洞骑士测试/entity/player/component/player_dash_component.gd" id="27_sg63p"]
+[ext_resource type="Script" uid="uid://dke6e1wl5y5b3" path="res://test/空洞骑士测试/entity/player/component/player_stats_component.gd" id="28_bmcp6"]
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_lj2iy")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, 0)]
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_elhbc"]
 resource_name = "上劈"
-length = 0.20000668
+length = 0.13334
 step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -137,7 +104,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_amvc6"]
 resource_name = "下劈"
-length = 0.20000668
+length = 0.13334
 step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -397,7 +364,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_8ipr7"]
 resource_name = "横劈1"
-length = 0.20000668
+length = 0.13334
 step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -462,7 +429,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_vcee1"]
 resource_name = "横劈2"
-length = 0.20000668
+length = 0.13334
 step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -527,6 +494,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_jb3x7"]
 resource_name = "移动"
+loop_mode = 1
 step = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -592,6 +560,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_u04wk"]
 resource_name = "站立"
 length = 0.80001
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -800,58 +769,258 @@ _data = {
 &"黑冲": SubResource("Animation_sqeek")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_23l3w"]
+animation = &"上劈"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gljs8"]
+animation = &"下劈"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7r0p4"]
+animation = &"下落"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rp4ax"]
+animation = &"二段跳"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s5wiw"]
+animation = &"冲刺"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sg63p"]
+animation = &"横劈1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bmcp6"]
+animation = &"横劈2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4dg15"]
+animation = &"移动"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbpi2"]
+animation = &"站立"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ohcur"]
+animation = &"跳跃"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r0p4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rp4ax"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohcur"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s5wiw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sg63p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bmcp6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_23l3w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gljs8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3rm2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7a0yg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jch3i"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3hx8h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_80pew"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yo0iw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0t50"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bwyj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0upu1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ovgu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kok1j"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pgrj8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4j00"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8oj8g"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbpi2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ayrtt"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4dg15"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xfu6b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rd2oy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p77fq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3jkuw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_luodd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2es03"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_502bt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hsht3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_262g8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_arc82"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jao6h"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4dg15"]
+states/End/position = Vector2(1367, 106)
+"states/上劈/node" = SubResource("AnimationNodeAnimation_23l3w")
+"states/上劈/position" = Vector2(1216, 296)
+"states/下劈/node" = SubResource("AnimationNodeAnimation_gljs8")
+"states/下劈/position" = Vector2(1227, 177)
+"states/下落/node" = SubResource("AnimationNodeAnimation_7r0p4")
+"states/下落/position" = Vector2(645, 457)
+"states/二段跳/node" = SubResource("AnimationNodeAnimation_rp4ax")
+"states/二段跳/position" = Vector2(249, 466)
+"states/冲刺/node" = SubResource("AnimationNodeAnimation_s5wiw")
+"states/冲刺/position" = Vector2(1196, 44)
+"states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
+"states/横劈1/position" = Vector2(1216, 379)
+"states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
+"states/横劈2/position" = Vector2(1216, 455)
+"states/移动/node" = SubResource("AnimationNodeAnimation_4dg15")
+"states/移动/position" = Vector2(655, 90)
+"states/站立/node" = SubResource("AnimationNodeAnimation_bbpi2")
+"states/站立/position" = Vector2(307, 100)
+"states/跳跃/node" = SubResource("AnimationNodeAnimation_ohcur")
+"states/跳跃/position" = Vector2(278, 293)
+transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "移动", SubResource("AnimationNodeStateMachineTransition_4dg15"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h")]
+graph_offset = Vector2(-92, -148)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
+script = ExtResource("1_ohcur")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
-texture = ExtResource("1_lj2iy")
-offset = Vector2(-16, 0)
-hframes = 6
+texture = ExtResource("8_vcee1")
+hframes = 3
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_o4qbo")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_4dg15")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 
-[node name="CapabilityComponent" type="Node" parent="."]
-script = ExtResource("4_ofg15")
-metadata/_custom_type_script = "uid://b3u6d2qt7q6bj"
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("19_rqp6k")
+metadata/_custom_type_script = "uid://couw105c3bde4"
 
-[node name="PlayerMoveMentComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "animation_player")]
-script = ExtResource("5_pqjec")
-sprite = NodePath("../Sprite2D")
+[node name="root" type="Node" parent="StateChart"]
+script = ExtResource("20_4dg15")
+
+[node name="MoveMent" type="Node" parent="StateChart/root"]
+script = ExtResource("21_4dg15")
+initial_state = NodePath("MoveMent")
+metadata/_custom_type_script = "uid://c1vp0ojjvaby1"
+
+[node name="MoveMent" type="Node" parent="StateChart/root/MoveMent"]
+script = ExtResource("20_4dg15")
+
+[node name="Jump" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+script = ExtResource("22_7r0p4")
+
+[node name="to_move" type="Node" parent="StateChart/root/MoveMent/MoveMent/Jump"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../Move")
+event = &"to_move"
+delay_in_seconds = "0.0"
+
+[node name="to_dash" type="Node" parent="StateChart/root/MoveMent/MoveMent/Jump"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../../Dash")
+event = &"to_dash"
+delay_in_seconds = "0.0"
+
+[node name="Move" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+script = ExtResource("22_7r0p4")
+
+[node name="to_jump" type="Node" parent="StateChart/root/MoveMent/MoveMent/Move"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../Jump")
+event = &"to_jump"
+delay_in_seconds = "0.0"
+
+[node name="to_dash" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../Dash")
+event = &"to_dash"
+delay_in_seconds = "0.0"
+
+[node name="Dash" type="Node" parent="StateChart/root/MoveMent"]
+script = ExtResource("22_7r0p4")
+
+[node name="to_movement" type="Node" parent="StateChart/root/MoveMent/Dash"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../MoveMent")
+event = &"to_movement"
+delay_in_seconds = "0.0"
+
+[node name="Attack" type="Node" parent="StateChart/root"]
+script = ExtResource("22_7r0p4")
+
+[node name="PlayerMoveComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+script = ExtResource("24_rp4ax")
 animation_player = NodePath("../AnimationPlayer")
-metadata/_custom_type_script = "uid://dyvo3w1nb2n4n"
+animation_tree = NodePath("../AnimationTree")
+stat_component = NodePath("../PlayerStatsComponent")
+metadata/_custom_type_script = "uid://b532djitr7faa"
 
-[node name="PlayerMoveCapability" type="Node" parent="PlayerMoveMentComponent"]
-script = ExtResource("6_bs4of")
-tags = Array[int]([1, 3])
-metadata/_custom_type_script = "uid://cchc8qyee4c4e"
-
-[node name="PlayerJumpCapability" type="Node" parent="PlayerMoveMentComponent"]
-script = ExtResource("7_rwp4b")
-tags = Array[int]([3])
-metadata/_custom_type_script = "uid://vs7bp4a6iul7"
-
-[node name="PlayerMovementAnimationCapability" type="Node" parent="PlayerMoveMentComponent"]
-script = ExtResource("8_hb5gd")
-metadata/_custom_type_script = "uid://buu77op5xdt4j"
-
-[node name="PlayerDashCapability" type="Node" parent="PlayerMoveMentComponent"]
-script = ExtResource("11_6dxs2")
-tags = Array[int]([2])
-metadata/_custom_type_script = "uid://bg38mgpt6dq1e"
-
-[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "animation_player")]
-script = ExtResource("17_sqeek")
-sprite = NodePath("../Sprite2D")
+[node name="PlayerJumpComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+script = ExtResource("26_s5wiw")
 animation_player = NodePath("../AnimationPlayer")
-metadata/_custom_type_script = "uid://b5tc5gndwxc3p"
+animation_tree = NodePath("../AnimationTree")
+stat_component = NodePath("../PlayerStatsComponent")
+metadata/_custom_type_script = "uid://bf7ggufv5jbdl"
 
-[node name="PlayerAttackAnimationCapability" type="Node" parent="PlayerAttackComponent"]
-script = ExtResource("18_6le0j")
-metadata/_custom_type_script = "uid://d12s8l8m2rp50"
+[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+script = ExtResource("27_sg63p")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+stat_component = NodePath("../PlayerStatsComponent")
+metadata/_custom_type_script = "uid://datuaetsqoev0"
+
+[node name="PlayerStatsComponent" type="Node" parent="." node_paths=PackedStringArray("state_chart", "animation_player", "animation_tree", "stat_component")]
+script = ExtResource("28_bmcp6")
+state_chart = NodePath("../StateChart")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+stat_component = NodePath(".")
+metadata/_custom_type_script = "uid://dke6e1wl5y5b3"
+
+[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+script = ExtResource("24_ohcur")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+stat_component = NodePath("../PlayerStatsComponent")
+metadata/_custom_type_script = "uid://cw46mrs1t0p2p"
+
+[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent" to="PlayerDashComponent" method="_on_move_ment_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent/Jump" to="PlayerJumpComponent" method="_on_jump_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent/Move" to="PlayerMoveComponent" method="_on_move_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/root/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/root/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/root/Attack" to="PlayerAttackComponent" method="_on_attack_state_physics_processing"]

@@ -16,6 +16,7 @@ enum ETickGroup {
 enum CapabilityTags {
 	Idle,
 	Move,
+	MoveAnimation,
 	Dash,
 	Jump,
 	Hurt,

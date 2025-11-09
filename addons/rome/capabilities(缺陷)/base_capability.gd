@@ -3,7 +3,7 @@ class_name BaseCapability
 
 #region 标签
 @export var tags: Array[Enums.CapabilityTags]
-@export  var tick_group: Enums.ETickGroup = Enums.ETickGroup.GamePlay
+@export var tick_group: Enums.ETickGroup = Enums.ETickGroup.GamePlay
 @export var tick_group_order = 100
 #endregion
 var active := false;

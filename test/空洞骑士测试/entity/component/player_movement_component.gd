@@ -13,29 +13,36 @@ class_name PlayerMoveMentComponent
 
 var can_dash: bool = true
 var is_dashing: bool = false
-var dash_finished_callback: Callable  # Dash 动画结束的回调
+var finished_callback: Callable
 
 var can_jump: bool = true
 var can_double_jump: bool = false
 var is_double_jumping: bool = false
+var current_anim_name: String = ''
 
 func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 
+func is_playing_animation() -> bool:
+	return animation_player.is_playing()
+
+func set_anim_callback(callback: Callable = Callable()) -> void:
+	finished_callback = callback
+
 ## 播放动画
 func play_anim(anim_name: String, _callback: Callable = Callable()) -> void:
-	if !animation_player.has_animation(anim_name):
+	if !animation_player.has_animation(anim_name) and current_anim_name != anim_name:
 		DebugSystem.printWarning("玩家角色无动画:" + anim_name)
 		return
+	current_anim_name = anim_name
 	animation_player.play(anim_name)
-	# 注意：dash 回调由 dash_capability 直接设置，不通过 play_anim 参数传递
 
 ## 动画播放结束回调
-func _on_animation_finished(anim_name: String) -> void:
-	# 如果是 dash 动画结束，调用 dash 回调
-	if anim_name == "冲刺" and dash_finished_callback.is_valid():
-		dash_finished_callback.call()
-		dash_finished_callback = Callable()
+func _on_animation_finished(_anim_name: String) -> void:
+	current_anim_name = ''
+	if finished_callback.is_valid():
+		finished_callback.call()
+		finished_callback = Callable()
 	
 ## 旋转方向
 func turn_direction() -> void:

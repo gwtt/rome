@@ -1,0 +1,16 @@
+extends BaseComponent
+class_name PlayerStatsComponent
+
+@export var horizontal_accelerate_speed := 2000.0
+@export var max_speed := 120.0
+@export var dash_speed := 400.0
+@export var gravity := 580
+@export var jump_speed := 280
+@export var double_jump_speed := 240
+@export var jump_higher := 4
+@export var state_chart:StateChart
+
+var can_dash: bool
+var can_jump: bool
+var can_double_jump: bool
+var is_double_jumping: bool
