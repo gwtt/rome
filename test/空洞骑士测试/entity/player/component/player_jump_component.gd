@@ -20,6 +20,7 @@ func _on_jump_state_physics_processing(delta: float) -> void:
 	
 	if owner.is_on_floor(): return
 	if owner.velocity.y > 0:
+		stat_component.first_jump_over = true
 		state_machine.travel("下落")
 		return
 	if owner.velocity.y < 0:
@@ -34,6 +35,7 @@ func _update_ground_state() -> void:
 		stat_component.can_dash = true
 		stat_component.can_double_jump = false
 		stat_component.is_double_jumping = false
+		stat_component.first_jump_over = false
 	else:
 		stat_component.can_jump = false
 
@@ -62,7 +64,7 @@ func _handle_jump_input() -> void:
 func _handle_variable_jump_height(delta: float) -> void:
 	var velocity: Vector2 = owner.velocity
 	# 上升期如果松开跳跃键，增加额外重力实现短跳
-	if velocity.y < 0 and !Input.is_action_pressed("jump") and not stat_component.is_double_jumping:
+	if velocity.y < 0 and !Input.is_action_pressed("jump") and not stat_component.is_double_jumping and !stat_component.first_jump_over:
 		velocity.y += stat_component.jump_higher * delta * stat_component.gravity
 		owner.velocity = velocity
 

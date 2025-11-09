@@ -13,6 +13,7 @@ class_name PlayerStatsComponent
 
 var flip_h: bool
 var can_dash: bool
+var first_jump_over: bool
 var can_jump: bool
 var can_double_jump: bool
 var is_double_jumping: bool

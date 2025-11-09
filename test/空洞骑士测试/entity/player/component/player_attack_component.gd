@@ -24,6 +24,7 @@ func _on_attack_area_area_entered(_area: Area2D) -> void:
 	if current_anim == "下劈":
 		stat_component.can_double_jump = true
 		stat_component.can_dash = true
+		stat_component.is_double_jumping = false
 		var velocity: Vector2 = owner.velocity
 		velocity.x = 0
 		velocity.y = -200
