@@ -17,3 +17,8 @@ var first_jump_over: bool
 var can_jump: bool
 var can_double_jump: bool
 var is_double_jumping: bool
+var is_hurting: bool
+
+#func _physics_process(delta: float) -> void:
+	#if state_machine.get_current_node().begins_with("横劈"):
+		#DebugSystem.printHighlight(state_machine.get_current_node(), owner)

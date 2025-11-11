@@ -12,8 +12,10 @@ func _physics_process(_delta: float) -> void:
 	
 ## 旋转方向
 func turn_direction() -> void:
+	## 受伤要方向颠倒
+	var direction = 1 if player_stats_component.is_hurting else -1
 	if velocity.x != 0:
-		sprite.scale.x = -1 if velocity.x < 0 else 1
-		hurt_box_area.scale.x = -1 if velocity.x < 0 else 1
-		attack_area.scale.x = -1 if velocity.x < 0 else 1
+		sprite.scale.x = direction if velocity.x < 0 else 1
+		hurt_box_area.scale.x = direction if velocity.x < 0 else 1
+		attack_area.scale.x = direction if velocity.x < 0 else 1
 		player_stats_component.flip_h = false if velocity.x < 0 else true

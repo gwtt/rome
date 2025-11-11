@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=89 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://svrvav81yxth" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士帝王之翼.png" id="5_l34fv"]
 [ext_resource type="Texture2D" uid="uid://dlc3su7agv4lg" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈1.png" id="6_enlou"]
 [ext_resource type="Texture2D" uid="uid://m2ktftafi8r3" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士横劈2.png" id="7_8ipr7"]
+[ext_resource type="Texture2D" uid="uid://b6atmc51nktu0" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士受伤.png" id="8_rp4ax"]
 [ext_resource type="Texture2D" uid="uid://cf3jaejot8tbi" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士上劈.png" id="8_vcee1"]
 [ext_resource type="Texture2D" uid="uid://mrxg0rot7i1s" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士下劈.png" id="9_elhbc"]
 [ext_resource type="Texture2D" uid="uid://bpa5b6lavig7u" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士黑冲.png" id="10_amvc6"]
@@ -475,6 +476,71 @@ tracks/4/keys = {
 "values": [Vector2(-16, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7r0p4"]
+resource_name = "受击"
+length = 0.20000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_rp4ax")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_8ipr7"]
 resource_name = "横劈1"
 length = 0.13334
@@ -922,6 +988,7 @@ _data = {
 &"下落": SubResource("Animation_3al0k"),
 &"二段跳": SubResource("Animation_fwriv"),
 &"冲刺": SubResource("Animation_hb5gd"),
+&"受击": SubResource("Animation_7r0p4"),
 &"横劈1": SubResource("Animation_8ipr7"),
 &"横劈2": SubResource("Animation_vcee1"),
 &"移动": SubResource("Animation_jb3x7"),
@@ -944,6 +1011,9 @@ animation = &"二段跳"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s5wiw"]
 animation = &"冲刺"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7a0yg"]
+animation = &"受击"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sg63p"]
 animation = &"横劈1"
@@ -1038,6 +1108,8 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jao6h"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ln3ii"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4dg15"]
 states/End/position = Vector2(1367, 106)
 "states/上劈/node" = SubResource("AnimationNodeAnimation_23l3w")
@@ -1050,34 +1122,36 @@ states/End/position = Vector2(1367, 106)
 "states/二段跳/position" = Vector2(249, 466)
 "states/冲刺/node" = SubResource("AnimationNodeAnimation_s5wiw")
 "states/冲刺/position" = Vector2(1194, 100)
+"states/受击/node" = SubResource("AnimationNodeAnimation_7a0yg")
+"states/受击/position" = Vector2(708, 608)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
-"states/横劈1/position" = Vector2(1216, 379)
+"states/横劈1/position" = Vector2(1216, 378)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
 "states/横劈2/position" = Vector2(1216, 455)
 "states/移动/node" = SubResource("AnimationNodeAnimation_4dg15")
 "states/移动/position" = Vector2(655, 90)
 "states/站立/node" = SubResource("AnimationNodeAnimation_bbpi2")
-"states/站立/position" = Vector2(337, 104)
+"states/站立/position" = Vector2(374, 148)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_ohcur")
 "states/跳跃/position" = Vector2(278, 293)
 "states/黑冲/node" = SubResource("AnimationNodeAnimation_d3rm2")
 "states/黑冲/position" = Vector2(1226, 27)
-transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h")]
-graph_offset = Vector2(-98, -9)
+transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii")]
+graph_offset = Vector2(78, 14)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_ohcur")
 
 [node name="HurtBoxArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 
 [node name="HurtBox" type="CollisionPolygon2D" parent="HurtBoxArea"]
 polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 4
 monitoring = false
 
@@ -1087,7 +1161,6 @@ shape = SubResource("ConvexPolygonShape2D_7r0p4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("2_ofg15")
-offset = Vector2(0, 14)
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1106,58 +1179,78 @@ polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 script = ExtResource("19_rqp6k")
 metadata/_custom_type_script = "uid://couw105c3bde4"
 
-[node name="root" type="Node" parent="StateChart"]
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("21_4dg15")
+initial_state = NodePath("Normal")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="Normal" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("20_4dg15")
 
-[node name="MoveMent" type="Node" parent="StateChart/root"]
+[node name="Attack" type="Node" parent="StateChart/CompoundState/Normal"]
+script = ExtResource("22_7r0p4")
+
+[node name="MoveMent" type="Node" parent="StateChart/CompoundState/Normal"]
 script = ExtResource("21_4dg15")
 initial_state = NodePath("MoveMent")
 metadata/_custom_type_script = "uid://c1vp0ojjvaby1"
 
-[node name="MoveMent" type="Node" parent="StateChart/root/MoveMent"]
+[node name="MoveMent" type="Node" parent="StateChart/CompoundState/Normal/MoveMent"]
 script = ExtResource("20_4dg15")
 
-[node name="Jump" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+[node name="Jump" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent"]
 script = ExtResource("22_7r0p4")
 
-[node name="to_move" type="Node" parent="StateChart/root/MoveMent/MoveMent/Jump"]
+[node name="to_move" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent/Jump"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../Move")
 event = &"to_move"
 delay_in_seconds = "0.0"
 
-[node name="to_dash" type="Node" parent="StateChart/root/MoveMent/MoveMent/Jump"]
+[node name="to_dash" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent/Jump"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../../Dash")
 event = &"to_dash"
 delay_in_seconds = "0.0"
 
-[node name="Move" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+[node name="Move" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent"]
 script = ExtResource("22_7r0p4")
 
-[node name="to_jump" type="Node" parent="StateChart/root/MoveMent/MoveMent/Move"]
+[node name="to_jump" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent/Move"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../Jump")
 event = &"to_jump"
 delay_in_seconds = "0.0"
 
-[node name="to_dash" type="Node" parent="StateChart/root/MoveMent/MoveMent"]
+[node name="to_dash" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/MoveMent"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../Dash")
 event = &"to_dash"
 delay_in_seconds = "0.0"
 
-[node name="Dash" type="Node" parent="StateChart/root/MoveMent"]
+[node name="Dash" type="Node" parent="StateChart/CompoundState/Normal/MoveMent"]
 script = ExtResource("22_7r0p4")
 
-[node name="to_movement" type="Node" parent="StateChart/root/MoveMent/Dash"]
+[node name="to_movement" type="Node" parent="StateChart/CompoundState/Normal/MoveMent/Dash"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../MoveMent")
 event = &"to_movement"
 delay_in_seconds = "0.0"
 
-[node name="Attack" type="Node" parent="StateChart/root"]
+[node name="to_hurt" type="Node" parent="StateChart/CompoundState/Normal"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../Hurt")
+event = &"to_hurt"
+delay_in_seconds = "0.0"
+
+[node name="Hurt" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("22_7r0p4")
+
+[node name="to_normal" type="Node" parent="StateChart/CompoundState/Hurt"]
+script = ExtResource("23_rp4ax")
+to = NodePath("../../Normal")
+event = &"to_normal"
+delay_in_seconds = "0.0"
 
 [node name="PlayerMoveComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
 script = ExtResource("24_rp4ax")
@@ -1173,8 +1266,9 @@ animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://bf7ggufv5jbdl"
 
-[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("player_black_dash_component", "animation_player", "animation_tree", "stat_component")]
+[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box_area", "player_black_dash_component", "animation_player", "animation_tree", "stat_component")]
 script = ExtResource("27_sg63p")
+hurt_box_area = NodePath("../HurtBoxArea")
 player_black_dash_component = NodePath("../PlayerBlackDashComponent")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
@@ -1196,8 +1290,10 @@ animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://cw46mrs1t0p2p"
 
-[node name="PlayerHurtComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "stat_component")]
+[node name="PlayerHurtComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box", "sprite", "animation_player", "animation_tree", "stat_component")]
 script = ExtResource("23_7r0p4")
+hurt_box = NodePath("../HurtBoxArea/HurtBox")
+sprite = NodePath("../Sprite2D")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 stat_component = NodePath("../PlayerStatsComponent")
@@ -1206,10 +1302,13 @@ metadata/_custom_type_script = "uid://ck0mm7jxd7gia"
 [node name="PlayerBlackDashComponent" parent="." node_paths=PackedStringArray("stat_component") instance=ExtResource("22_bbpi2")]
 stat_component = NodePath("../PlayerStatsComponent")
 
+[connection signal="area_entered" from="HurtBoxArea" to="PlayerHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="area_entered" from="AttackArea" to="PlayerAttackComponent" method="_on_attack_area_area_entered"]
-[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent" to="PlayerDashComponent" method="_on_move_ment_state_physics_processing"]
-[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent/Jump" to="PlayerJumpComponent" method="_on_jump_state_physics_processing"]
-[connection signal="state_physics_processing" from="StateChart/root/MoveMent/MoveMent/Move" to="PlayerMoveComponent" method="_on_move_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/root/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/root/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_physics_processing"]
-[connection signal="state_physics_processing" from="StateChart/root/Attack" to="PlayerAttackComponent" method="_on_attack_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/Attack" to="PlayerAttackComponent" method="_on_attack_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/MoveMent" to="PlayerDashComponent" method="_on_move_ment_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/MoveMent/Jump" to="PlayerJumpComponent" method="_on_jump_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/MoveMent/Move" to="PlayerMoveComponent" method="_on_move_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_physics_processing"]

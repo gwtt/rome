@@ -24,7 +24,7 @@ func _on_jump_state_physics_processing(delta: float) -> void:
 		state_machine.travel("下落")
 		return
 	if owner.velocity.y < 0:
-		if stat_component.is_double_jumping:
+		if stat_component.is_double_jumping and not stat_component.can_double_jump:
 			state_machine.travel("二段跳")	
 		else:
 			state_machine.travel("跳跃")	

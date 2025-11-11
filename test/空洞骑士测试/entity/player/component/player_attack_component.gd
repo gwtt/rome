@@ -8,17 +8,20 @@ var attack_interval := 0.1
 func _on_attack_state_physics_processing(_delta: float) -> void:
 	attack_time += _delta
 	if Input.is_action_just_pressed("attack") and Input.get_action_strength("moveDown") and not owner.is_on_floor() and attack_time > attack_interval:
-		state_machine.travel("下劈")
+		DebugSystem.printDebug("下劈", owner)
+		state_machine.start("下劈")
 		attack_time= 0
 	if Input.is_action_just_pressed("attack") and Input.get_action_strength("moveUp") and attack_time > attack_interval:
-		state_machine.travel("上劈")
+		DebugSystem.printDebug("上劈", owner)
+		state_machine.start("上劈")
 		attack_time= 0	
 	if Input.is_action_just_pressed("attack") and attack_time > attack_interval:
-		state_machine.travel("横劈" + str(attack_index))
+		DebugSystem.printDebug("横劈" + str(attack_index), owner)
+		state_machine.start("横劈" + str(attack_index))
 		attack_index = attack_index % 2 + 1
 		attack_time= 0
 	
-## https://github.com/godotengine/godot/issues/110128 bug问腿
+## https://github.com/godotengine/godot/issues/110128 bug问题
 func _on_attack_area_area_entered(_area: Area2D) -> void:
 	var current_anim = state_machine.get_current_node()
 	if current_anim == "下劈":

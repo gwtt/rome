@@ -1,6 +1,7 @@
 extends BaseComponent
 class_name PlayerDashComponent
 
+@export var hurt_box_area: Area2D
 @export var player_black_dash_component: PlayerBlackDashComponent
 
 func _on_dash_state_entered() -> void:
@@ -13,6 +14,7 @@ func _on_dash_state_entered() -> void:
 		stat_component.has_black_dash = false
 		player_black_dash_component.spawn_blackdash()
 		state_machine.travel("黑冲")
+		hurt_box_area.monitoring = false
 	else:
 		state_machine.travel("冲刺")
 	
@@ -31,7 +33,7 @@ func _on_dash_state_physics_processing(delta: float) -> void:
 	if current_pos >= current_len:
 		stat_component.state_chart.send_event("to_movement")
 		state_machine.state_finished.disconnect(on_dash_finished)
-
+		hurt_box_area.monitoring = true
 		
 func on_dash_finished(anim_name: StringName) -> void:
 	if anim_name == "冲刺":

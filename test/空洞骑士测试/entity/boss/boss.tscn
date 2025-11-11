@@ -1,7 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=17 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
+[ext_resource type="Shader" uid="uid://bq7arghduy4cv" path="res://test/空洞骑士测试/entity/boss/boss.gdshader" id="2_pdhu0"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_4swdt"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_bd8ou"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="5_ychxq"]
+[ext_resource type="Script" uid="uid://w3d5el17iybd" path="res://test/空洞骑士测试/entity/boss/component/boss_hurt_component.gd" id="6_ceq04"]
+[ext_resource type="Script" uid="uid://dl7ojtj5fvkcq" path="res://test/空洞骑士测试/entity/boss/component/boss_stats_component.gd" id="7_ibsou"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="7_qfvvy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
+shader = ExtResource("2_pdhu0")
 
 [sub_resource type="Animation" id="Animation_yfu4a"]
 length = 0.001
@@ -16,6 +26,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_l6k83")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
 }
 
 [sub_resource type="Animation" id="Animation_ht0gx"]
@@ -78,25 +124,38 @@ _data = {
 &"站立": SubResource("Animation_ht0gx")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibsou"]
+animation = &"站立"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibsou"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
+states/Start/position = Vector2(201, 100)
+"states/站立/node" = SubResource("AnimationNodeAnimation_ibsou")
+"states/站立/position" = Vector2(615, 105)
+transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_ibsou")]
+graph_offset = Vector2(-84, 14)
+
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_yfu4a")
 
 [node name="HurtBoxArea" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBoxArea"]
 polygon = PackedVector2Array(-7, -22, -7, 0, 7, 0, 7, -22)
 
 [node name="HitBoxArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxArea"]
 polygon = PackedVector2Array(-7, -22, -7, 0, 7, 0, 7, -22)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ceq04")
 texture = ExtResource("1_l6k83")
 offset = Vector2(0, -16)
 hframes = 4
@@ -107,5 +166,55 @@ libraries = {
 &"": SubResource("AnimationLibrary_l6k83")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ibsou")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-7, -22, -7, 0, 7, 0, 7, -22)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_4swdt")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("5_ychxq")
+initial_state = NodePath("Normal")
+
+[node name="Normal" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_hurt" type="Node" parent="StateChart/CompoundState/Normal"]
+script = ExtResource("7_qfvvy")
+to = NodePath("../../Hurt")
+event = &"to_hurt"
+delay_in_seconds = "0.0"
+
+[node name="Hurt" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_normal" type="Node" parent="StateChart/CompoundState/Hurt"]
+script = ExtResource("7_qfvvy")
+to = NodePath("../../Normal")
+event = &"to_normal"
+delay_in_seconds = "0.0"
+
+[node name="BossHurtComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "animation_player", "animation_tree", "boss_component")]
+script = ExtResource("6_ceq04")
+sprite = NodePath("../Sprite2D")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://w3d5el17iybd"
+
+[node name="BossStatsComponent" type="Node" parent="." node_paths=PackedStringArray("state_chart", "animation_player", "animation_tree", "boss_component")]
+script = ExtResource("7_ibsou")
+state_chart = NodePath("../StateChart")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_component = NodePath(".")
+metadata/_custom_type_script = "uid://dl7ojtj5fvkcq"
+
+[connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal" to="BossHurtComponent" method="_on_normal_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]
