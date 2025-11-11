@@ -25,6 +25,7 @@ SaveSystem="*res://addons/rome/system/save_system.gd"
 GlobalSystem="*res://addons/rome/system/global_system.gd"
 AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
 CapabilitySystem="*res://addons/rome/capabilities(缺陷)/capability_system.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -37,7 +38,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/folder_labels/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/rome/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/folder_labels/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/rome/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 
@@ -47,6 +48,10 @@ folder_colors={
 "res://godot_state_charts_examples/": "pink",
 "res://test/": "green"
 }
+
+[global_group]
+
+"空洞骑士"=""
 
 [importer_defaults]
 
