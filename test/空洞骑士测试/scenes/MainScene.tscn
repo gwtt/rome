@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://ccam6vsn5hhx"]
+[gd_scene load_steps=13 format=4 uid="uid://ccam6vsn5hhx"]
 
 [ext_resource type="Script" uid="uid://cavndqk0eed30" path="res://test/空洞骑士测试/scenes/main_scene.gd" id="1_jf5q1"]
 [ext_resource type="TileSet" uid="uid://j451nc4y48nm" path="res://test/空洞骑士测试/assets/MainScene.tres" id="1_yeq3q"]
 [ext_resource type="PackedScene" uid="uid://uy0e1rgag31n" path="res://test/空洞骑士测试/entity/player/player.tscn" id="2_78o6r"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_q3lyl"]
 [ext_resource type="PackedScene" uid="uid://btr68a4h85d0m" path="res://test/空洞骑士测试/entity/boss/boss.tscn" id="3_lavwf"]
+[ext_resource type="PackedScene" uid="uid://cvor3hwhm2l8e" path="res://test/空洞骑士测试/prop/door/door.tscn" id="4_f67no"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_xelpj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_q3lyl"]
 
@@ -43,7 +44,14 @@ process_physics_priority = 300
 script = ExtResource("2_q3lyl")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Boss" parent="." instance=ExtResource("3_lavwf")]
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("4_f67no")]
+position = Vector2(-272, -48)
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Boss" parent="Enemy" instance=ExtResource("3_lavwf")]
 position = Vector2(-504, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_78o6r")]
@@ -60,7 +68,7 @@ draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="NoneCamera" type="Node2D" parent="."]
-position = Vector2(-424, -80)
+position = Vector2(-416, -72)
 script = ExtResource("4_xelpj")
 tween_resource = SubResource("Resource_f67no")
 draw_limits = true
@@ -70,7 +78,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 curve = SubResource("Curve2D_q3lyl")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-416.00003, -120.00001)
+position = Vector2(-408.00003, -96.00001)
 scale = Vector2(15, 15)
 collision_layer = 0
 collision_mask = 2
@@ -80,3 +88,4 @@ position = Vector2(0, 1.0666666)
 shape = SubResource("RectangleShape2D_jf5q1")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

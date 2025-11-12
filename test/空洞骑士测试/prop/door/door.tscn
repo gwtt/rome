@@ -1,6 +1,58 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvor3hwhm2l8e"]
+[gd_scene load_steps=8 format=3 uid="uid://cvor3hwhm2l8e"]
 
 [ext_resource type="Texture2D" uid="uid://0m6bpnlv2fec" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/object/铁门.png" id="1_ms60n"]
+[ext_resource type="Script" uid="uid://dkf46ggtayxyp" path="res://test/空洞骑士测试/prop/door/door.gd" id="1_se5kv"]
+
+[sub_resource type="Animation" id="Animation_se5kv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ms60n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array()]
+}
 
 [sub_resource type="Animation" id="Animation_ms60n"]
 resource_name = "open"
@@ -55,8 +107,10 @@ tracks/3/keys = {
 "values": [PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(), PackedVector2Array()]
 }
 
-[sub_resource type="Animation" id="Animation_se5kv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hth8c"]
+resource_name = "close"
+length = 0.20000668
+step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,34 +142,35 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 4, 3, 2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("CollisionShape2D:shape:points")
-tracks/3/interp = 1
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.06666667, 0.20000668),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48)]
+"values": [PackedVector2Array(), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_se5kv"]
 _data = {
 &"RESET": SubResource("Animation_se5kv"),
+&"close": SubResource("Animation_hth8c"),
 &"open": SubResource("Animation_ms60n")
 }
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ms60n"]
-points = PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48)
 
 [node name="Door" type="CharacterBody2D"]
+script = ExtResource("1_se5kv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 24)

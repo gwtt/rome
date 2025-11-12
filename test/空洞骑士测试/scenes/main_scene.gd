@@ -5,4 +5,11 @@ extends Node
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.owner.is_in_group("空洞骑士"):
+		path_camera.priority = 0
 		none_camera.priority = 5
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.owner.is_in_group("空洞骑士"):
+		none_camera.priority = 0
+		path_camera.priority = 5
