@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var player_stats_component: PlayerStatsComponent = $PlayerStatsComponent
 

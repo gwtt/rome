@@ -25,16 +25,16 @@ func _on_attack_state_physics_processing(_delta: float) -> void:
 func _on_attack_area_area_entered(_area: Area2D) -> void:
 	var current_anim = state_machine.get_current_node()
 	if current_anim == "下劈":
-		stat_component.can_double_jump = true
-		stat_component.can_dash = true
-		stat_component.is_double_jumping = false
+		player_stat_component.can_double_jump = true
+		player_stat_component.can_dash = true
+		player_stat_component.is_double_jumping = false
 		var velocity: Vector2 = owner.velocity
 		velocity.x = 0
 		velocity.y = -200
 		owner.velocity = velocity
 		state_machine.travel("下劈")
 		return
-	if stat_component.flip_h:
+	if player_stat_component.flip_h:
 		owner.global_position.x -= 5
 	else:
 		owner.global_position.x += 5
