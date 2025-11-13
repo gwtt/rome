@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=88 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -24,9 +24,6 @@
 [ext_resource type="Script" uid="uid://bf7ggufv5jbdl" path="res://test/空洞骑士测试/entity/player/component/player_jump_component.gd" id="26_s5wiw"]
 [ext_resource type="Script" uid="uid://datuaetsqoev0" path="res://test/空洞骑士测试/entity/player/component/player_dash_component.gd" id="27_sg63p"]
 [ext_resource type="Script" uid="uid://dke6e1wl5y5b3" path="res://test/空洞骑士测试/entity/player/component/player_stats_component.gd" id="28_bmcp6"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7r0p4"]
-points = PackedVector2Array(0, 0, 0, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
@@ -69,38 +66,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AttackArea/Attack:shape:points")
+tracks/3/path = NodePath("AttackArea/Attack:polygon")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [PackedVector2Array(0, 0, 0, 0, 0, 0)]
+"values": [PackedVector2Array(6, -24, 24, -24, 38, -16, 38, -8, 29, -3, 6, -3)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea:monitoring")
+tracks/4/path = NodePath("AttackArea/Attack:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:shape:points")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_elhbc"]
@@ -158,8 +143,8 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Attack:shape:points")
-tracks/4/interp = 0
+tracks/4/path = NodePath("AttackArea/Attack:polygon")
+tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
@@ -170,14 +155,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea:monitoring")
-tracks/5/interp = 1
+tracks/5/path = NodePath("AttackArea/Attack:disabled")
+tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13334),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_amvc6"]
@@ -235,7 +220,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Attack:shape:points")
+tracks/4/path = NodePath("AttackArea/Attack:polygon")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -247,14 +232,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea:monitoring")
-tracks/5/interp = 1
+tracks/5/path = NodePath("AttackArea/Attack:disabled")
+tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13334),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_3al0k"]
@@ -524,7 +509,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Attack:shape:points")
+tracks/4/path = NodePath("AttackArea/Attack:polygon")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -536,14 +521,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea:monitoring")
-tracks/5/interp = 1
+tracks/5/path = NodePath("AttackArea/Attack:disabled")
+tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13334),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_vcee1"]
@@ -601,7 +586,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Attack:shape:points")
+tracks/4/path = NodePath("AttackArea/Attack:polygon")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -613,14 +598,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea:monitoring")
-tracks/5/interp = 1
+tracks/5/path = NodePath("AttackArea/Attack:disabled")
+tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13334),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_jb3x7"]
@@ -890,6 +875,7 @@ animation = &"跳跃"
 animation = &"黑冲"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r0p4"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rp4ax"]
 
@@ -971,7 +957,7 @@ states/End/position = Vector2(1367, 106)
 "states/上劈/node" = SubResource("AnimationNodeAnimation_23l3w")
 "states/上劈/position" = Vector2(1226, 303)
 "states/下劈/node" = SubResource("AnimationNodeAnimation_gljs8")
-"states/下劈/position" = Vector2(1226, 212)
+"states/下劈/position" = Vector2(1226, 211)
 "states/下落/node" = SubResource("AnimationNodeAnimation_7r0p4")
 "states/下落/position" = Vector2(645, 457)
 "states/二段跳/node" = SubResource("AnimationNodeAnimation_rp4ax")
@@ -993,10 +979,7 @@ states/End/position = Vector2(1367, 106)
 "states/黑冲/node" = SubResource("AnimationNodeAnimation_d3rm2")
 "states/黑冲/position" = Vector2(1226, 27)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii")]
-graph_offset = Vector2(-140, 189)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_rp4ax"]
-points = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
+graph_offset = Vector2(127, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["空洞骑士"]]
 script = ExtResource("1_ohcur")
@@ -1011,27 +994,33 @@ polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
-monitoring = false
 
-[node name="Attack" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("ConvexPolygonShape2D_7r0p4")
+[node name="Attack" type="CollisionPolygon2D" parent="AttackArea"]
+build_mode = 1
+polygon = PackedVector2Array(6, -24, 24, -24, 38, -16, 38, -8, 29, -3, 6, -3)
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("2_ofg15")
+offset = Vector2(10, 0)
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+callback_mode_method = 1
 libraries = {
 &"": SubResource("AnimationLibrary_o4qbo")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_process = 0
+callback_mode_method = 1
 tree_root = SubResource("AnimationNodeStateMachine_4dg15")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_rp4ax")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("19_rqp6k")

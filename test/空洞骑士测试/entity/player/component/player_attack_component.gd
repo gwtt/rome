@@ -38,3 +38,4 @@ func _on_attack_area_area_entered(_area: Area2D) -> void:
 		owner.global_position.x -= 5
 	else:
 		owner.global_position.x += 5
+

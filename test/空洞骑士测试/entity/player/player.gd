@@ -20,3 +20,4 @@ func turn_direction() -> void:
 		hurt_box_area.scale.x = direction if velocity.x < 0 else 1
 		attack_area.scale.x = direction if velocity.x < 0 else 1
 		player_stats_component.flip_h = false if velocity.x < 0 else true
+
