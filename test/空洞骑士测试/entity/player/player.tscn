@@ -996,26 +996,21 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="Attack" type="CollisionPolygon2D" parent="AttackArea"]
-build_mode = 1
 polygon = PackedVector2Array(6, -24, 24, -24, 38, -16, 38, -8, 29, -3, 6, -3)
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("2_ofg15")
-offset = Vector2(10, 0)
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-callback_mode_process = 0
-callback_mode_method = 1
 libraries = {
 &"": SubResource("AnimationLibrary_o4qbo")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 callback_mode_process = 0
-callback_mode_method = 1
 tree_root = SubResource("AnimationNodeStateMachine_4dg15")
 anim_player = NodePath("../AnimationPlayer")
 
