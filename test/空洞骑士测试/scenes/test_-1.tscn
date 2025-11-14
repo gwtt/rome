@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfx7ej372wqa4"]
+
+[ext_resource type="Script" uid="uid://cp4ialuhk8ofm" path="res://test/空洞骑士测试/scenes/test__1.gd" id="1_hpdns"]
+[ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_or7i5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7i5"]
+atlas = ExtResource("1_or7i5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2efap"]
+atlas = ExtResource("1_or7i5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6two6"]
+atlas = ExtResource("1_or7i5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkudl"]
+atlas = ExtResource("1_or7i5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j57m5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2efap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6two6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkudl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Test1" type="CharacterBody2D"]
+position = Vector2(160, 83)
+rotation = 3.1415927
+scale = Vector2(1, -0.995)
+script = ExtResource("1_hpdns")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j57m5")
+autoplay = "default"

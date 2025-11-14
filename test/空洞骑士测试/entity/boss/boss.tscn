@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=38 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cjf45v4rdsnvj" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟上挑准备.png" id="7_1a6v6"]
 [ext_resource type="Script" uid="uid://dl7ojtj5fvkcq" path="res://test/空洞骑士测试/entity/boss/component/boss_stats_component.gd" id="7_ibsou"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="9_1a6v6"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="12_e5t5e"]
 [ext_resource type="Script" uid="uid://bg7y8o48p0hl3" path="res://test/空洞骑士测试/entity/boss/component/boss_idle_component.gd" id="14_l0cbf"]
 [ext_resource type="Script" uid="uid://bx7b0fsv0gftc" path="res://test/空洞骑士测试/entity/boss/component/boss_lift_component.gd" id="15_g813n"]
 [ext_resource type="Script" uid="uid://dcvcfvoqxltxs" path="res://test/空洞骑士测试/entity/boss/component/boss_slash_component.gd" id="16_e5t5e"]
@@ -381,7 +382,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ht0gx"]
 resource_name = "站立"
-length = 0.40001002
+length = 0.8
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -414,10 +415,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -426,10 +427,10 @@ tracks/3/path = NodePath("Sprite2D:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -16)]
+"values": [Vector2(0, -16), Vector2(0, -16)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -505,7 +506,7 @@ states/Start/position = Vector2(203, 100)
 "states/站立/node" = SubResource("AnimationNodeAnimation_ibsou")
 "states/站立/position" = Vector2(615, 105)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_ibsou"), "站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n")]
-graph_offset = Vector2(-84, 14)
+graph_offset = Vector2(4, 153)
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
@@ -570,11 +571,29 @@ initial_state = NodePath("idle")
 [node name="idle" type="Node" parent="StateChart/ParallelState/CompoundState"]
 script = ExtResource("4_bd8ou")
 
+[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../slash")
+event = &"to_slash"
+delay_in_seconds = "0.0"
+
 [node name="slash" type="Node" parent="StateChart/ParallelState/CompoundState"]
 script = ExtResource("4_bd8ou")
 
+[node name="to_lift" type="Node" parent="StateChart/ParallelState/CompoundState/slash"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../lift")
+event = &"to_lift"
+delay_in_seconds = "0.0"
+
 [node name="lift" type="Node" parent="StateChart/ParallelState/CompoundState"]
 script = ExtResource("4_bd8ou")
+
+[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/lift"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
 
 [node name="Hurt" type="Node" parent="StateChart/ParallelState"]
 script = ExtResource("4_bd8ou")
@@ -618,7 +637,10 @@ metadata/_custom_type_script = "uid://dcvcfvoqxltxs"
 
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_entered"]
+[connection signal="state_exited" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/slash" to="BossSlashComponent" method="_on_slash_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/slash" to="BossSlashComponent" method="_on_slash_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]
