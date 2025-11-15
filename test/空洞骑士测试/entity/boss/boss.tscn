@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=56 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -583,7 +583,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_6wf3u"]
 resource_name = "下落"
-length = 0.30001
+length = 999.9
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -665,6 +665,9 @@ animation = &"上挑"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5t5e"]
 animation = &"上挑准备"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p0g1d"]
+animation = &"下落"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wf3u"]
 animation = &"站立"
 
@@ -715,6 +718,8 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6qad"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_25k18"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
 states/End/position = Vector2(896, 100)
 states/Start/position = Vector2(-93, 100)
@@ -722,6 +727,8 @@ states/Start/position = Vector2(-93, 100)
 "states/上挑/position" = Vector2(961, 289)
 "states/上挑准备/node" = SubResource("AnimationNodeAnimation_e5t5e")
 "states/上挑准备/position" = Vector2(837, 289)
+"states/下落/node" = SubResource("AnimationNodeAnimation_p0g1d")
+"states/下落/position" = Vector2(375, 372)
 "states/准备/node" = SubResource("AnimationNodeAnimation_6wf3u")
 "states/准备/position" = Vector2(214, 100)
 "states/挥砍/node" = SubResource("AnimationNodeAnimation_uienk")
@@ -734,8 +741,8 @@ states/Start/position = Vector2(-93, 100)
 "states/站立/position" = Vector2(615, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
 "states/跳跃/position" = Vector2(375, 289)
-transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad")]
-graph_offset = Vector2(-319, 68)
+transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18")]
+graph_offset = Vector2(2, 73)
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
@@ -852,6 +859,12 @@ script = ExtResource("4_bd8ou")
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/jump"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../slash")
+event = &"to_slash"
 delay_in_seconds = "0.0"
 
 [node name="move" type="Node" parent="StateChart/ParallelState/CompoundState"]

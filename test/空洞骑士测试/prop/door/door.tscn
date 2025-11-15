@@ -101,10 +101,10 @@ tracks/3/path = NodePath("CollisionShape2D:shape:points")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.20000668),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [PackedVector2Array(0, 0), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48)]
+"values": [PackedVector2Array(0, 0), PackedVector2Array(0, 0, 16, 0, 16, 48, 0, 48)]
 }
 
 [sub_resource type="Animation" id="Animation_ms60n"]
@@ -157,7 +157,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(3, 0, 12, 0, 12, 48, 3, 48), PackedVector2Array(), PackedVector2Array()]
+"values": [PackedVector2Array(0, 0, 16, 0, 16, 48, 0, 48), PackedVector2Array(0, 0, 16, 0, 16, 48, 0, 48), PackedVector2Array(), PackedVector2Array()]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_se5kv"]

@@ -10,11 +10,12 @@ func _on_idle_state_physics_processing(_delta: float) -> void:
 	var current_len := state_machine.get_current_length()
 	if current_pos >= current_len:
 		if abs(boss_stat_component.player.global_position.x - owner.global_position.x) < distance:
-		#animation_tree.set("parameters/conditions/to_slash", true)
 			boss_stat_component.state_chart.send_event("to_slash")
 		else:
-			boss_stat_component.state_chart.send_event("to_move")
-
+			if randf() < 0.5:
+				boss_stat_component.state_chart.send_event("to_move")
+			else:
+				boss_stat_component.state_chart.send_event("to_jump")
 		
 func _on_idle_state_entered() -> void:
 	owner.velocity.x = 0
