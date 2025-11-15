@@ -5,3 +5,5 @@ class_name BossStatsComponent
 @export var player: Player
 
 var direction_x
+## 是否是下戳
+var is_punch_down

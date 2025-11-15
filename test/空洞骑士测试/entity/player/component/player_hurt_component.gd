@@ -5,7 +5,7 @@ class_name PlayerHurtComponent
 @export var sprite: Sprite2D
 
 ## 总共无敌时间
-const HURT_TOTAL = 2
+const HURT_TOTAL = 1
 ## 受伤时间
 var hurt_time: float = 0
 var TWINKLE_INTERVAL: float = 0.1

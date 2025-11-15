@@ -56,11 +56,11 @@ position = Vector2(-272, -48)
 position = Vector2(-456, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_a8pix")]
-position = Vector2(-24, -11)
+position = Vector2(-312, 0)
 
 [node name="PathCamera" type="Node2D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(-64, -72)
+position = Vector2(-96, -72)
 script = ExtResource("6_4c36b")
 follow_mode = 4
 follow_target = NodePath("../Player")
