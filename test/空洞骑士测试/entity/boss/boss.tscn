@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=54 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -12,11 +12,16 @@
 [ext_resource type="Script" uid="uid://w3d5el17iybd" path="res://test/空洞骑士测试/entity/boss/component/boss_hurt_component.gd" id="6_ceq04"]
 [ext_resource type="Texture2D" uid="uid://cjf45v4rdsnvj" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟上挑准备.png" id="7_1a6v6"]
 [ext_resource type="Script" uid="uid://dl7ojtj5fvkcq" path="res://test/空洞骑士测试/entity/boss/component/boss_stats_component.gd" id="7_ibsou"]
+[ext_resource type="Texture2D" uid="uid://cupkto1vkjdty" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟移动.png" id="8_djb4x"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="9_1a6v6"]
+[ext_resource type="Texture2D" uid="uid://d2cw8ljeqw23n" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟跳跃.png" id="9_6wf3u"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="12_e5t5e"]
 [ext_resource type="Script" uid="uid://bg7y8o48p0hl3" path="res://test/空洞骑士测试/entity/boss/component/boss_idle_component.gd" id="14_l0cbf"]
 [ext_resource type="Script" uid="uid://bx7b0fsv0gftc" path="res://test/空洞骑士测试/entity/boss/component/boss_lift_component.gd" id="15_g813n"]
 [ext_resource type="Script" uid="uid://dcvcfvoqxltxs" path="res://test/空洞骑士测试/entity/boss/component/boss_slash_component.gd" id="16_e5t5e"]
+[ext_resource type="Script" uid="uid://q5enybht51e1" path="res://test/空洞骑士测试/entity/boss/component/boss_ready_component.gd" id="18_uienk"]
+[ext_resource type="Script" uid="uid://doky6p2ypey3b" path="res://test/空洞骑士测试/entity/boss/component/boss_move_component.gd" id="21_y602f"]
+[ext_resource type="Script" uid="uid://ctv33b6hvd2tt" path="res://test/空洞骑士测试/entity/boss/component/boss_jump_component.gd" id="22_6wr4x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
 shader = ExtResource("2_pdhu0")
@@ -445,14 +450,213 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_uienk"]
+resource_name = "移动"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_djb4x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_djb4x"]
+resource_name = "跳跃"
+length = 0.30001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_6wf3u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6wf3u"]
+resource_name = "下落"
+length = 0.30001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_6wf3u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6k83"]
 _data = {
 &"RESET": SubResource("Animation_yfu4a"),
 &"上挑": SubResource("Animation_13sgp"),
 &"上挑准备": SubResource("Animation_c767e"),
+&"下落": SubResource("Animation_6wf3u"),
 &"挥砍": SubResource("Animation_qfvvy"),
 &"挥砍准备": SubResource("Animation_l0cbf"),
-&"站立": SubResource("Animation_ht0gx")
+&"移动": SubResource("Animation_uienk"),
+&"站立": SubResource("Animation_ht0gx"),
+&"跳跃": SubResource("Animation_djb4x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g813n"]
@@ -461,21 +665,26 @@ animation = &"上挑"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5t5e"]
 animation = &"上挑准备"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wf3u"]
+animation = &"站立"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uienk"]
 animation = &"挥砍"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_djb4x"]
 animation = &"挥砍准备"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y602f"]
+animation = &"移动"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibsou"]
 animation = &"站立"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibsou"]
-advance_mode = 2
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wr4x"]
+animation = &"跳跃"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6wf3u"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_np5dx"]
 switch_mode = 2
@@ -493,20 +702,40 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0g1d"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ay6oa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sdng6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_43w2p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m82cs"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6qad"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
-states/Start/position = Vector2(203, 100)
+states/End/position = Vector2(896, 100)
+states/Start/position = Vector2(-93, 100)
 "states/上挑/node" = SubResource("AnimationNodeAnimation_g813n")
-"states/上挑/position" = Vector2(882, 336)
+"states/上挑/position" = Vector2(961, 289)
 "states/上挑准备/node" = SubResource("AnimationNodeAnimation_e5t5e")
-"states/上挑准备/position" = Vector2(615, 329)
+"states/上挑准备/position" = Vector2(837, 289)
+"states/准备/node" = SubResource("AnimationNodeAnimation_6wf3u")
+"states/准备/position" = Vector2(214, 100)
 "states/挥砍/node" = SubResource("AnimationNodeAnimation_uienk")
-"states/挥砍/position" = Vector2(615, 256)
+"states/挥砍/position" = Vector2(727, 289)
 "states/挥砍准备/node" = SubResource("AnimationNodeAnimation_djb4x")
-"states/挥砍准备/position" = Vector2(615, 186)
+"states/挥砍准备/position" = Vector2(615, 289)
+"states/移动/node" = SubResource("AnimationNodeAnimation_y602f")
+"states/移动/position" = Vector2(494, 289)
 "states/站立/node" = SubResource("AnimationNodeAnimation_ibsou")
-"states/站立/position" = Vector2(615, 105)
-transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_ibsou"), "站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n")]
-graph_offset = Vector2(4, 153)
+"states/站立/position" = Vector2(615, 100)
+"states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
+"states/跳跃/position" = Vector2(375, 289)
+transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad")]
+graph_offset = Vector2(-319, 68)
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
@@ -566,7 +795,16 @@ metadata/_custom_type_script = "uid://c1vp0ojjvaby1"
 
 [node name="CompoundState" type="Node" parent="StateChart/ParallelState"]
 script = ExtResource("5_ychxq")
-initial_state = NodePath("idle")
+initial_state = NodePath("ready")
+
+[node name="ready" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/ready"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
 
 [node name="idle" type="Node" parent="StateChart/ParallelState/CompoundState"]
 script = ExtResource("4_bd8ou")
@@ -575,6 +813,18 @@ script = ExtResource("4_bd8ou")
 script = ExtResource("12_e5t5e")
 to = NodePath("../../slash")
 event = &"to_slash"
+delay_in_seconds = "0.0"
+
+[node name="to_move" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../move")
+event = &"to_move"
+delay_in_seconds = "0.0"
+
+[node name="to_jump" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../jump")
+event = &"to_jump"
 delay_in_seconds = "0.0"
 
 [node name="slash" type="Node" parent="StateChart/ParallelState/CompoundState"]
@@ -593,6 +843,30 @@ script = ExtResource("4_bd8ou")
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="jump" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/jump"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="move" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/move"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/move"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../slash")
+event = &"to_slash"
 delay_in_seconds = "0.0"
 
 [node name="Hurt" type="Node" parent="StateChart/ParallelState"]
@@ -635,7 +909,31 @@ animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")
 metadata/_custom_type_script = "uid://dcvcfvoqxltxs"
 
+[node name="BossReadyComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("18_uienk")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://q5enybht51e1"
+
+[node name="BossMoveComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("21_y602f")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://doky6p2ypey3b"
+
+[node name="BossJumpComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("22_6wr4x")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://ctv33b6hvd2tt"
+
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]
+[connection signal="state_exited" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_entered"]
 [connection signal="state_exited" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_physics_processing"]
@@ -643,4 +941,8 @@ metadata/_custom_type_script = "uid://dcvcfvoqxltxs"
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/slash" to="BossSlashComponent" method="_on_slash_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/jump" to="BossJumpComponent" method="_on_jump_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/jump" to="BossJumpComponent" method="_on_jump_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/move" to="BossMoveComponent" method="_on_move_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/move" to="BossMoveComponent" method="_on_move_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]

@@ -1,7 +1,8 @@
 extends BaseComponent
 class_name PlayerDashComponent
 
-@export var hurt_box_area: Area2D
+@export var hurt_box: CollisionPolygon2D
+@export var collision_polygon_2d: CollisionPolygon2D
 @export var player_black_dash_component: PlayerBlackDashComponent
 
 func _on_dash_state_entered() -> void:
@@ -14,7 +15,9 @@ func _on_dash_state_entered() -> void:
 		player_stat_component.has_black_dash = false
 		player_black_dash_component.spawn_blackdash()
 		state_machine.travel("黑冲")
-		hurt_box_area.monitoring = false
+		hurt_box.call_deferred("set_disabled", true)
+		#owner.call_deferred("set_collision_mask", 0)
+		#collision_polygon_2d.call_deferred("set_disabled", true)
 	else:
 		state_machine.travel("冲刺")
 	
@@ -32,13 +35,13 @@ func _on_dash_state_physics_processing(delta: float) -> void:
 
 	if current_pos >= current_len:
 		player_stat_component.state_chart.send_event("to_movement")
-		state_machine.state_finished.disconnect(on_dash_finished)
-		hurt_box_area.monitoring = true
+		hurt_box.call_deferred("set_disabled", false)
+		#owner.call_deferred("set_collision_mask", 1)
+		#collision_polygon_2d.call_deferred("set_disabled", false)
 		
 func on_dash_finished(anim_name: StringName) -> void:
 	if anim_name == "冲刺":
 		player_stat_component.state_chart.send_event("to_movement")
-		state_machine.state_finished.disconnect(on_dash_finished)
 	DebugSystem.printDebug(anim_name + "结束", self, "red")
 
 func _on_move_ment_state_physics_processing(_delta: float) -> void:
@@ -47,3 +50,7 @@ func _on_move_ment_state_physics_processing(_delta: float) -> void:
 		var dash_direction = sign(velocity.x)
 		if dash_direction == 0: return
 		player_stat_component.state_chart.send_event("to_dash")
+
+
+func _on_dash_state_exited() -> void:
+	state_machine.state_finished.disconnect(on_dash_finished)

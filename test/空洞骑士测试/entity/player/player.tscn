@@ -982,6 +982,7 @@ transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransiti
 graph_offset = Vector2(127, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["空洞骑士"]]
+collision_layer = 512
 script = ExtResource("1_ohcur")
 
 [node name="HurtBoxArea" type="Area2D" parent="."]
@@ -1108,9 +1109,10 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://bf7ggufv5jbdl"
 
-[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box_area", "player_black_dash_component", "animation_player", "animation_tree", "player_stat_component")]
+[node name="PlayerDashComponent" type="Node" parent="." node_paths=PackedStringArray("hurt_box", "collision_polygon_2d", "player_black_dash_component", "animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("27_sg63p")
-hurt_box_area = NodePath("../HurtBoxArea")
+hurt_box = NodePath("../HurtBoxArea/HurtBox")
+collision_polygon_2d = NodePath("../CollisionPolygon2D")
 player_black_dash_component = NodePath("../PlayerBlackDashComponent")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
@@ -1151,6 +1153,7 @@ stat_component = NodePath("../PlayerStatsComponent")
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/MoveMent/Jump" to="PlayerJumpComponent" method="_on_jump_state_physics_processing"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/MoveMent/Move" to="PlayerMoveComponent" method="_on_move_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Normal/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Normal/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/MoveMent/Dash" to="PlayerDashComponent" method="_on_dash_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_physics_processing"]

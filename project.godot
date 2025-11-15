@@ -20,12 +20,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://global/enums.gd"
+CapabilitySystem="*res://addons/rome/capabilities(缺陷)/capability_system.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 DebugSystem="*res://addons/rome/system/tscn/debug_system.tscn"
 SaveSystem="*res://addons/rome/system/save_system.gd"
 GlobalSystem="*res://addons/rome/system/global_system.gd"
 AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
-CapabilitySystem="*res://addons/rome/capabilities(缺陷)/capability_system.gd"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+EventBugSystem="*res://addons/rome/utils/event_bus_system.gd"
 
 [display]
 
