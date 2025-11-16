@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=78 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cmvooxeaqdsfj" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟下戳.png" id="11_p0g1d"]
 [ext_resource type="Texture2D" uid="uid://elvha5ug2ceb" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟下戳结束.png" id="12_ay6oa"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="12_e5t5e"]
+[ext_resource type="Texture2D" uid="uid://f2vqabln7k4g" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟后跳.png" id="13_g6qad"]
 [ext_resource type="Script" uid="uid://bg7y8o48p0hl3" path="res://test/空洞骑士测试/entity/boss/component/boss_idle_component.gd" id="14_l0cbf"]
 [ext_resource type="Script" uid="uid://bx7b0fsv0gftc" path="res://test/空洞骑士测试/entity/boss/component/boss_lift_component.gd" id="15_g813n"]
 [ext_resource type="Script" uid="uid://dcvcfvoqxltxs" path="res://test/空洞骑士测试/entity/boss/component/boss_slash_component.gd" id="16_e5t5e"]
@@ -27,6 +28,7 @@
 [ext_resource type="Script" uid="uid://ctv33b6hvd2tt" path="res://test/空洞骑士测试/entity/boss/component/boss_jump_component.gd" id="22_6wr4x"]
 [ext_resource type="Script" uid="uid://cwin5qmcb828y" path="res://test/空洞骑士测试/entity/boss/component/boss_punch_down_component.gd" id="26_sdng6"]
 [ext_resource type="PackedScene" uid="uid://dnyn2j3klapcu" path="res://test/空洞骑士测试/entity/boss/bone_spur/bone_spur.tscn" id="27_43w2p"]
+[ext_resource type="Script" uid="uid://wwnvhdst5ixn" path="res://test/空洞骑士测试/entity/boss/component/boss_back_jump_component.gd" id="29_m82cs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
 shader = ExtResource("2_pdhu0")
@@ -248,6 +250,267 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ay6oa"]
+resource_name = "下戳"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_p0g1d")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y602f"]
+resource_name = "下戳准备"
+length = 0.50001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_6wr4x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p0g1d"]
+resource_name = "下戳结束"
+length = 0.40001002
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ay6oa")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6wf3u"]
+resource_name = "下落"
+length = 999.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_6wf3u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_qfvvy"]
 resource_name = "挥砍"
 length = 0.30001
@@ -390,71 +653,6 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_ht0gx"]
-resource_name = "站立"
-length = 0.8
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_l6k83")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.70000005),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_uienk"]
 resource_name = "移动"
 length = 0.40001002
@@ -504,6 +702,71 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ht0gx"]
+resource_name = "站立"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_l6k83")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -16), Vector2(0, -16)]
@@ -586,9 +849,9 @@ tracks/4/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_6wf3u"]
-resource_name = "下落"
-length = 999.9
+[sub_resource type="Animation" id="Animation_m82cs"]
+resource_name = "后跳"
+length = 0.30001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -600,7 +863,72 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_6wf3u")]
+"values": [ExtResource("13_g6qad")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_25k18"]
+resource_name = "后跳下落"
+length = 0.30001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_g6qad")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -633,206 +961,10 @@ tracks/3/path = NodePath("Sprite2D:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_y602f"]
-resource_name = "下戳准备"
-length = 0.50001
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_6wr4x")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_ay6oa"]
-resource_name = "下戳"
-length = 0.40001002
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_p0g1d")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_p0g1d"]
-resource_name = "下戳结束"
-length = 0.40001002
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("12_ay6oa")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16)]
+"values": [Vector2(0, -16)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -856,6 +988,8 @@ _data = {
 &"下戳准备": SubResource("Animation_y602f"),
 &"下戳结束": SubResource("Animation_p0g1d"),
 &"下落": SubResource("Animation_6wf3u"),
+&"后跳": SubResource("Animation_m82cs"),
+&"后跳下落": SubResource("Animation_25k18"),
 &"挥砍": SubResource("Animation_qfvvy"),
 &"挥砍准备": SubResource("Animation_l0cbf"),
 &"移动": SubResource("Animation_uienk"),
@@ -883,6 +1017,12 @@ animation = &"下落"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wf3u"]
 animation = &"站立"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m6pio"]
+animation = &"后跳"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgdh0"]
+animation = &"后跳下落"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uienk"]
 animation = &"挥砍"
@@ -941,6 +1081,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s8mos"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yh704"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g53qt"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
 states/End/position = Vector2(896, 100)
 states/Start/position = Vector2(-93, 100)
@@ -958,6 +1102,10 @@ states/Start/position = Vector2(-93, 100)
 "states/下落/position" = Vector2(375, 470)
 "states/准备/node" = SubResource("AnimationNodeAnimation_6wf3u")
 "states/准备/position" = Vector2(214, 100)
+"states/后跳/node" = SubResource("AnimationNodeAnimation_m6pio")
+"states/后跳/position" = Vector2(248, 289)
+"states/后跳下落/node" = SubResource("AnimationNodeAnimation_bgdh0")
+"states/后跳下落/position" = Vector2(248, 470)
 "states/挥砍/node" = SubResource("AnimationNodeAnimation_uienk")
 "states/挥砍/position" = Vector2(727, 289)
 "states/挥砍准备/node" = SubResource("AnimationNodeAnimation_djb4x")
@@ -965,11 +1113,11 @@ states/Start/position = Vector2(-93, 100)
 "states/移动/node" = SubResource("AnimationNodeAnimation_y602f")
 "states/移动/position" = Vector2(494, 289)
 "states/站立/node" = SubResource("AnimationNodeAnimation_ibsou")
-"states/站立/position" = Vector2(615, 100)
+"states/站立/position" = Vector2(641, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
-"states/跳跃/position" = Vector2(375, 289)
-transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos")]
-graph_offset = Vector2(-147, 265)
+"states/跳跃/position" = Vector2(389, 289)
+transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt")]
+graph_offset = Vector2(-337, 13)
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
@@ -1061,6 +1209,12 @@ to = NodePath("../../jump")
 event = &"to_jump"
 delay_in_seconds = "0.0"
 
+[node name="to_back_jump" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../back_jump")
+event = &"to_back_jump"
+delay_in_seconds = "0.0"
+
 [node name="slash" type="Node" parent="StateChart/ParallelState/CompoundState"]
 script = ExtResource("4_bd8ou")
 
@@ -1119,6 +1273,15 @@ delay_in_seconds = "0.0"
 script = ExtResource("4_bd8ou")
 
 [node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/punch_down"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../idle")
+event = &"to_idle"
+delay_in_seconds = "0.0"
+
+[node name="back_jump" type="Node" parent="StateChart/ParallelState/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/back_jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
@@ -1193,6 +1356,15 @@ animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")
 metadata/_custom_type_script = "uid://cwin5qmcb828y"
 
+[node name="BossBackJumpComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("29_m82cs")
+left_point = Vector2(-560, 0)
+right_point = Vector2(-272, 0)
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://wwnvhdst5ixn"
+
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]
 [connection signal="state_exited" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_exited"]
@@ -1210,4 +1382,6 @@ metadata/_custom_type_script = "uid://cwin5qmcb828y"
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/move" to="BossMoveComponent" method="_on_move_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/CompoundState/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/ParallelState/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]

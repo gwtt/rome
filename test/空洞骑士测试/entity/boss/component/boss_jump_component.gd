@@ -1,10 +1,7 @@
 extends BaseComponent
 class_name BossJumpComponent
 
-@export var move_speed := 80
 @export var jump_speed := 400
-
-var distance := 80
 
 func _on_jump_state_physics_processing(_delta: float) -> void:
 	owner.add_gravity(_delta)

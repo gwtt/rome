@@ -26,7 +26,7 @@ size = Vector2(19.200003, 8)
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_yys4y")
-metadata/_edit_vertical_guides_ = [-64.0]
+metadata/_edit_vertical_guides_ = [-64.0, -560.0, -272.0]
 metadata/_edit_horizontal_guides_ = [-72.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -35,7 +35,7 @@ tile_set = ExtResource("2_sx4d4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(-64, -72)
+position = Vector2(-96, -72)
 process_callback = 0
 editor_draw_limits = true
 
@@ -56,7 +56,7 @@ position = Vector2(-272, -48)
 position = Vector2(-456, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_a8pix")]
-position = Vector2(-312, 0)
+position = Vector2(-192, 0)
 
 [node name="PathCamera" type="Node2D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
