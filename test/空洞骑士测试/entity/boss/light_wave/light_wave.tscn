@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://c30gvvdcrlpkw"]
+
+[ext_resource type="Script" uid="uid://crrqo834xldd3" path="res://test/空洞骑士测试/entity/boss/light_wave/light_wave.gd" id="1_h5n3q"]
+[ext_resource type="Texture2D" uid="uid://v0l1p8nytnay" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/白波本体.png" id="1_iw0vk"]
+
+[sub_resource type="Animation" id="Animation_iw0vk"]
+resource_name = "idle"
+length = 0.40001002
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_iw0vk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_54q3s"]
+_data = {
+&"idle": SubResource("Animation_iw0vk")
+}
+
+[node name="LightWave" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_h5n3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iw0vk")
+offset = Vector2(0, -16)
+hframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+libraries = {
+&"": SubResource("AnimationLibrary_54q3s")
+}
+autoplay = "idle"
+
+[node name="LightWaveHitBoxArea" type="Area2D" parent="."]
+
+[node name="LightWaveHitBox" type="CollisionPolygon2D" parent="LightWaveHitBoxArea"]
+position = Vector2(0, -16)
+polygon = PackedVector2Array(-26, -11, 21, -11, 21, 16, -26, 16)
