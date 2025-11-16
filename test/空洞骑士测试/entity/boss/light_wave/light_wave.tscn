@@ -69,6 +69,8 @@ libraries = {
 autoplay = "idle"
 
 [node name="LightWaveHitBoxArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="LightWaveHitBox" type="CollisionPolygon2D" parent="LightWaveHitBoxArea"]
 position = Vector2(0, -16)

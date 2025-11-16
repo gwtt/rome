@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=89 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="22_7r0p4"]
 [ext_resource type="PackedScene" uid="uid://hb41o0gfu5dx" path="res://test/空洞骑士测试/entity/player/player_black_dash_component.tscn" id="22_bbpi2"]
+[ext_resource type="Resource" uid="uid://dcoi48co37lej" path="res://test/空洞骑士测试/entity/player/data/player_data.tres" id="22_ohcur"]
 [ext_resource type="Script" uid="uid://ck0mm7jxd7gia" path="res://test/空洞骑士测试/entity/player/component/player_hurt_component.gd" id="23_7r0p4"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="23_rp4ax"]
 [ext_resource type="Script" uid="uid://cw46mrs1t0p2p" path="res://test/空洞骑士测试/entity/player/component/player_attack_component.gd" id="24_ohcur"]
@@ -1121,6 +1122,7 @@ metadata/_custom_type_script = "uid://datuaetsqoev0"
 
 [node name="PlayerStatsComponent" type="Node" parent="." node_paths=PackedStringArray("state_chart", "animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("28_bmcp6")
+player_data = ExtResource("22_ohcur")
 state_chart = NodePath("../StateChart")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")

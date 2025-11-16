@@ -23,6 +23,7 @@ func _on_attack_state_physics_processing(_delta: float) -> void:
 	
 ## https://github.com/godotengine/godot/issues/110128 bug问题
 func _on_attack_area_area_entered(_area: Area2D) -> void:
+	player_stat_component.player_data.soul += 1
 	var current_anim = state_machine.get_current_node()
 	if current_anim == "下劈":
 		player_stat_component.can_double_jump = true

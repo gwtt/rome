@@ -10,7 +10,7 @@ class_name Player
 func _physics_process(_delta: float) -> void:
 	turn_direction()
 	move_and_slide()
-	
+
 ## 旋转方向
 func turn_direction() -> void:
 	## 受伤要方向颠倒
@@ -20,4 +20,3 @@ func turn_direction() -> void:
 		hurt_box_area.scale.x = direction if velocity.x < 0 else 1
 		attack_area.scale.x = direction if velocity.x < 0 else 1
 		player_stats_component.flip_h = false if velocity.x < 0 else true
-

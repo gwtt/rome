@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ccam6vsn5hhx"]
+[gd_scene load_steps=14 format=4 uid="uid://ccam6vsn5hhx"]
 
 [ext_resource type="Script" uid="uid://cavndqk0eed30" path="res://test/空洞骑士测试/scenes/main_scene.gd" id="1_yys4y"]
 [ext_resource type="TileSet" uid="uid://j451nc4y48nm" path="res://test/空洞骑士测试/assets/MainScene.tres" id="2_sx4d4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://btr68a4h85d0m" path="res://test/空洞骑士测试/entity/boss/boss.tscn" id="5_sx4d4"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_4c36b"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_vi30e"]
+[ext_resource type="PackedScene" uid="uid://8kvbl317u0vk" path="res://test/空洞骑士测试/ui/ui.tscn" id="9_4axh6"]
 
 [sub_resource type="Resource" id="Resource_jf5q1"]
 script = ExtResource("7_vi30e")
@@ -88,6 +89,8 @@ collision_mask = 512
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.53333616, 2.4000013)
 shape = SubResource("RectangleShape2D_jf5q1")
+
+[node name="UI" parent="." instance=ExtResource("9_4axh6")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

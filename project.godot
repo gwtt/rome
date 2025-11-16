@@ -28,6 +28,10 @@ AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
 EventBugSystem="*res://addons/rome/utils/event_bus_system.gd"
 SpawnerSystem="*res://addons/rome/system/spawner_system.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/size/viewport_width=320

@@ -1,6 +1,8 @@
 extends BaseComponent
 class_name PlayerStatsComponent
 
+@export var player_data: PlayerData
+
 @export var horizontal_accelerate_speed := 2000.0
 @export var max_speed := 120.0
 @export var dash_speed := 400.0
