@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2ny5u6wlqqxk"]
+
+[ext_resource type="Script" uid="uid://cds4x1gr8c3wv" path="res://test/空洞骑士测试/entity/boss/data/boss_data.gd" id="1_tlu8b"]
+
+[resource]
+script = ExtResource("1_tlu8b")
+metadata/_custom_type_script = "uid://cds4x1gr8c3wv"

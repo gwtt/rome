@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=111 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -27,14 +27,20 @@
 [ext_resource type="Script" uid="uid://dcvcfvoqxltxs" path="res://test/空洞骑士测试/entity/boss/component/boss_slash_component.gd" id="16_e5t5e"]
 [ext_resource type="Texture2D" uid="uid://b4pky2vc3k8ao" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟冲刺.png" id="16_s8mos"]
 [ext_resource type="Texture2D" uid="uid://bm1rk5vtnlvye" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟冲刺停下.png" id="17_yh704"]
+[ext_resource type="Texture2D" uid="uid://dnrw77jjdv2ql" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟僵直.png" id="18_rpbf0"]
 [ext_resource type="Script" uid="uid://q5enybht51e1" path="res://test/空洞骑士测试/entity/boss/component/boss_ready_component.gd" id="18_uienk"]
+[ext_resource type="Texture2D" uid="uid://csivqaiv44ce" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟死亡1.png" id="19_l38h4"]
+[ext_resource type="Texture2D" uid="uid://1sl0i8wl86gv" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟死亡2.png" id="20_ilxn1"]
 [ext_resource type="Script" uid="uid://doky6p2ypey3b" path="res://test/空洞骑士测试/entity/boss/component/boss_move_component.gd" id="21_y602f"]
 [ext_resource type="Script" uid="uid://ctv33b6hvd2tt" path="res://test/空洞骑士测试/entity/boss/component/boss_jump_component.gd" id="22_6wr4x"]
 [ext_resource type="Script" uid="uid://cwin5qmcb828y" path="res://test/空洞骑士测试/entity/boss/component/boss_punch_down_component.gd" id="26_sdng6"]
 [ext_resource type="PackedScene" uid="uid://dnyn2j3klapcu" path="res://test/空洞骑士测试/entity/boss/bone_spur/bone_spur.tscn" id="27_43w2p"]
+[ext_resource type="Resource" uid="uid://b2ny5u6wlqqxk" path="res://test/空洞骑士测试/entity/boss/data/boss_data.tres" id="28_mxjbp"]
 [ext_resource type="Script" uid="uid://wwnvhdst5ixn" path="res://test/空洞骑士测试/entity/boss/component/boss_back_jump_component.gd" id="29_m82cs"]
 [ext_resource type="PackedScene" uid="uid://c30gvvdcrlpkw" path="res://test/空洞骑士测试/entity/boss/light_wave/light_wave.tscn" id="31_m6pio"]
 [ext_resource type="Script" uid="uid://hax42vxy6lq3" path="res://test/空洞骑士测试/entity/boss/component/boss_dash_component.gd" id="35_g53qt"]
+[ext_resource type="Script" uid="uid://buyxt6jt66aqi" path="res://test/空洞骑士测试/entity/boss/component/boss_die_component.gd" id="39_ilxn1"]
+[ext_resource type="Script" uid="uid://buaa11rwwgxrs" path="res://test/空洞骑士测试/entity/boss/component/boss_stiff_component.gd" id="41_h5d5k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
 shader = ExtResource("2_pdhu0")
@@ -1260,6 +1266,136 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_rpbf0"]
+resource_name = "僵直"
+length = 2.40001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_rpbf0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2gqqf"]
+resource_name = "死亡"
+length = 1.60001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("19_l38h4"), ExtResource("20_ilxn1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6k83"]
 _data = {
 &"RESET": SubResource("Animation_yfu4a"),
@@ -1269,6 +1405,7 @@ _data = {
 &"下戳准备": SubResource("Animation_y602f"),
 &"下戳结束": SubResource("Animation_p0g1d"),
 &"下落": SubResource("Animation_6wf3u"),
+&"僵直": SubResource("Animation_rpbf0"),
 &"冲刺": SubResource("Animation_yh704"),
 &"冲刺停下": SubResource("Animation_g53qt"),
 &"冲刺准备": SubResource("Animation_bgdh0"),
@@ -1276,6 +1413,7 @@ _data = {
 &"后跳下落": SubResource("Animation_25k18"),
 &"挥砍": SubResource("Animation_qfvvy"),
 &"挥砍准备": SubResource("Animation_l0cbf"),
+&"死亡": SubResource("Animation_2gqqf"),
 &"白波": SubResource("Animation_m6pio"),
 &"移动": SubResource("Animation_uienk"),
 &"站立": SubResource("Animation_ht0gx"),
@@ -1299,6 +1437,12 @@ animation = &"下戳结束"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p0g1d"]
 animation = &"下落"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilxn1"]
+animation = &"僵直"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h5d5k"]
+animation = &"僵直"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rpbf0"]
 animation = &"冲刺"
@@ -1324,6 +1468,9 @@ animation = &"挥砍"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_djb4x"]
 animation = &"挥砍准备"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mxjbp"]
+animation = &"死亡"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8mos"]
 animation = &"白波"
 
@@ -1341,19 +1488,15 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_np5dx"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y602f"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6wr4x"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g813n"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0g1d"]
 advance_mode = 2
@@ -1388,7 +1531,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ilxn1"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mxjbp"]
 switch_mode = 1
@@ -1396,6 +1538,12 @@ switch_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l38h4"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h5d5k"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cb0xu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6duba"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
 states/End/position = Vector2(896, 100)
@@ -1412,6 +1560,10 @@ states/Start/position = Vector2(-93, 100)
 "states/下戳结束/position" = Vector2(721, 470)
 "states/下落/node" = SubResource("AnimationNodeAnimation_p0g1d")
 "states/下落/position" = Vector2(375, 470)
+"states/僵直/node" = SubResource("AnimationNodeAnimation_ilxn1")
+"states/僵直/position" = Vector2(-78, 787)
+"states/僵直2/node" = SubResource("AnimationNodeAnimation_h5d5k")
+"states/僵直2/position" = Vector2(772, 43)
 "states/冲刺/node" = SubResource("AnimationNodeAnimation_rpbf0")
 "states/冲刺/position" = Vector2(303, 673)
 "states/冲刺停下/node" = SubResource("AnimationNodeAnimation_2gqqf")
@@ -1425,9 +1577,11 @@ states/Start/position = Vector2(-93, 100)
 "states/后跳下落/node" = SubResource("AnimationNodeAnimation_bgdh0")
 "states/后跳下落/position" = Vector2(7, 470)
 "states/挥砍/node" = SubResource("AnimationNodeAnimation_uienk")
-"states/挥砍/position" = Vector2(727, 289)
+"states/挥砍/position" = Vector2(740, 289)
 "states/挥砍准备/node" = SubResource("AnimationNodeAnimation_djb4x")
 "states/挥砍准备/position" = Vector2(615, 289)
+"states/死亡/node" = SubResource("AnimationNodeAnimation_mxjbp")
+"states/死亡/position" = Vector2(38, 787)
 "states/白波/node" = SubResource("AnimationNodeAnimation_s8mos")
 "states/白波/position" = Vector2(193, 551)
 "states/移动/node" = SubResource("AnimationNodeAnimation_y602f")
@@ -1436,8 +1590,8 @@ states/Start/position = Vector2(-93, 100)
 "states/站立/position" = Vector2(641, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
 "states/跳跃/position" = Vector2(389, 289)
-transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k")]
-graph_offset = Vector2(-262, 72)
+transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k"), "僵直", "死亡", SubResource("AnimationNodeStateMachineTransition_cb0xu"), "僵直2", "站立", SubResource("AnimationNodeStateMachineTransition_6duba")]
+graph_offset = Vector2(-195, 163)
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
@@ -1491,150 +1645,182 @@ polygon = PackedVector2Array(-7, -22, -7, 0, 7, 0, 7, -22)
 script = ExtResource("3_4swdt")
 metadata/_custom_type_script = "uid://couw105c3bde4"
 
-[node name="ParallelState" type="Node" parent="StateChart"]
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("5_ychxq")
+initial_state = NodePath("Normal")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="Normal" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("9_1a6v6")
 metadata/_custom_type_script = "uid://c1vp0ojjvaby1"
 
-[node name="CompoundState" type="Node" parent="StateChart/ParallelState"]
+[node name="CompoundState" type="Node" parent="StateChart/CompoundState/Normal"]
 script = ExtResource("5_ychxq")
 initial_state = NodePath("ready")
 
-[node name="ready" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="ready" type="Node" parent="StateChart/CompoundState/Normal/CompoundState"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/ready"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/ready"]
 script = ExtResource("12_e5t5e")
-to = NodePath("../../idle")
+to = NodePath("../../Normal/idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="idle" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="Normal" type="Node" parent="StateChart/CompoundState/Normal/CompoundState"]
+script = ExtResource("5_ychxq")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+[node name="to_slash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/idle"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../slash")
 event = &"to_slash"
 delay_in_seconds = "0.0"
 
-[node name="to_move" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+[node name="to_move" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/idle"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../move")
 event = &"to_move"
 delay_in_seconds = "0.0"
 
-[node name="to_jump" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+[node name="to_jump" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/idle"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../jump")
 event = &"to_jump"
 delay_in_seconds = "0.0"
 
-[node name="to_back_jump" type="Node" parent="StateChart/ParallelState/CompoundState/idle"]
+[node name="to_back_jump" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/idle"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../back_jump")
 event = &"to_back_jump"
 delay_in_seconds = "0.0"
 
-[node name="slash" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="slash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_lift" type="Node" parent="StateChart/ParallelState/CompoundState/slash"]
+[node name="to_lift" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/slash"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../lift")
 event = &"to_lift"
 delay_in_seconds = "0.0"
 
-[node name="lift" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="lift" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/lift"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/lift"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="jump" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="jump" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/jump"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/jump"]
+[node name="to_slash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../slash")
 event = &"to_slash"
 delay_in_seconds = "0.0"
 
-[node name="to_punch_down" type="Node" parent="StateChart/ParallelState/CompoundState/jump"]
+[node name="to_punch_down" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../punch_down")
 event = &"to_punch_down"
 delay_in_seconds = "0.0"
 
-[node name="move" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="move" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/move"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/move"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="to_slash" type="Node" parent="StateChart/ParallelState/CompoundState/move"]
+[node name="to_slash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/move"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../slash")
 event = &"to_slash"
 delay_in_seconds = "0.0"
 
-[node name="punch_down" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="punch_down" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/punch_down"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/punch_down"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="back_jump" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="back_jump" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/back_jump"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/back_jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="to_dash" type="Node" parent="StateChart/ParallelState/CompoundState/back_jump"]
+[node name="to_dash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/back_jump"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../dash")
 event = &"to_dash"
 delay_in_seconds = "0.0"
 
-[node name="dash" type="Node" parent="StateChart/ParallelState/CompoundState"]
+[node name="dash" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
 script = ExtResource("4_bd8ou")
 
-[node name="to_idle" type="Node" parent="StateChart/ParallelState/CompoundState/dash"]
+[node name="to_idle" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal/dash"]
 script = ExtResource("12_e5t5e")
 to = NodePath("../../idle")
 event = &"to_idle"
 delay_in_seconds = "0.0"
 
-[node name="Hurt" type="Node" parent="StateChart/ParallelState"]
+[node name="ToStiff" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Normal"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../Stiff")
+event = &"to_stiff"
+delay_in_seconds = "0.0"
+
+[node name="Stiff" type="Node" parent="StateChart/CompoundState/Normal/CompoundState"]
 script = ExtResource("4_bd8ou")
 
-[node name="BossHurtComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "animation_player", "animation_tree", "boss_stat_component")]
+[node name="ToNormal" type="Node" parent="StateChart/CompoundState/Normal/CompoundState/Stiff"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../Normal")
+event = &"to_normal"
+delay_in_seconds = "0.0"
+
+[node name="Hurt" type="Node" parent="StateChart/CompoundState/Normal"]
+script = ExtResource("4_bd8ou")
+
+[node name="to_die" type="Node" parent="StateChart/CompoundState/Normal"]
+script = ExtResource("12_e5t5e")
+to = NodePath("../../Die")
+event = &"to_die"
+delay_in_seconds = "0.0"
+
+[node name="Die" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_bd8ou")
+
+[node name="BossHurtComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "boss_stats_component")]
 script = ExtResource("6_ceq04")
 sprite = NodePath("../Sprite2D")
-animation_player = NodePath("../AnimationPlayer")
-animation_tree = NodePath("../AnimationTree")
-boss_stat_component = NodePath("../BossStatsComponent")
+boss_stats_component = NodePath("../BossStatsComponent")
 metadata/_custom_type_script = "uid://w3d5el17iybd"
 
 [node name="BossStatsComponent" type="Node" parent="." node_paths=PackedStringArray("state_chart", "animation_player", "animation_tree", "boss_stat_component")]
 script = ExtResource("7_ibsou")
+boss_data = ExtResource("28_mxjbp")
 state_chart = NodePath("../StateChart")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
@@ -1708,25 +1894,46 @@ animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")
 metadata/_custom_type_script = "uid://hax42vxy6lq3"
 
+[node name="BossDieComponent" type="Node" parent="." node_paths=PackedStringArray("body_hit_box", "hurt_box_area", "animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("39_ilxn1")
+body_hit_box = NodePath("../BodyHitBoxArea/BodyHitbox")
+hurt_box_area = NodePath("../HurtBoxArea/CollisionPolygon2D")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://buyxt6jt66aqi"
+
+[node name="BossStiffComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
+script = ExtResource("41_h5d5k")
+animation_player = NodePath("../AnimationPlayer")
+animation_tree = NodePath("../AnimationTree")
+boss_stat_component = NodePath("../BossStatsComponent")
+metadata/_custom_type_script = "uid://buaa11rwwgxrs"
+
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]
-[connection signal="state_exited" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_exited"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_entered"]
-[connection signal="state_exited" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_exited"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/idle" to="BossIdleComponent" method="_on_idle_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/slash" to="BossSlashComponent" method="_on_slash_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/slash" to="BossSlashComponent" method="_on_slash_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/lift" to="BossLiftComponent" method="_on_lift_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/jump" to="BossJumpComponent" method="_on_jump_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/jump" to="BossJumpComponent" method="_on_jump_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/move" to="BossMoveComponent" method="_on_move_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/move" to="BossMoveComponent" method="_on_move_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/CompoundState/dash" to="BossDashComponent" method="_on_dash_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/ParallelState/CompoundState/dash" to="BossDashComponent" method="_on_dash_state_physics_processing"]
-[connection signal="state_entered" from="StateChart/ParallelState/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Normal/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/idle" to="BossIdleComponent" method="_on_idle_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Normal/CompoundState/Normal/idle" to="BossIdleComponent" method="_on_idle_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/idle" to="BossIdleComponent" method="_on_idle_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/slash" to="BossSlashComponent" method="_on_slash_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/slash" to="BossSlashComponent" method="_on_slash_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/lift" to="BossLiftComponent" method="_on_lift_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/lift" to="BossLiftComponent" method="_on_lift_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/jump" to="BossJumpComponent" method="_on_jump_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/jump" to="BossJumpComponent" method="_on_jump_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/move" to="BossMoveComponent" method="_on_move_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/move" to="BossMoveComponent" method="_on_move_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/punch_down" to="BossPunchDownComponent" method="_on_punch_down_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/back_jump" to="BossBackJumpComponent" method="_on_back_jump_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Normal/dash" to="BossDashComponent" method="_on_dash_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Normal/dash" to="BossDashComponent" method="_on_dash_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/Stiff" to="BossStiffComponent" method="_on_stiff_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Normal/CompoundState/Stiff" to="BossStiffComponent" method="_on_stiff_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Normal/CompoundState/Stiff" to="BossStiffComponent" method="_on_stiff_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Normal/Hurt" to="BossHurtComponent" method="_on_hurt_state_entered"]
+[connection signal="state_entered" from="StateChart/CompoundState/Die" to="BossDieComponent" method="_on_die_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Die" to="BossDieComponent" method="_on_die_state_physics_processing"]

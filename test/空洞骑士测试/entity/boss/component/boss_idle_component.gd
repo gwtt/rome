@@ -27,11 +27,6 @@ func _on_idle_state_physics_processing(_delta: float) -> void:
 func _on_idle_state_entered() -> void:
 	owner.velocity.x = 0
 	state_machine.travel("站立")
-	#animation_tree.set("parameters/conditions/to_slash", true)
-	#if randf() > 0.5:
-		#boss_stat_component.state_chart.send_event("to_move")
-	#else:
-		#boss_stat_component.state_chart.send_event("to_jump")
 
 
 

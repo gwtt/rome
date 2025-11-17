@@ -8,6 +8,17 @@ var dash_stopping := false
 @export var check_distance: float = 100.0
 
 func _on_dash_state_physics_processing(delta: float) -> void:
+	if dash_preparing:
+		var current_pos := state_machine.get_current_play_position()
+		var current_len := state_machine.get_current_length()
+		if current_pos >= current_len:
+			DebugSystem.printHighlight("当前节点:" + state_machine.get_current_node(), self)
+			state_machine.travel("冲刺")
+			owner.velocity.x = dash_velocity * boss_stat_component.direction_x
+			owner.velocity.y = 0
+			dash_preparing = false
+			return
+	
 	if dash_stopping:
 		state_machine.travel("冲刺停下")
 		owner.velocity.x = lerp(0.0, owner.velocity.x, pow(2, -10 * delta))
@@ -37,8 +48,4 @@ func _on_dash_state_entered() -> void:
 	dash_preparing = true
 	dash_stopping = false
 	state_machine.start("冲刺准备")
-	await state_machine.state_finished
-	DebugSystem.printHighlight("当前节点:" + state_machine.get_current_node(), self)
-	owner.velocity.x = dash_velocity * boss_stat_component.direction_x
-	owner.velocity.y = 0
-	dash_preparing = false
+
