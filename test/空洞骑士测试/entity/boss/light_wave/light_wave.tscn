@@ -59,7 +59,6 @@ script = ExtResource("1_h5n3q")
 texture = ExtResource("1_iw0vk")
 offset = Vector2(0, -16)
 hframes = 4
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 callback_mode_process = 0

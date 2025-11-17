@@ -15,8 +15,7 @@ func _on_jump_state_physics_processing(delta: float) -> void:
 	velocity = owner.velocity
 	# 更新二段跳可用状态
 	_update_double_jump_availability(velocity)
-	velocity.y += player_stat_component.gravity * delta
-	owner.velocity = velocity
+	owner.add_gravity(delta)
 	
 	if owner.is_on_floor(): return
 	if owner.velocity.y > 0:

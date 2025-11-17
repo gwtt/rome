@@ -3,7 +3,7 @@ class_name PlayerHurtComponent
 
 @export var hurt_box: CollisionPolygon2D
 @export var sprite: Sprite2D
-
+var hurt_area
 ## 总共无敌时间
 const HURT_TOTAL = 1
 ## 受伤时间
@@ -11,6 +11,15 @@ var hurt_time: float = 0
 var TWINKLE_INTERVAL: float = 0.1
 func _on_hurt_state_entered() -> void:
 	player_stat_component.player_data.health -= 5
+	if player_stat_component.player_data.health <= 0:
+		player_stat_component.state_chart.send_event("to_die")
+		return
+	owner.velocity.y = -150
+	if owner.global_position < hurt_area.global_position:
+		owner.velocity.x = -150
+	else:
+		owner.velocity.x = 150
+	
 	player_stat_component.is_hurting = true
 	state_machine.travel("受击")	
 	hurt_time = 0
@@ -33,9 +42,5 @@ func _on_hurt_state_physics_processing(_delta: float) -> void:
 		player_stat_component.is_hurting = false	
 
 func _on_hurt_box_area_area_entered(_area: Area2D) -> void:
+	hurt_area = _area
 	player_stat_component.state_chart.send_event("to_hurt")
-	owner.velocity.y = -150
-	if owner.global_position < _area.global_position:
-		owner.velocity.x = -150
-	else:
-		owner.velocity.x = 150
