@@ -7,10 +7,10 @@ var attack_interval := 0.2
 
 ## 不同攻击类型的伤害配置
 var attack_damage: Dictionary = {
-	"横劈1": 40,
-	"横劈2": 30,
-	"上劈": 20,
-	"下劈": 20
+	"横劈1": 13,
+	"横劈2": 13,
+	"上劈": 13,
+	"下劈": 13
 }
 
 func _on_attack_state_physics_processing(_delta: float) -> void:
