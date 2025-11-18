@@ -27,7 +27,7 @@ func _on_move_state_physics_processing(delta: float) -> void:
 ## 处理水平移动
 func _handle_horizontal_movement(delta: float, move_vector: float, velocity: Vector2) -> Vector2:
 	if move_vector != 0:
-		player_stat_component.direction_x = sign(owner.velocity.x)
+		player_stat_component.direction_x = sign(move_vector)
 		owner.turn_direction()
 		# 加速
 		velocity.x += move_vector * player_stat_component.horizontal_accelerate_speed * delta
