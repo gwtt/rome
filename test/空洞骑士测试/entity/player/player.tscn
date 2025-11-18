@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=110 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c3dgpdg44bch5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士回血 .png" id="15_23l3w"]
 [ext_resource type="Texture2D" uid="uid://yfr58lc6v5yn" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士回血成功.png" id="16_gljs8"]
 [ext_resource type="Texture2D" uid="uid://dg7v4dtdgkjsh" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士黑波.png" id="17_7a0yg"]
+[ext_resource type="Texture2D" uid="uid://c4tebgrfrkcss" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士上吼动作.png" id="18_3hx8h"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="19_rqp6k"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="20_4dg15"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
@@ -33,6 +34,7 @@
 [ext_resource type="Script" uid="uid://dke6e1wl5y5b3" path="res://test/空洞骑士测试/entity/player/component/player_stats_component.gd" id="28_bmcp6"]
 [ext_resource type="Script" uid="uid://vmebvy5nah71" path="res://test/空洞骑士测试/entity/player/component/player_heal_component.gd" id="30_d3rm2"]
 [ext_resource type="PackedScene" uid="uid://cket5l78i088f" path="res://test/空洞骑士测试/entity/player/black_wave/black_wave.tscn" id="32_jch3i"]
+[ext_resource type="PackedScene" uid="uid://dlnk1x6giq68k" path="res://test/空洞骑士测试/entity/player/shout/shout.tscn" id="34_80pew"]
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
@@ -1005,8 +1007,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_d3rm2"]
 resource_name = "黑波"
-length = 0.60001004
-step = 0.1
+length = 0.40000668
+step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1014,7 +1016,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
@@ -1062,7 +1064,7 @@ tracks/4/path = NodePath("PlayerSkillComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.33333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1070,10 +1072,78 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_80pew"]
+resource_name = "上吼"
+length = 0.40000668
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_3hx8h")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSkillComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"generate_shout"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4qbo"]
 _data = {
 &"RESET": SubResource("Animation_0r08a"),
 &"上劈": SubResource("Animation_elhbc"),
+&"上吼": SubResource("Animation_80pew"),
 &"下劈": SubResource("Animation_amvc6"),
 &"下落": SubResource("Animation_3al0k"),
 &"二段跳": SubResource("Animation_fwriv"),
@@ -1093,6 +1163,9 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_23l3w"]
 animation = &"上劈"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k0t50"]
+animation = &"上吼"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gljs8"]
 animation = &"下劈"
@@ -1225,6 +1298,8 @@ advance_mode = 2
 states/End/position = Vector2(1367, 106)
 "states/上劈/node" = SubResource("AnimationNodeAnimation_23l3w")
 "states/上劈/position" = Vector2(1226, 303)
+"states/上吼/node" = SubResource("AnimationNodeAnimation_k0t50")
+"states/上吼/position" = Vector2(236, 775)
 "states/下劈/node" = SubResource("AnimationNodeAnimation_gljs8")
 "states/下劈/position" = Vector2(1226, 211)
 "states/下落/node" = SubResource("AnimationNodeAnimation_7r0p4")
@@ -1236,7 +1311,7 @@ states/End/position = Vector2(1367, 106)
 "states/受击/node" = SubResource("AnimationNodeAnimation_7a0yg")
 "states/受击/position" = Vector2(816, 493)
 "states/回血/node" = SubResource("AnimationNodeAnimation_80pew")
-"states/回血/position" = Vector2(275, 651)
+"states/回血/position" = Vector2(268, 645)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
 "states/横劈1/position" = Vector2(1216, 378)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
@@ -1256,7 +1331,7 @@ states/End/position = Vector2(1367, 106)
 "states/黑波/node" = SubResource("AnimationNodeAnimation_yo0iw")
 "states/黑波/position" = Vector2(268, 713)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii"), "死亡1", "死亡2", SubResource("AnimationNodeStateMachineTransition_vc67u")]
-graph_offset = Vector2(-184, 587)
+graph_offset = Vector2(-281, 557)
 
 [node name="Player" type="CharacterBody2D" groups=["空洞骑士"]]
 collision_layer = 512
@@ -1468,6 +1543,7 @@ metadata/_custom_type_script = "uid://d2eo4m7g3xhpn"
 [node name="PlayerSkillComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("30_d3rm2")
 black_wave = ExtResource("32_jch3i")
+shout = ExtResource("34_80pew")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
@@ -1489,4 +1565,5 @@ stat_component = NodePath("../PlayerStatsComponent")
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Die" to="PlayerDieComponent" method="_on_die_state_entered"]
 [connection signal="state_entered" from="StateChart/CompoundState/Skill" to="PlayerSkillComponent" method="_on_skill_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Skill" to="PlayerSkillComponent" method="_on_skill_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Skill" to="PlayerSkillComponent" method="_on_skill_state_physics_processing"]

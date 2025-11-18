@@ -23,10 +23,7 @@ func _on_move_state_physics_processing(delta: float) -> void:
 		player_stat_component.skill_type = player_stat_component.SkillType.heal
 		player_stat_component.state_chart.send_event("to_skill")
 		return
-	if Input.is_action_just_pressed("black_wave") and player_stat_component.player_data.soul >= 3:
-		player_stat_component.skill_type = player_stat_component.SkillType.black_wave
-		player_stat_component.state_chart.send_event("to_skill")
-		return	
+
 ## 处理水平移动
 func _handle_horizontal_movement(delta: float, move_vector: float, velocity: Vector2) -> Vector2:
 	if move_vector != 0:

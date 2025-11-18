@@ -24,8 +24,10 @@ var is_hurting: bool
 var skill_type: SkillType
 
 enum SkillType {
+	none = 0,
 	heal = 1,
-	black_wave = 2
+	black_wave = 2,
+	shout = 3
 }
 #func _physics_process(delta: float) -> void:
 	#if state_machine.get_current_node().begins_with("横劈"):
