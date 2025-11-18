@@ -7,19 +7,23 @@ class_name Player
 @onready var attack_area: Area2D = $AttackArea
 @onready var sprite: Sprite2D = $Sprite2D
 
+var was_facing_right := false
+var is_facing_right := false
+
 func _physics_process(_delta: float) -> void:
-	turn_direction()
 	move_and_slide()
 
 ## 旋转方向
 func turn_direction() -> void:
 	## 受伤要方向颠倒
-	var direction = 1 if player_stats_component.is_hurting else -1
-	if velocity.x != 0:
-		sprite.scale.x = direction if velocity.x < 0 else 1
-		hurt_box_area.scale.x = direction if velocity.x < 0 else 1
-		attack_area.scale.x = direction if velocity.x < 0 else 1
-		player_stats_component.flip_h = false if velocity.x < 0 else true
-
+	var direction = player_stats_component.direction_x
+	if direction == 1:
+		was_facing_right = false
+	else:
+		was_facing_right = true
+	if is_facing_right != was_facing_right:
+		is_facing_right = was_facing_right
+		self.scale.x = abs(self.scale.x) * -1
+		
 func add_gravity(delta: float) -> void:
 	self.velocity.y += player_stats_component.gravity * delta

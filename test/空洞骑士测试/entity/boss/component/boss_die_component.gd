@@ -12,3 +12,6 @@ func _on_die_state_entered() -> void:
 	
 func _on_die_state_physics_processing(delta: float) -> void:
 	owner.add_gravity(delta)
+
+func boss_die():
+	EventBugSystem.push_event("boss_end")

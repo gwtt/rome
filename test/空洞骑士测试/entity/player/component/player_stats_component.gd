@@ -13,6 +13,7 @@ class_name PlayerStatsComponent
 @export var state_chart:StateChart
 @export var has_black_dash = true
 
+var direction_x: int
 var flip_h: bool
 var can_dash: bool
 var first_jump_over: bool
@@ -20,7 +21,12 @@ var can_jump: bool
 var can_double_jump: bool
 var is_double_jumping: bool
 var is_hurting: bool
+var skill_type: SkillType
 
+enum SkillType {
+	heal = 1,
+	black_wave = 2
+}
 #func _physics_process(delta: float) -> void:
 	#if state_machine.get_current_node().begins_with("横劈"):
 		#DebugSystem.printHighlight(state_machine.get_current_node(), owner)

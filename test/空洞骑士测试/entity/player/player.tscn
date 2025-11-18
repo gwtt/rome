@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=106 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://r12duvrtfmhb" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士死亡2.png" id="14_sg63p"]
 [ext_resource type="Texture2D" uid="uid://c3dgpdg44bch5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士回血 .png" id="15_23l3w"]
 [ext_resource type="Texture2D" uid="uid://yfr58lc6v5yn" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士回血成功.png" id="16_gljs8"]
+[ext_resource type="Texture2D" uid="uid://dg7v4dtdgkjsh" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士黑波.png" id="17_7a0yg"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="19_rqp6k"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="20_4dg15"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
@@ -31,6 +32,7 @@
 [ext_resource type="Script" uid="uid://d2eo4m7g3xhpn" path="res://test/空洞骑士测试/entity/player/component/player_die_component.gd" id="28_23l3w"]
 [ext_resource type="Script" uid="uid://dke6e1wl5y5b3" path="res://test/空洞骑士测试/entity/player/component/player_stats_component.gd" id="28_bmcp6"]
 [ext_resource type="Script" uid="uid://vmebvy5nah71" path="res://test/空洞骑士测试/entity/player/component/player_heal_component.gd" id="30_d3rm2"]
+[ext_resource type="PackedScene" uid="uid://cket5l78i088f" path="res://test/空洞骑士测试/entity/player/black_wave/black_wave.tscn" id="32_jch3i"]
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
@@ -461,6 +463,73 @@ tracks/3/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gljs8"]
+resource_name = "回血"
+length = 0.90001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.40001002, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_23l3w"), ExtResource("16_gljs8")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSkillComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"heal"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_8ipr7"]
 resource_name = "横劈1"
 length = 0.13334
@@ -613,6 +682,112 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_sg63p"]
+resource_name = "死亡1"
+length = 0.90001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_s5wiw")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bmcp6"]
+resource_name = "死亡2"
+length = 0.40001002
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_sg63p")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jb3x7"]
@@ -828,9 +1003,9 @@ tracks/3/keys = {
 "values": [Vector2(-16, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_sg63p"]
-resource_name = "死亡1"
-length = 0.90001
+[sub_resource type="Animation" id="Animation_d3rm2"]
+resource_name = "黑波"
+length = 0.60001004
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -839,10 +1014,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 0, 1, 2, 0, 1, 2]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -854,7 +1029,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_s5wiw")]
+"values": [ExtResource("17_7a0yg")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -866,113 +1041,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bmcp6"]
-resource_name = "死亡2"
-length = 0.40001002
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_sg63p")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gljs8"]
-resource_name = "回血"
-length = 0.90001
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.40001002, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 0, 0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("15_23l3w"), ExtResource("16_gljs8")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
+"values": [6]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -989,15 +1058,15 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerHealComponent")
+tracks/4/path = NodePath("PlayerSkillComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.7),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"heal"
+"method": &"generate_black_wave"
 }]
 }
 
@@ -1018,7 +1087,8 @@ _data = {
 &"移动": SubResource("Animation_jb3x7"),
 &"站立": SubResource("Animation_u04wk"),
 &"跳跃": SubResource("Animation_o4qbo"),
-&"黑冲": SubResource("Animation_sqeek")
+&"黑冲": SubResource("Animation_sqeek"),
+&"黑波": SubResource("Animation_d3rm2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_23l3w"]
@@ -1065,6 +1135,9 @@ animation = &"跳跃"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d3rm2"]
 animation = &"黑冲"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yo0iw"]
+animation = &"黑波"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r0p4"]
 advance_mode = 2
@@ -1163,7 +1236,7 @@ states/End/position = Vector2(1367, 106)
 "states/受击/node" = SubResource("AnimationNodeAnimation_7a0yg")
 "states/受击/position" = Vector2(816, 493)
 "states/回血/node" = SubResource("AnimationNodeAnimation_80pew")
-"states/回血/position" = Vector2(273, 652)
+"states/回血/position" = Vector2(275, 651)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
 "states/横劈1/position" = Vector2(1216, 378)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
@@ -1180,8 +1253,10 @@ states/End/position = Vector2(1367, 106)
 "states/跳跃/position" = Vector2(278, 293)
 "states/黑冲/node" = SubResource("AnimationNodeAnimation_d3rm2")
 "states/黑冲/position" = Vector2(1226, 27)
+"states/黑波/node" = SubResource("AnimationNodeAnimation_yo0iw")
+"states/黑波/position" = Vector2(268, 713)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii"), "死亡1", "死亡2", SubResource("AnimationNodeStateMachineTransition_vc67u")]
-graph_offset = Vector2(-221, 49)
+graph_offset = Vector2(-184, 587)
 
 [node name="Player" type="CharacterBody2D" groups=["空洞骑士"]]
 collision_layer = 512
@@ -1283,10 +1358,10 @@ to = NodePath("../../MoveMent")
 event = &"to_movement"
 delay_in_seconds = "0.0"
 
-[node name="to_heal" type="Node" parent="StateChart/CompoundState/Normal"]
+[node name="to_skill" type="Node" parent="StateChart/CompoundState/Normal"]
 script = ExtResource("23_rp4ax")
-to = NodePath("../../Heal")
-event = &"to_heal"
+to = NodePath("../../Skill")
+event = &"to_skill"
 delay_in_seconds = "0.0"
 
 [node name="to_hurt" type="Node" parent="StateChart/CompoundState/Normal"]
@@ -1319,16 +1394,16 @@ delay_in_seconds = "0.0"
 [node name="Die" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("22_7r0p4")
 
-[node name="Heal" type="Node" parent="StateChart/CompoundState"]
+[node name="Skill" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("22_7r0p4")
 
-[node name="to_normal" type="Node" parent="StateChart/CompoundState/Heal"]
+[node name="to_normal" type="Node" parent="StateChart/CompoundState/Skill"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../Normal")
 event = &"to_normal"
 delay_in_seconds = "0.0"
 
-[node name="to_hurt" type="Node" parent="StateChart/CompoundState/Heal"]
+[node name="to_hurt" type="Node" parent="StateChart/CompoundState/Skill"]
 script = ExtResource("23_rp4ax")
 to = NodePath("../../Hurt")
 event = &"to_hurt"
@@ -1390,8 +1465,9 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://d2eo4m7g3xhpn"
 
-[node name="PlayerHealComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "player_stat_component")]
+[node name="PlayerSkillComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("30_d3rm2")
+black_wave = ExtResource("32_jch3i")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
@@ -1412,4 +1488,5 @@ stat_component = NodePath("../PlayerStatsComponent")
 [connection signal="state_entered" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_entered"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Hurt" to="PlayerHurtComponent" method="_on_hurt_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Die" to="PlayerDieComponent" method="_on_die_state_entered"]
-[connection signal="state_physics_processing" from="StateChart/CompoundState/Heal" to="PlayerHealComponent" method="_on_heal_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Skill" to="PlayerSkillComponent" method="_on_skill_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Skill" to="PlayerSkillComponent" method="_on_skill_state_physics_processing"]
