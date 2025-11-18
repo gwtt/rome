@@ -19,7 +19,7 @@ func _on_black_wave_hit_box_area_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if not enemy:
 		return
-	var damage_value = 20
+	var damage_value = 30
 	
 	# 查找敌人的 DamageableComponent（支持 Boss、小怪等所有可受伤实体）
 	var damageable = _find_damageable_component(enemy)
