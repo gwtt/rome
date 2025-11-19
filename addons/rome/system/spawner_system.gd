@@ -25,16 +25,17 @@ func spawn(scene: PackedScene, parent: Node = null, global_position: Vector2 = V
 			push_error("无法找到有效的父节点")
 			instance.queue_free()
 			return null
-	
-	# 添加到场景树
-	target_parent.add_child(instance)
-	
+
 	# 设置位置
 	if instance is Node2D:
 		if global_position != Vector2.ZERO:
 			instance.global_position = global_position
 		else:
-			instance.position = local_position
+			instance.position = local_position	
+	# 添加到场景树
+	target_parent.add_child(instance)
+	
+
 	
 	return instance
 

@@ -57,6 +57,8 @@ func _on_attack_area_area_entered(_area: Area2D) -> void:
 		owner.velocity = velocity
 		state_machine.travel("下劈")
 		return
+	if current_anim == "上劈":
+		return
 	if player_stat_component.direction_x == 1:
 		owner.global_position.x -= 5
 	else:

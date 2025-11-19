@@ -27,7 +27,8 @@ enum SkillType {
 	none = 0,
 	heal = 1,
 	black_wave = 2,
-	shout = 3
+	shout = 3,
+	crash_down = 4
 }
 #func _physics_process(delta: float) -> void:
 	#if state_machine.get_current_node().begins_with("横劈"):
