@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=122 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -31,13 +31,16 @@
 [ext_resource type="Script" uid="uid://q5enybht51e1" path="res://test/空洞骑士测试/entity/boss/component/boss_ready_component.gd" id="18_uienk"]
 [ext_resource type="Texture2D" uid="uid://csivqaiv44ce" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟死亡1.png" id="19_l38h4"]
 [ext_resource type="Texture2D" uid="uid://1sl0i8wl86gv" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟死亡2.png" id="20_ilxn1"]
+[ext_resource type="Texture2D" uid="uid://cumd0w4bj2u48" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟战吼准备.png" id="21_s2j24"]
 [ext_resource type="Script" uid="uid://doky6p2ypey3b" path="res://test/空洞骑士测试/entity/boss/component/boss_move_component.gd" id="21_y602f"]
 [ext_resource type="Script" uid="uid://ctv33b6hvd2tt" path="res://test/空洞骑士测试/entity/boss/component/boss_jump_component.gd" id="22_6wr4x"]
+[ext_resource type="Texture2D" uid="uid://c54c3ttd5bq2f" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟战吼.png" id="22_xekqd"]
 [ext_resource type="Script" uid="uid://cwin5qmcb828y" path="res://test/空洞骑士测试/entity/boss/component/boss_punch_down_component.gd" id="26_sdng6"]
 [ext_resource type="PackedScene" uid="uid://dnyn2j3klapcu" path="res://test/空洞骑士测试/entity/boss/bone_spur/bone_spur.tscn" id="27_43w2p"]
 [ext_resource type="Resource" uid="uid://b2ny5u6wlqqxk" path="res://test/空洞骑士测试/entity/boss/data/boss_data.tres" id="28_mxjbp"]
 [ext_resource type="Script" uid="uid://wwnvhdst5ixn" path="res://test/空洞骑士测试/entity/boss/component/boss_back_jump_component.gd" id="29_m82cs"]
 [ext_resource type="PackedScene" uid="uid://c30gvvdcrlpkw" path="res://test/空洞骑士测试/entity/boss/light_wave/light_wave.tscn" id="31_m6pio"]
+[ext_resource type="PackedScene" uid="uid://dnswobpc64ubl" path="res://test/空洞骑士测试/entity/boss/shout/shout.tscn" id="35_cdcx1"]
 [ext_resource type="Script" uid="uid://hax42vxy6lq3" path="res://test/空洞骑士测试/entity/boss/component/boss_dash_component.gd" id="35_g53qt"]
 [ext_resource type="Script" uid="uid://buyxt6jt66aqi" path="res://test/空洞骑士测试/entity/boss/component/boss_die_component.gd" id="39_ilxn1"]
 [ext_resource type="Script" uid="uid://buaa11rwwgxrs" path="res://test/空洞骑士测试/entity/boss/component/boss_stiff_component.gd" id="41_h5d5k"]
@@ -1468,6 +1471,181 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_6duba"]
+resource_name = "战吼准备"
+length = 1.00001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_s2j24")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-8.381903e-09, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s2j24"]
+resource_name = "战吼"
+length = 3.20001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_xekqd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 4, 4, 4, 4, 4, 4, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4000001, 1.5, 1.6, 1.7, 1.8000001, 1.9000001, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6000001, 2.7, 2.8, 2.8999999, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 0.8, 1.2, 1.6, 2, 2.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16), Vector2(0, -16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HrifHitBoxArea/HrifHitBox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StateChart")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"to_idle"],
+"method": &"send_event"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossReadyComponent")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"generate_shout"
+}, {
+"args": [],
+"method": &"delete_shout"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BossReadyComponent")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3],
+"method": &"set_start_value"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6k83"]
 _data = {
 &"RESET": SubResource("Animation_yfu4a"),
@@ -1483,6 +1661,8 @@ _data = {
 &"冲刺准备": SubResource("Animation_bgdh0"),
 &"后跳": SubResource("Animation_m82cs"),
 &"后跳下落": SubResource("Animation_25k18"),
+&"战吼": SubResource("Animation_s2j24"),
+&"战吼准备": SubResource("Animation_6duba"),
 &"挥砍": SubResource("Animation_qfvvy"),
 &"挥砍准备": SubResource("Animation_l0cbf"),
 &"死亡": SubResource("Animation_2gqqf"),
@@ -1533,6 +1713,12 @@ animation = &"后跳"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgdh0"]
 animation = &"后跳下落"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xekqd"]
+animation = &"战吼"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cdcx1"]
+animation = &"战吼准备"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uienk"]
 animation = &"挥砍"
@@ -1617,6 +1803,10 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6duba"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rvvdo"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ibsou"]
 states/End/position = Vector2(896, 100)
 states/Start/position = Vector2(-93, 100)
@@ -1648,6 +1838,10 @@ states/Start/position = Vector2(-93, 100)
 "states/后跳/position" = Vector2(248, 289)
 "states/后跳下落/node" = SubResource("AnimationNodeAnimation_bgdh0")
 "states/后跳下落/position" = Vector2(7, 470)
+"states/战吼/node" = SubResource("AnimationNodeAnimation_xekqd")
+"states/战吼/position" = Vector2(93, 887)
+"states/战吼准备/node" = SubResource("AnimationNodeAnimation_cdcx1")
+"states/战吼准备/position" = Vector2(-19, 887)
 "states/挥砍/node" = SubResource("AnimationNodeAnimation_uienk")
 "states/挥砍/position" = Vector2(740, 289)
 "states/挥砍准备/node" = SubResource("AnimationNodeAnimation_djb4x")
@@ -1662,8 +1856,8 @@ states/Start/position = Vector2(-93, 100)
 "states/站立/position" = Vector2(641, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
 "states/跳跃/position" = Vector2(389, 289)
-transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k"), "僵直", "死亡", SubResource("AnimationNodeStateMachineTransition_cb0xu"), "僵直2", "站立", SubResource("AnimationNodeStateMachineTransition_6duba")]
-graph_offset = Vector2(-195, 163)
+transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k"), "僵直", "死亡", SubResource("AnimationNodeStateMachineTransition_cb0xu"), "僵直2", "站立", SubResource("AnimationNodeStateMachineTransition_6duba"), "战吼准备", "战吼", SubResource("AnimationNodeStateMachineTransition_rvvdo")]
+graph_offset = Vector2(-600, 460)
 
 [sub_resource type="Resource" id="Resource_6duba"]
 script = ExtResource("43_s2j24")
@@ -1695,7 +1889,7 @@ collision_mask = 0
 polygon = PackedVector2Array(-7, -22, -7, 0, 7, 0, 7, -22)
 
 [node name="HrifHitBoxArea" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 10
 collision_mask = 0
 
 [node name="HrifHitBox" type="CollisionPolygon2D" parent="HrifHitBoxArea"]
@@ -1931,6 +2125,7 @@ metadata/_custom_type_script = "uid://dcvcfvoqxltxs"
 
 [node name="BossReadyComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
 script = ExtResource("18_uienk")
+shout = ExtResource("35_cdcx1")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")

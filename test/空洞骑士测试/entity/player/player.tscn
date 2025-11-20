@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=129 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="21_4dg15"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="22_7r0p4"]
 [ext_resource type="PackedScene" uid="uid://hb41o0gfu5dx" path="res://test/空洞骑士测试/entity/player/player_black_dash_component.tscn" id="22_bbpi2"]
+[ext_resource type="Texture2D" uid="uid://drg7uh7nb3yat" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士抬头.png" id="22_m4j00"]
 [ext_resource type="Resource" uid="uid://dcoi48co37lej" path="res://test/空洞骑士测试/entity/player/data/player_data.tres" id="22_ohcur"]
 [ext_resource type="Script" uid="uid://ck0mm7jxd7gia" path="res://test/空洞骑士测试/entity/player/component/player_hurt_component.gd" id="23_7r0p4"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="23_rp4ax"]
@@ -37,6 +38,7 @@
 [ext_resource type="Script" uid="uid://dke6e1wl5y5b3" path="res://test/空洞骑士测试/entity/player/component/player_stats_component.gd" id="28_bmcp6"]
 [ext_resource type="Script" uid="uid://vmebvy5nah71" path="res://test/空洞骑士测试/entity/player/component/player_skill_component.gd" id="30_d3rm2"]
 [ext_resource type="PackedScene" uid="uid://cket5l78i088f" path="res://test/空洞骑士测试/entity/player/black_wave/black_wave.tscn" id="32_jch3i"]
+[ext_resource type="PackedScene" uid="uid://e50kgcglv7co" path="res://test/空洞骑士测试/entity/player/weapon_clash_effect/weapon_clash_effect.tscn" id="33_pgrj8"]
 [ext_resource type="PackedScene" uid="uid://dlnk1x6giq68k" path="res://test/空洞骑士测试/entity/player/shout/shout.tscn" id="34_80pew"]
 [ext_resource type="PackedScene" uid="uid://2phm1pupopwj" path="res://test/空洞骑士测试/entity/player/crash_down/crash_down.tscn" id="38_0upu1"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="40_kok1j"]
@@ -1347,6 +1349,73 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_pgrj8"]
+resource_name = "抬头"
+length = 2.10001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_m4j00")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerMoveComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2],
+"method": &"set_state"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4qbo"]
 _data = {
 &"RESET": SubResource("Animation_0r08a"),
@@ -1361,6 +1430,7 @@ _data = {
 &"冲刺": SubResource("Animation_hb5gd"),
 &"受击": SubResource("Animation_7r0p4"),
 &"回血": SubResource("Animation_gljs8"),
+&"抬头": SubResource("Animation_pgrj8"),
 &"横劈1": SubResource("Animation_8ipr7"),
 &"横劈2": SubResource("Animation_vcee1"),
 &"死亡1": SubResource("Animation_sg63p"),
@@ -1404,6 +1474,9 @@ animation = &"受击"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_80pew"]
 animation = &"回血"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4j00"]
+animation = &"抬头"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sg63p"]
 animation = &"横劈1"
@@ -1543,6 +1616,8 @@ states/End/position = Vector2(1367, 106)
 "states/受击/position" = Vector2(816, 493)
 "states/回血/node" = SubResource("AnimationNodeAnimation_80pew")
 "states/回血/position" = Vector2(268, 645)
+"states/抬头/node" = SubResource("AnimationNodeAnimation_m4j00")
+"states/抬头/position" = Vector2(231, 921)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
 "states/横劈1/position" = Vector2(1216, 378)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
@@ -1586,7 +1661,7 @@ polygon = PackedVector2Array(-4, 0, -4, -17, 5, -17, 5, 0)
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 12
 
 [node name="Attack" type="CollisionPolygon2D" parent="AttackArea"]
 polygon = PackedVector2Array(6, -24, 24, -24, 38, -16, 38, -8, 29, -3, 6, -3)
@@ -1757,8 +1832,11 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath(".")
 metadata/_custom_type_script = "uid://dke6e1wl5y5b3"
 
-[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("noise_emitter", "animation_player", "animation_tree", "player_stat_component")]
+[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("attack_area", "hurt_box", "noise_emitter", "animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("24_ohcur")
+attack_area = NodePath("../AttackArea")
+weapon_slash_effect = ExtResource("33_pgrj8")
+hurt_box = NodePath("../HurtBoxArea/HurtBox")
 noise_emitter = NodePath("../PhantomCameraNoiseEmitter2D")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")

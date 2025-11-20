@@ -1,7 +1,16 @@
 extends BaseComponent
 class_name PlayerMoveComponent
 
+var state = 0
+
+func _ready() -> void:
+	EventBugSystem.subscribe("boss_start", on_boss_start)
+
 func _on_move_state_physics_processing(delta: float) -> void:
+	if state == 1:
+		owner.velocity.x = 0 
+		state_machine.travel("抬头")
+		return
 	if Input.is_action_just_pressed("jump"):
 		player_stat_component.state_chart.send_event("to_jump")
 		return
@@ -36,3 +45,11 @@ func _handle_horizontal_movement(delta: float, move_vector: float, velocity: Vec
 		# 减速（摩擦力）
 		velocity.x = lerp(0.0, velocity.x, pow(2, -50 * delta))
 	return velocity
+
+func set_state(value) -> void:
+	state = value
+	return
+
+func on_boss_start() -> void:
+	await get_tree().create_timer(0.5).timeout
+	state = 1
