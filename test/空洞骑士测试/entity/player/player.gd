@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var player_stats_component: PlayerStatsComponent = $PlayerStatsComponent
+@export var noise_emitter: PhantomCameraNoiseEmitter2D
 
+@onready var player_stats_component: PlayerStatsComponent = $PlayerStatsComponent
 @onready var hurt_box_area: Area2D = $HurtBoxArea
 @onready var attack_area: Area2D = $AttackArea
 @onready var sprite: Sprite2D = $Sprite2D
@@ -27,3 +28,12 @@ func turn_direction() -> void:
 		
 func add_gravity(delta: float) -> void:
 	self.velocity.y += player_stats_component.gravity * delta
+
+func shake_camera(amplitude: float) -> void:
+	noise_emitter.get_noise().amplitude = amplitude
+	noise_emitter.emit()
+
+func stop_time(time_scale: float) -> void:
+	Engine.time_scale = time_scale
+	await get_tree().create_timer(0.03).timeout
+	Engine.time_scale = 1

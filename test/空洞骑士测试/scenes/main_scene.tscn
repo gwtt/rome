@@ -38,12 +38,15 @@ tile_set = ExtResource("2_sx4d4")
 physics_interpolation_mode = 1
 position = Vector2(-96, -72)
 process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_4axh6")
+interpolation_mode = 2
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Doors" type="Node2D" parent="."]
@@ -75,6 +78,7 @@ position = Vector2(-424, -72)
 script = ExtResource("6_4c36b")
 tween_resource = SubResource("Resource_f67no")
 draw_limits = true
+noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Path2D" type="Path2D" parent="."]

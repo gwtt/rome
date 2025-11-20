@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=114 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -41,6 +41,8 @@
 [ext_resource type="Script" uid="uid://hax42vxy6lq3" path="res://test/空洞骑士测试/entity/boss/component/boss_dash_component.gd" id="35_g53qt"]
 [ext_resource type="Script" uid="uid://buyxt6jt66aqi" path="res://test/空洞骑士测试/entity/boss/component/boss_die_component.gd" id="39_ilxn1"]
 [ext_resource type="Script" uid="uid://buaa11rwwgxrs" path="res://test/空洞骑士测试/entity/boss/component/boss_stiff_component.gd" id="41_h5d5k"]
+[ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="42_6duba"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="43_s2j24"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
 shader = ExtResource("2_pdhu0")
@@ -586,6 +588,34 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [20.0],
+"method": &"shake_camera"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.1],
+"method": &"stop_time"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_yh704"]
@@ -1134,6 +1164,34 @@ tracks/5/keys = {
 "method": &"boss_die"
 }]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [40.0],
+"method": &"shake_camera"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.1],
+"method": &"stop_time"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_m6pio"]
 resource_name = "白波"
@@ -1607,9 +1665,18 @@ states/Start/position = Vector2(-93, 100)
 transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k"), "僵直", "死亡", SubResource("AnimationNodeStateMachineTransition_cb0xu"), "僵直2", "站立", SubResource("AnimationNodeStateMachineTransition_6duba")]
 graph_offset = Vector2(-195, 163)
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("boss_stat_component", "hrif_hit_box_area")]
+[sub_resource type="Resource" id="Resource_6duba"]
+script = ExtResource("43_s2j24")
+amplitude = 40.0
+frequency = 30.0
+randomize_noise_seed = 1
+noise_seed = 296
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter", "boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
 script = ExtResource("1_yfu4a")
+noise_emitter = NodePath("PhantomCameraNoiseEmitter2D")
 boss_stat_component = NodePath("BossStatsComponent")
 hrif_hit_box_area = NodePath("HrifHitBoxArea/HrifHitBox")
 
@@ -1923,6 +1990,13 @@ animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")
 metadata/_custom_type_script = "uid://buaa11rwwgxrs"
+
+[node name="PhantomCameraNoiseEmitter2D" type="Node2D" parent="."]
+script = ExtResource("42_6duba")
+noise = SubResource("Resource_6duba")
+duration = 0.1
+decay_time = 0.1
+metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]

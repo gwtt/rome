@@ -48,17 +48,20 @@ func heal() -> void:
 
 var black_wave_interval := 20
 func generate_black_wave() -> void:
+	owner.shake_camera(40.0)
 	var wave := SpawnerSystem.spawn(black_wave, owner.get_parent(), owner.global_position + Vector2(black_wave_interval * player_stat_component.direction_x , 0))
 	wave.direction = player_stat_component.direction_x
 	player_stat_component.player_data.soul -= 3
 	player_stat_component.state_chart.send_event("to_normal")
 
 func generate_shout() -> void:
+	owner.shake_camera(40.0)
 	var shout_scene := SpawnerSystem.spawn(shout, owner.get_parent(), owner.global_position)
 	player_stat_component.player_data.soul -= 3
 	shout_scene.tree_exiting.connect(func(): player_stat_component.state_chart.send_event("to_normal"))
 
 func generate_crash_down() -> void:
+	owner.shake_camera(40.0)	
 	var crash_down_scene := SpawnerSystem.spawn(crash_down, owner.get_parent(), owner.global_position)
 	crash_down_scene.tree_exiting.connect(
 		func():

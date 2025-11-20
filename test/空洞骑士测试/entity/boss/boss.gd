@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
+@export var noise_emitter: PhantomCameraNoiseEmitter2D
 @export var boss_stat_component: BossStatsComponent
 @export var hrif_hit_box_area: CollisionPolygon2D
 @export var gravity := 1000
+
 var player:Player
 var was_facing_right := false
 var is_facing_right := false
@@ -30,3 +32,12 @@ func turn_direction() -> void:
 
 func add_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
+
+func shake_camera(amplitude: float) -> void:
+	noise_emitter.get_noise().amplitude = amplitude
+	noise_emitter.emit()
+
+func stop_time(time_scale: float) -> void:
+	Engine.time_scale = time_scale
+	await get_tree().create_timer(0.03).timeout
+	Engine.time_scale = 1

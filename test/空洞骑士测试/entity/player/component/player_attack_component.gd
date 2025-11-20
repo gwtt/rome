@@ -12,6 +12,7 @@ var attack_damage: Dictionary = {
 	"上劈": 13,
 	"下劈": 13
 }
+@export var noise_emitter: PhantomCameraNoiseEmitter2D
 
 func _on_attack_state_physics_processing(_delta: float) -> void:
 	attack_time += _delta
@@ -31,6 +32,7 @@ func _on_attack_state_physics_processing(_delta: float) -> void:
 	
 ## https://github.com/godotengine/godot/issues/110128 bug问题
 func _on_attack_area_area_entered(_area: Area2D) -> void:
+	owner.shake_camera(5.0)
 	# 获取被攻击的敌人实体（HurtBoxArea 的父节点）
 	var enemy = _area.get_parent()
 	if not enemy:

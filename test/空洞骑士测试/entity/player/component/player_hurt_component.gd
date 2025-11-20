@@ -10,6 +10,7 @@ const HURT_TOTAL = 1
 var hurt_time: float = 0
 var TWINKLE_INTERVAL: float = 0.1
 func _on_hurt_state_entered() -> void:
+	owner.shake_camera(10.0)
 	player_stat_component.player_data.health -= 5
 	if player_stat_component.player_data.health <= 0:
 		player_stat_component.state_chart.send_event("to_die")
