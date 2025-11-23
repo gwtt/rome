@@ -3,6 +3,7 @@ class_name BossHurtComponent
 
 @export var sprite: Sprite2D
 @export var boss_stats_component: BossStatsComponent
+@export var hit_particle: PackedScene
 
 const HURT_INTERVAL = 0.1
 
@@ -26,7 +27,8 @@ func hurt() -> void:
 func take_damage(damage_info: DamageInfo) -> void:
 	if not boss_stats_component or not boss_stats_component.boss_data:
 		return
-
+	
+	SpawnerSystem.spawn(hit_particle, owner)
 	# 记录扣除血量前的血量
 	var previous_health = boss_stats_component.boss_data.health
 	
