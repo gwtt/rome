@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var noise_emitter: PhantomCameraNoiseEmitter2D
+@export var audio_system: Node
 @export var boss_stat_component: BossStatsComponent
 @export var hrif_hit_box_area: CollisionPolygon2D
 @export var gravity := 1000

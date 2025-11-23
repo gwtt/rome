@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvor3hwhm2l8e"]
+[gd_scene load_steps=14 format=3 uid="uid://cvor3hwhm2l8e"]
 
 [ext_resource type="Texture2D" uid="uid://0m6bpnlv2fec" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/object/铁门.png" id="1_ms60n"]
 [ext_resource type="Script" uid="uid://dkf46ggtayxyp" path="res://test/空洞骑士测试/prop/door/door.gd" id="1_se5kv"]
+[ext_resource type="Script" uid="uid://da3t7fi36x8vc" path="res://addons/rome/system/audio_system.gd" id="3_hth8c"]
+[ext_resource type="Script" uid="uid://c26svf7yyt0nq" path="res://addons/rome/system/audio/audio_system_2d.gd" id="4_i6v2r"]
+[ext_resource type="AudioStream" uid="uid://6ru2gdpyq6df" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/other_sound/铁门关闭.MP3" id="5_5s2y4"]
+[ext_resource type="AudioStream" uid="uid://c2w3jksby8bj0" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/other_sound/铁门打开.MP3" id="6_5s2y4"]
 
 [sub_resource type="Animation" id="Animation_se5kv"]
 length = 0.001
@@ -118,6 +122,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [PackedVector2Array(0, 0), PackedVector2Array(0, 0, 16, 0, 16, 48, 0, 48)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["铁门关闭"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ms60n"]
 resource_name = "open"
@@ -183,6 +201,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, true, true]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioComponent")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["铁门打开"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_se5kv"]
 _data = {
@@ -193,6 +225,18 @@ _data = {
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ms60n"]
 points = PackedVector2Array(0, 0)
+
+[sub_resource type="Resource" id="Resource_vy4ua"]
+script = ExtResource("4_i6v2r")
+audio_name = "铁门关闭"
+audio_stream = ExtResource("5_5s2y4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_saojv"]
+script = ExtResource("4_i6v2r")
+audio_name = "铁门打开"
+audio_stream = ExtResource("6_5s2y4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [node name="Door" type="CharacterBody2D"]
 script = ExtResource("1_se5kv")
@@ -210,3 +254,8 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("ConvexPolygonShape2D_ms60n")
+
+[node name="AudioComponent" type="Node" parent="." node_paths=PackedStringArray("target_parent_audios_2d")]
+script = ExtResource("3_hth8c")
+target_parent_audios_2d = NodePath("..")
+audios_2d = Array[ExtResource("4_i6v2r")]([SubResource("Resource_vy4ua"), SubResource("Resource_saojv")])

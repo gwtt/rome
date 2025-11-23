@@ -27,7 +27,7 @@ func hurt() -> void:
 func take_damage(damage_info: DamageInfo) -> void:
 	if not boss_stats_component or not boss_stats_component.boss_data:
 		return
-	
+	owner.audio_system.play_audio_2d("敌人受击")
 	SpawnerSystem.spawn(hit_particle, owner)
 	# 记录扣除血量前的血量
 	var previous_health = boss_stats_component.boss_data.health

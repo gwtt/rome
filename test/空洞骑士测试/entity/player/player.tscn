@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=167 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -43,6 +43,26 @@
 [ext_resource type="PackedScene" uid="uid://2phm1pupopwj" path="res://test/空洞骑士测试/entity/player/crash_down/crash_down.tscn" id="38_0upu1"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="40_kok1j"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="41_pgrj8"]
+[ext_resource type="PackedScene" uid="uid://ky8uxivi0xxa" path="res://test/空洞骑士测试/scenes/audio_system.tscn" id="44_q2b3l"]
+[ext_resource type="Script" uid="uid://c26svf7yyt0nq" path="res://addons/rome/system/audio/audio_system_2d.gd" id="52_ytiye"]
+[ext_resource type="AudioStream" uid="uid://cybi3dk1r8lyp" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/上劈.MP3" id="53_7yfnh"]
+[ext_resource type="AudioStream" uid="uid://dmqtnj5u15n7a" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/上吼.MP3" id="54_q1y3g"]
+[ext_resource type="AudioStream" uid="uid://cb6lhug4p10ha" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/下劈.MP3" id="55_dsqqg"]
+[ext_resource type="AudioStream" uid="uid://cpqq6popg5kah" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/下砸.MP3" id="56_pkrnl"]
+[ext_resource type="AudioStream" uid="uid://b6dff630i37td" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/下砸落地.MP3" id="57_f6kos"]
+[ext_resource type="AudioStream" uid="uid://bvo0gdvx1wn6d" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/二段跳.MP3" id="58_e7jtr"]
+[ext_resource type="AudioStream" uid="uid://dowduhxk5g13y" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/僵直.MP3" id="59_06pyj"]
+[ext_resource type="AudioStream" uid="uid://b7a3bxrtwfbpn" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/冲刺.MP3" id="60_r8u0l"]
+[ext_resource type="AudioStream" uid="uid://bnu27grqwfpmn" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/回血.MP3" id="61_j7oju"]
+[ext_resource type="AudioStream" uid="uid://cgw4yu0wc6qj1" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/回血蓄力.MP3" id="62_43k5w"]
+[ext_resource type="AudioStream" uid="uid://kofvpwcqymam" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/拼刀.MP3" id="63_ndivw"]
+[ext_resource type="AudioStream" uid="uid://cr7xb50awt807" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/拼刀2.MP3" id="64_dof6y"]
+[ext_resource type="AudioStream" uid="uid://b3xh07cdilkr0" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/横劈1.MP3" id="65_jkr7g"]
+[ext_resource type="AudioStream" uid="uid://cmwqcyhq3lu80" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/横劈2.MP3" id="66_yxaei"]
+[ext_resource type="AudioStream" uid="uid://c7t8xwfgi3a6h" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/玩家受伤.MP3" id="67_o8t6o"]
+[ext_resource type="AudioStream" uid="uid://c7dmpmnhh3qyp" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/黑冲.MP3" id="68_rd71k"]
+[ext_resource type="AudioStream" uid="uid://c8hwo6fp8dmxx" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/黑冲cd恢复.MP3" id="69_8tm8c"]
+[ext_resource type="AudioStream" uid="uid://dvbjapo8r278h" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/黑波.MP3" id="70_sqt6p"]
 
 [sub_resource type="Animation" id="Animation_0r08a"]
 length = 0.001
@@ -183,6 +203,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["上劈"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_80pew"]
 resource_name = "上吼"
@@ -248,6 +282,20 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"generate_shout"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["上吼"],
+"method": &"play_audio_2d"
 }]
 }
 
@@ -326,6 +374,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["下劈"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_0bwyj"]
@@ -446,6 +508,20 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"generate_crash_down"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["下砸落地"],
+"method": &"play_audio_2d"
 }]
 }
 
@@ -607,6 +683,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioSystem")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["二段跳"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_hb5gd"]
 resource_name = "冲刺"
@@ -660,6 +750,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-16, 0)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioSystem")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["冲刺"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_7r0p4"]
 resource_name = "受击"
@@ -712,6 +816,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioSystem")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["玩家受伤"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_gljs8"]
@@ -778,6 +896,90 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"heal"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["回血蓄力"],
+"method": &"play_audio_2d"
+}, {
+"args": ["回血"],
+"method": &"play_audio_2d"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pgrj8"]
+resource_name = "抬头"
+length = 2.10001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_m4j00")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerMoveComponent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2],
+"method": &"set_state"
 }]
 }
 
@@ -857,6 +1059,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["横劈1"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vcee1"]
 resource_name = "横劈2"
@@ -933,6 +1149,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"横劈2"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_sg63p"]
@@ -1281,6 +1511,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-16, 0)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioSystem")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["黑冲"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_d3rm2"]
 resource_name = "黑波"
@@ -1348,71 +1592,18 @@ tracks/4/keys = {
 "method": &"generate_black_wave"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_pgrj8"]
-resource_name = "抬头"
-length = 2.10001
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("22_m4j00")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerMoveComponent")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2.1),
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.33333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [2],
-"method": &"set_state"
+"args": ["黑波"],
+"method": &"play_audio_2d"
 }]
 }
 
@@ -1647,6 +1838,113 @@ randomize_noise_seed = 1
 noise_seed = 520
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
+[sub_resource type="Resource" id="Resource_bn8qb"]
+script = ExtResource("52_ytiye")
+audio_name = "上劈"
+audio_stream = ExtResource("53_7yfnh")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_4l6lw"]
+script = ExtResource("52_ytiye")
+audio_name = "上吼"
+audio_stream = ExtResource("54_q1y3g")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_wanri"]
+script = ExtResource("52_ytiye")
+audio_name = "下劈"
+audio_stream = ExtResource("55_dsqqg")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_yunnx"]
+script = ExtResource("52_ytiye")
+audio_name = "下砸"
+audio_stream = ExtResource("56_pkrnl")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_h68r8"]
+script = ExtResource("52_ytiye")
+audio_name = "下砸落地"
+audio_stream = ExtResource("57_f6kos")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_0xi0m"]
+script = ExtResource("52_ytiye")
+audio_name = "二段跳"
+audio_stream = ExtResource("58_e7jtr")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_nwu3c"]
+script = ExtResource("52_ytiye")
+audio_name = "僵直"
+audio_stream = ExtResource("59_06pyj")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_7wlv4"]
+script = ExtResource("52_ytiye")
+audio_name = "冲刺"
+audio_stream = ExtResource("60_r8u0l")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_rn66o"]
+script = ExtResource("52_ytiye")
+audio_name = "回血"
+audio_stream = ExtResource("61_j7oju")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_p8k33"]
+script = ExtResource("52_ytiye")
+audio_name = "回血蓄力"
+audio_stream = ExtResource("62_43k5w")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5ucv4"]
+streams_count = 2
+stream_0/stream = ExtResource("63_ndivw")
+stream_1/stream = ExtResource("64_dof6y")
+
+[sub_resource type="Resource" id="Resource_5ucv4"]
+script = ExtResource("52_ytiye")
+audio_name = "拼刀"
+audio_stream = SubResource("AudioStreamRandomizer_5ucv4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_47npi"]
+script = ExtResource("52_ytiye")
+audio_name = "横劈1"
+audio_stream = ExtResource("65_jkr7g")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_mbqyn"]
+script = ExtResource("52_ytiye")
+audio_name = "横劈2"
+audio_stream = ExtResource("66_yxaei")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_w5yga"]
+script = ExtResource("52_ytiye")
+audio_name = "玩家受伤"
+audio_stream = ExtResource("67_o8t6o")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_mn5ec"]
+script = ExtResource("52_ytiye")
+audio_name = "黑冲"
+audio_stream = ExtResource("68_rd71k")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_k8fio"]
+script = ExtResource("52_ytiye")
+audio_name = "黑冲cd恢复"
+audio_stream = ExtResource("69_8tm8c")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_bgbgi"]
+script = ExtResource("52_ytiye")
+audio_name = "黑波"
+audio_stream = ExtResource("70_sqt6p")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter") groups=["空洞骑士"]]
 collision_layer = 512
 script = ExtResource("1_ohcur")
@@ -1832,11 +2130,12 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath(".")
 metadata/_custom_type_script = "uid://dke6e1wl5y5b3"
 
-[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("attack_area", "hurt_box", "noise_emitter", "animation_player", "animation_tree", "player_stat_component")]
+[node name="PlayerAttackComponent" type="Node" parent="." node_paths=PackedStringArray("attack_area", "hurt_box", "audio_system", "noise_emitter", "animation_player", "animation_tree", "player_stat_component")]
 script = ExtResource("24_ohcur")
 attack_area = NodePath("../AttackArea")
 weapon_slash_effect = ExtResource("33_pgrj8")
 hurt_box = NodePath("../HurtBoxArea/HurtBox")
+audio_system = NodePath("../AudioSystem")
 noise_emitter = NodePath("../PhantomCameraNoiseEmitter2D")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
@@ -1870,8 +2169,9 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://vmebvy5nah71"
 
-[node name="PlayerBlackDashComponent" parent="." node_paths=PackedStringArray("stat_component") instance=ExtResource("22_bbpi2")]
+[node name="PlayerBlackDashComponent" parent="." node_paths=PackedStringArray("stat_component", "audio_system") instance=ExtResource("22_bbpi2")]
 stat_component = NodePath("../PlayerStatsComponent")
+audio_system = NodePath("../AudioSystem")
 
 [node name="PhantomCameraNoiseEmitter2D" type="Node2D" parent="."]
 script = ExtResource("40_kok1j")
@@ -1879,6 +2179,12 @@ noise = SubResource("Resource_m4j00")
 duration = 0.1
 decay_time = 0.1
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioSystem" parent="." node_paths=PackedStringArray("target_parent_audios_2d") instance=ExtResource("44_q2b3l")]
+target_parent_audios_2d = NodePath("..")
+audios_2d = Array[ExtResource("52_ytiye")]([SubResource("Resource_bn8qb"), SubResource("Resource_4l6lw"), SubResource("Resource_wanri"), SubResource("Resource_yunnx"), SubResource("Resource_h68r8"), SubResource("Resource_0xi0m"), SubResource("Resource_nwu3c"), SubResource("Resource_7wlv4"), SubResource("Resource_rn66o"), SubResource("Resource_p8k33"), SubResource("Resource_5ucv4"), SubResource("Resource_47npi"), SubResource("Resource_mbqyn"), SubResource("Resource_w5yga"), SubResource("Resource_mn5ec"), SubResource("Resource_k8fio"), SubResource("Resource_bgbgi")])
 
 [connection signal="area_entered" from="HurtBoxArea" to="PlayerHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="area_entered" from="AttackArea" to="PlayerAttackComponent" method="_on_attack_area_area_entered"]

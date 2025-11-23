@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ky8uxivi0xxa"]
+
+[ext_resource type="Script" uid="uid://da3t7fi36x8vc" path="res://addons/rome/system/audio_system.gd" id="1_aquh8"]
+
+[node name="AudioSystem" type="Node"]
+script = ExtResource("1_aquh8")
+metadata/_edit_vertical_guides_ = [-64.0]
+metadata/_edit_horizontal_guides_ = [-72.0]

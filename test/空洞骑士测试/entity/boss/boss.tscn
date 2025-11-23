@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://btr68a4h85d0m"]
+[gd_scene load_steps=149 format=3 uid="uid://btr68a4h85d0m"]
 
 [ext_resource type="Texture2D" uid="uid://cnwv57hu1yfc5" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/boss/表弟站立.png" id="1_l6k83"]
 [ext_resource type="Script" uid="uid://rnnf25vysacd" path="res://test/空洞骑士测试/entity/boss/boss.gd" id="1_yfu4a"]
@@ -47,6 +47,20 @@
 [ext_resource type="Script" uid="uid://buaa11rwwgxrs" path="res://test/空洞骑士测试/entity/boss/component/boss_stiff_component.gd" id="41_h5d5k"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="42_6duba"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="43_s2j24"]
+[ext_resource type="PackedScene" uid="uid://ky8uxivi0xxa" path="res://test/空洞骑士测试/scenes/audio_system.tscn" id="48_q32l2"]
+[ext_resource type="Script" uid="uid://c26svf7yyt0nq" path="res://addons/rome/system/audio/audio_system_2d.gd" id="49_vr1xv"]
+[ext_resource type="AudioStream" uid="uid://dapf4fg7nq3b2" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/爆炸前抽搐.MP3" id="50_8lreq"]
+[ext_resource type="AudioStream" uid="uid://c7f3yyk5l1til" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟下戳.MP3" id="51_f0drd"]
+[ext_resource type="AudioStream" uid="uid://cm6bc8w1uamp6" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟冲刺.MP3" id="52_aolg4"]
+[ext_resource type="AudioStream" uid="uid://dtxhhnllufojf" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟战吼.MP3" id="53_yroo4"]
+[ext_resource type="AudioStream" uid="uid://ct1y0sushtee6" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟挥砍.MP3" id="54_y3srw"]
+[ext_resource type="AudioStream" uid="uid://b451s7xvcw4og" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟爆炸.MP3" id="55_mp3tk"]
+[ext_resource type="AudioStream" uid="uid://bufmsv8flis6x" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟落地.MP3" id="56_t2jxo"]
+[ext_resource type="AudioStream" uid="uid://nvpdqsn3stpk" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/enemy_sound/表弟起跳.MP3" id="57_v0d1d"]
+[ext_resource type="AudioStream" uid="uid://x2vnnv7jphke" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/other_sound/敌人僵直.MP3" id="58_yroo4"]
+[ext_resource type="AudioStream" uid="uid://bokqnktily51" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/other_sound/敌人受击.MP3" id="59_y3srw"]
+[ext_resource type="AudioStream" uid="uid://lx3774c1mjug" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/other_sound/敌人死亡.MP3" id="60_mp3tk"]
+[ext_resource type="AudioStream" uid="uid://dvbjapo8r278h" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/sound/player_sound/黑波.MP3" id="61_y3srw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceq04"]
 shader = ExtResource("2_pdhu0")
@@ -201,6 +215,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [PackedVector2Array(-24, -56, -34, -56, -37, -50, -36, -39, -28, -23, -10, -7, 21, -3, -6, -12, -17, -31, -10, -39, 5, -35, -3, -47), PackedVector2Array(-17, -57, -34, -57, -37, -50, -34, -39, -29, -32, -25, -31, -25, -35, -24, -39, -19, -42, -9, -40, 5, -29, 4, -35)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟挥砍"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_c767e"]
@@ -463,6 +491,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟下戳"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_6wf3u"]
 resource_name = "下落"
@@ -619,6 +661,20 @@ tracks/6/keys = {
 "values": [{
 "args": [0.1],
 "method": &"stop_time"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioSystem")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["敌人僵直"],
+"method": &"play_audio_2d"
 }]
 }
 
@@ -817,6 +873,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟冲刺"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_m82cs"]
 resource_name = "后跳"
@@ -881,6 +951,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟起跳"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_25k18"]
@@ -1057,6 +1141,20 @@ tracks/7/keys = {
 "method": &"set_start_value"
 }]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioSystem")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟战吼"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_6duba"]
 resource_name = "战吼准备"
@@ -1198,6 +1296,20 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟挥砍"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_l0cbf"]
@@ -1371,6 +1483,26 @@ tracks/7/keys = {
 "method": &"stop_time"
 }]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioSystem")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["爆炸前抽搐"],
+"method": &"play_audio_2d"
+}, {
+"args": ["表弟爆炸"],
+"method": &"play_audio_2d"
+}, {
+"args": ["敌人死亡"],
+"method": &"play_audio_2d"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_m6pio"]
 resource_name = "白波"
@@ -1448,6 +1580,20 @@ tracks/5/keys = {
 "values": [{
 "args": [],
 "method": &"generate_wave_light"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioSystem")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["白波"],
+"method": &"play_audio_2d"
 }]
 }
 
@@ -1645,6 +1791,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioSystem")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["表弟起跳"],
+"method": &"play_audio_2d"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6k83"]
@@ -1868,10 +2028,83 @@ randomize_noise_seed = 1
 noise_seed = 296
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter", "boss_stat_component", "hrif_hit_box_area")]
+[sub_resource type="Resource" id="Resource_dfnxw"]
+script = ExtResource("49_vr1xv")
+audio_name = "爆炸前抽搐"
+audio_stream = ExtResource("50_8lreq")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_pk15x"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟下戳"
+audio_stream = ExtResource("51_f0drd")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_6swao"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟冲刺"
+audio_stream = ExtResource("52_aolg4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_8y0wc"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟战吼"
+audio_stream = ExtResource("53_yroo4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_tctac"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟挥砍"
+audio_stream = ExtResource("54_y3srw")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_01jl5"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟爆炸"
+audio_stream = ExtResource("55_mp3tk")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_8lreq"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟落地"
+audio_stream = ExtResource("56_t2jxo")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_cphun"]
+script = ExtResource("49_vr1xv")
+audio_name = "表弟起跳"
+audio_stream = ExtResource("57_v0d1d")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_t2jxo"]
+script = ExtResource("49_vr1xv")
+audio_name = "敌人僵直"
+audio_stream = ExtResource("58_yroo4")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_v0d1d"]
+script = ExtResource("49_vr1xv")
+audio_name = "敌人受击"
+audio_stream = ExtResource("59_y3srw")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_8yml6"]
+script = ExtResource("49_vr1xv")
+audio_name = "敌人死亡"
+audio_stream = ExtResource("60_mp3tk")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_mp3tk"]
+script = ExtResource("49_vr1xv")
+audio_name = "白波"
+audio_stream = ExtResource("61_y3srw")
+metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter", "audio_system", "boss_stat_component", "hrif_hit_box_area")]
 collision_layer = 0
 script = ExtResource("1_yfu4a")
 noise_emitter = NodePath("PhantomCameraNoiseEmitter2D")
+audio_system = NodePath("AudioSystem")
 boss_stat_component = NodePath("BossStatsComponent")
 hrif_hit_box_area = NodePath("HrifHitBoxArea/HrifHitBox")
 
@@ -2194,6 +2427,10 @@ noise = SubResource("Resource_6duba")
 duration = 0.1
 decay_time = 0.1
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
+
+[node name="AudioSystem" parent="." node_paths=PackedStringArray("target_parent_audios_2d") instance=ExtResource("48_q32l2")]
+target_parent_audios_2d = NodePath("..")
+audios_2d = Array[ExtResource("49_vr1xv")]([SubResource("Resource_dfnxw"), SubResource("Resource_pk15x"), SubResource("Resource_6swao"), SubResource("Resource_8y0wc"), SubResource("Resource_tctac"), SubResource("Resource_01jl5"), SubResource("Resource_8lreq"), SubResource("Resource_cphun"), SubResource("Resource_t2jxo"), SubResource("Resource_v0d1d"), SubResource("Resource_8yml6"), SubResource("Resource_mp3tk")])
 
 [connection signal="area_entered" from="HurtBoxArea" to="BossHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="state_entered" from="StateChart/CompoundState/Normal/CompoundState/ready" to="BossReadyComponent" method="_on_ready_state_entered"]

@@ -27,6 +27,7 @@ func _on_back_jump_state_physics_processing(delta: float) -> void:
 	
 	## 必须加个后面条件
 	if owner.is_on_floor() and not is_light_wave:
+		owner.audio_system.play_audio_2d("表弟落地")	
 		if randf() < 0.5:
 			owner.turn_direction()
 			is_light_wave = true

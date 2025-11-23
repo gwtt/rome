@@ -17,6 +17,7 @@ func _on_punch_down_state_physics_processing(_delta: float) -> void:
 	if state == punch_down_enum.DO:
 		owner.velocity.y += punch_down_velocity
 		if owner.is_on_floor():
+			owner.audio_system.play_audio_2d("表弟落地")
 			spawn_bone_spurs()
 			state_machine.travel("下戳结束")
 			state = punch_down_enum.FINISH

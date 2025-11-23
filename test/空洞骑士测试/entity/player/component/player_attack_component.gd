@@ -4,6 +4,7 @@ class_name PlayerAttackComponent
 @export var attack_area: Area2D
 @export var weapon_slash_effect: PackedScene
 @export var hurt_box: CollisionPolygon2D
+@export var audio_system: Node
 
 var attack_index := 1
 var attack_time := 0.0
@@ -37,8 +38,10 @@ func _on_attack_state_physics_processing(_delta: float) -> void:
 ## https://github.com/godotengine/godot/issues/110128 bug问题
 func _on_attack_area_area_entered(_area: Area2D) -> void:
 	owner.shake_camera(5.0)
+	## 拼刀判断
 	if _area.name == "HrifHitBoxArea":
 		hurt_box.call_deferred("set_disabled", true)
+		audio_system.play_audio_2d("拼刀")
 		var instantiate_position = (_area.global_position + attack_area.global_position) / 2
 		SpawnerSystem.spawn(weapon_slash_effect, null, instantiate_position)
 		owner.stop_time(0.1)

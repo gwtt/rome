@@ -13,6 +13,7 @@ func _on_jump_state_physics_processing(_delta: float) -> void:
 		state_machine.travel("下落")
 	
 	if owner.is_on_floor():
+		owner.audio_system.play_audio_2d("表弟落地")
 		owner.velocity = Vector2.ZERO
 		boss_stat_component.state_chart.send_event("to_idle")
 	
