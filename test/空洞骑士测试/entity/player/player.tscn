@@ -206,7 +206,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AudioSystem")
+tracks/6/path = NodePath("AudioComponent")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -287,7 +287,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioSystem")
+tracks/5/path = NodePath("AudioComponent")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -378,7 +378,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AudioSystem")
+tracks/6/path = NodePath("AudioComponent")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -513,7 +513,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioSystem")
+tracks/5/path = NodePath("AudioComponent")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -686,7 +686,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioSystem")
+tracks/4/path = NodePath("AudioComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -753,7 +753,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioSystem")
+tracks/4/path = NodePath("AudioComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -820,7 +820,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioSystem")
+tracks/4/path = NodePath("AudioComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -901,7 +901,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioSystem")
+tracks/5/path = NodePath("AudioComponent")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1062,7 +1062,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AudioSystem")
+tracks/6/path = NodePath("AudioComponent")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1153,7 +1153,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AudioSystem")
+tracks/6/path = NodePath("AudioComponent")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1514,7 +1514,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AudioSystem")
+tracks/4/path = NodePath("AudioComponent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1595,7 +1595,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AudioSystem")
+tracks/5/path = NodePath("AudioComponent")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1830,14 +1830,6 @@ states/End/position = Vector2(1367, 106)
 transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii"), "死亡1", "死亡2", SubResource("AnimationNodeStateMachineTransition_vc67u"), "下砸蓄力", "下砸下落过程", SubResource("AnimationNodeStateMachineTransition_qo8lv"), "下砸下落过程", "下砸落地", SubResource("AnimationNodeStateMachineTransition_tngs0")]
 graph_offset = Vector2(-246, 704)
 
-[sub_resource type="Resource" id="Resource_m4j00"]
-script = ExtResource("41_pgrj8")
-amplitude = 40.0
-frequency = 30.0
-randomize_noise_seed = 1
-noise_seed = 520
-metadata/_custom_type_script = "uid://dimvdouy8g0sv"
-
 [sub_resource type="Resource" id="Resource_bn8qb"]
 script = ExtResource("52_ytiye")
 audio_name = "上劈"
@@ -1944,6 +1936,14 @@ script = ExtResource("52_ytiye")
 audio_name = "黑波"
 audio_stream = ExtResource("70_sqt6p")
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
+
+[sub_resource type="Resource" id="Resource_m4j00"]
+script = ExtResource("41_pgrj8")
+amplitude = 40.0
+frequency = 30.0
+randomize_noise_seed = 1
+noise_seed = 520
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter") groups=["空洞骑士"]]
 collision_layer = 512
@@ -2135,7 +2135,7 @@ script = ExtResource("24_ohcur")
 attack_area = NodePath("../AttackArea")
 weapon_slash_effect = ExtResource("33_pgrj8")
 hurt_box = NodePath("../HurtBoxArea/HurtBox")
-audio_system = NodePath("../AudioSystem")
+audio_system = NodePath("../AudioComponent")
 noise_emitter = NodePath("../PhantomCameraNoiseEmitter2D")
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
@@ -2169,9 +2169,13 @@ animation_tree = NodePath("../AnimationTree")
 player_stat_component = NodePath("../PlayerStatsComponent")
 metadata/_custom_type_script = "uid://vmebvy5nah71"
 
+[node name="AudioComponent" parent="." node_paths=PackedStringArray("target_parent_audios_2d") instance=ExtResource("44_q2b3l")]
+target_parent_audios_2d = NodePath("..")
+audios_2d = Array[ExtResource("52_ytiye")]([SubResource("Resource_bn8qb"), SubResource("Resource_4l6lw"), SubResource("Resource_wanri"), SubResource("Resource_yunnx"), SubResource("Resource_h68r8"), SubResource("Resource_0xi0m"), SubResource("Resource_nwu3c"), SubResource("Resource_7wlv4"), SubResource("Resource_rn66o"), SubResource("Resource_p8k33"), SubResource("Resource_5ucv4"), SubResource("Resource_47npi"), SubResource("Resource_mbqyn"), SubResource("Resource_w5yga"), SubResource("Resource_mn5ec"), SubResource("Resource_k8fio"), SubResource("Resource_bgbgi")])
+
 [node name="PlayerBlackDashComponent" parent="." node_paths=PackedStringArray("stat_component", "audio_system") instance=ExtResource("22_bbpi2")]
 stat_component = NodePath("../PlayerStatsComponent")
-audio_system = NodePath("../AudioSystem")
+audio_system = NodePath("../AudioComponent")
 
 [node name="PhantomCameraNoiseEmitter2D" type="Node2D" parent="."]
 script = ExtResource("40_kok1j")
@@ -2181,10 +2185,6 @@ decay_time = 0.1
 metadata/_custom_type_script = "uid://bhd4nuiu23e7l"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="AudioSystem" parent="." node_paths=PackedStringArray("target_parent_audios_2d") instance=ExtResource("44_q2b3l")]
-target_parent_audios_2d = NodePath("..")
-audios_2d = Array[ExtResource("52_ytiye")]([SubResource("Resource_bn8qb"), SubResource("Resource_4l6lw"), SubResource("Resource_wanri"), SubResource("Resource_yunnx"), SubResource("Resource_h68r8"), SubResource("Resource_0xi0m"), SubResource("Resource_nwu3c"), SubResource("Resource_7wlv4"), SubResource("Resource_rn66o"), SubResource("Resource_p8k33"), SubResource("Resource_5ucv4"), SubResource("Resource_47npi"), SubResource("Resource_mbqyn"), SubResource("Resource_w5yga"), SubResource("Resource_mn5ec"), SubResource("Resource_k8fio"), SubResource("Resource_bgbgi")])
 
 [connection signal="area_entered" from="HurtBoxArea" to="PlayerHurtComponent" method="_on_hurt_box_area_area_entered"]
 [connection signal="area_entered" from="AttackArea" to="PlayerAttackComponent" method="_on_attack_area_area_entered"]
