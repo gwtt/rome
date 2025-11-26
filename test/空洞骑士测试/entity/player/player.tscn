@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://uy0e1rgag31n"]
+[gd_scene load_steps=141 format=3 uid="uid://uy0e1rgag31n"]
 
 [ext_resource type="Texture2D" uid="uid://b16tytdh7rm75" path="res://test/空洞骑士测试/空洞骑士教程素材（更新2025.10.20）/player/小骑士移动精灵表.png" id="1_lj2iy"]
 [ext_resource type="Script" uid="uid://m0s5ewy62dll" path="res://test/空洞骑士测试/entity/player/player.gd" id="1_ohcur"]
@@ -1699,81 +1699,6 @@ animation = &"黑波"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7r0p4"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rp4ax"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohcur"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s5wiw"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sg63p"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bmcp6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_23l3w"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gljs8"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3rm2"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7a0yg"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jch3i"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3hx8h"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_80pew"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yo0iw"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0t50"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bwyj"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0upu1"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ovgu"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kok1j"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pgrj8"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4j00"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8oj8g"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bbpi2"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ayrtt"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xfu6b"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rd2oy"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p77fq"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3jkuw"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_luodd"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2es03"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_502bt"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hsht3"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_262g8"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_arc82"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jao6h"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ln3ii"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vc67u"]
 switch_mode = 2
 advance_mode = 2
@@ -1783,52 +1708,75 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tngs0"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4lp2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_85dg7"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fsqmq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ema0i"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_068os"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p0e8l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6wujj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q2b3l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xx6un"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4dg15"]
-states/End/position = Vector2(1367, 106)
+states/End/position = Vector2(605, -132)
+states/Start/position = Vector2(-18, 10)
 "states/上劈/node" = SubResource("AnimationNodeAnimation_23l3w")
-"states/上劈/position" = Vector2(1226, 303)
+"states/上劈/position" = Vector2(408, 75)
 "states/上吼/node" = SubResource("AnimationNodeAnimation_k0t50")
-"states/上吼/position" = Vector2(236, 775)
+"states/上吼/position" = Vector2(157, 434)
 "states/下劈/node" = SubResource("AnimationNodeAnimation_gljs8")
-"states/下劈/position" = Vector2(1226, 211)
+"states/下劈/position" = Vector2(408, 11)
 "states/下砸下落过程/node" = SubResource("AnimationNodeAnimation_0bwyj")
-"states/下砸下落过程/position" = Vector2(384, 854)
+"states/下砸下落过程/position" = Vector2(319, 503)
 "states/下砸落地/node" = SubResource("AnimationNodeAnimation_0upu1")
-"states/下砸落地/position" = Vector2(523, 854)
+"states/下砸落地/position" = Vector2(458, 503)
 "states/下砸蓄力/node" = SubResource("AnimationNodeAnimation_0ovgu")
-"states/下砸蓄力/position" = Vector2(236, 854)
+"states/下砸蓄力/position" = Vector2(171, 503)
 "states/下落/node" = SubResource("AnimationNodeAnimation_7r0p4")
-"states/下落/position" = Vector2(645, 457)
+"states/下落/position" = Vector2(157, 176)
 "states/二段跳/node" = SubResource("AnimationNodeAnimation_rp4ax")
-"states/二段跳/position" = Vector2(249, 466)
+"states/二段跳/position" = Vector2(154, 125)
 "states/冲刺/node" = SubResource("AnimationNodeAnimation_s5wiw")
-"states/冲刺/position" = Vector2(1194, 100)
+"states/冲刺/position" = Vector2(371, -68)
 "states/受击/node" = SubResource("AnimationNodeAnimation_7a0yg")
-"states/受击/position" = Vector2(816, 493)
+"states/受击/position" = Vector2(493, 317)
 "states/回血/node" = SubResource("AnimationNodeAnimation_80pew")
-"states/回血/position" = Vector2(268, 645)
+"states/回血/position" = Vector2(156, 304)
 "states/抬头/node" = SubResource("AnimationNodeAnimation_m4j00")
-"states/抬头/position" = Vector2(231, 921)
+"states/抬头/position" = Vector2(152, 580)
 "states/横劈1/node" = SubResource("AnimationNodeAnimation_sg63p")
-"states/横劈1/position" = Vector2(1216, 378)
+"states/横劈1/position" = Vector2(408, 125)
 "states/横劈2/node" = SubResource("AnimationNodeAnimation_bmcp6")
-"states/横劈2/position" = Vector2(1216, 455)
+"states/横劈2/position" = Vector2(408, 176)
 "states/死亡1/node" = SubResource("AnimationNodeAnimation_jch3i")
-"states/死亡1/position" = Vector2(273, 581)
+"states/死亡1/position" = Vector2(161, 240)
 "states/死亡2/node" = SubResource("AnimationNodeAnimation_3hx8h")
-"states/死亡2/position" = Vector2(423, 581)
+"states/死亡2/position" = Vector2(311, 240)
 "states/移动/node" = SubResource("AnimationNodeAnimation_4dg15")
-"states/移动/position" = Vector2(655, 90)
+"states/移动/position" = Vector2(158, -68)
 "states/站立/node" = SubResource("AnimationNodeAnimation_bbpi2")
-"states/站立/position" = Vector2(354, 149)
+"states/站立/position" = Vector2(158, 10)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_ohcur")
-"states/跳跃/position" = Vector2(278, 293)
+"states/跳跃/position" = Vector2(36, 109)
 "states/黑冲/node" = SubResource("AnimationNodeAnimation_d3rm2")
-"states/黑冲/position" = Vector2(1226, 27)
+"states/黑冲/position" = Vector2(268, -68)
 "states/黑波/node" = SubResource("AnimationNodeAnimation_yo0iw")
-"states/黑波/position" = Vector2(268, 713)
-transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_rp4ax"), "移动", "站立", SubResource("AnimationNodeStateMachineTransition_ohcur"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_s5wiw"), "移动", "跳跃", SubResource("AnimationNodeStateMachineTransition_sg63p"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_bmcp6"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_23l3w"), "下落", "二段跳", SubResource("AnimationNodeStateMachineTransition_gljs8"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_d3rm2"), "下落", "移动", SubResource("AnimationNodeStateMachineTransition_7a0yg"), "跳跃", "冲刺", SubResource("AnimationNodeStateMachineTransition_jch3i"), "移动", "冲刺", SubResource("AnimationNodeStateMachineTransition_3hx8h"), "站立", "冲刺", SubResource("AnimationNodeStateMachineTransition_80pew"), "二段跳", "冲刺", SubResource("AnimationNodeStateMachineTransition_yo0iw"), "站立", "横劈1", SubResource("AnimationNodeStateMachineTransition_k0t50"), "跳跃", "横劈1", SubResource("AnimationNodeStateMachineTransition_0bwyj"), "二段跳", "横劈2", SubResource("AnimationNodeStateMachineTransition_0upu1"), "二段跳", "横劈1", SubResource("AnimationNodeStateMachineTransition_0ovgu"), "跳跃", "横劈2", SubResource("AnimationNodeStateMachineTransition_kok1j"), "站立", "横劈2", SubResource("AnimationNodeStateMachineTransition_pgrj8"), "移动", "横劈1", SubResource("AnimationNodeStateMachineTransition_m4j00"), "移动", "横劈2", SubResource("AnimationNodeStateMachineTransition_8oj8g"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_bbpi2"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ayrtt"), "冲刺", "站立", SubResource("AnimationNodeStateMachineTransition_xfu6b"), "站立", "上劈", SubResource("AnimationNodeStateMachineTransition_rd2oy"), "跳跃", "上劈", SubResource("AnimationNodeStateMachineTransition_p77fq"), "二段跳", "上劈", SubResource("AnimationNodeStateMachineTransition_3jkuw"), "移动", "上劈", SubResource("AnimationNodeStateMachineTransition_luodd"), "站立", "下劈", SubResource("AnimationNodeStateMachineTransition_2es03"), "跳跃", "下劈", SubResource("AnimationNodeStateMachineTransition_502bt"), "二段跳", "下劈", SubResource("AnimationNodeStateMachineTransition_hsht3"), "移动", "下劈", SubResource("AnimationNodeStateMachineTransition_262g8"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_arc82"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_jao6h"), "受击", "站立", SubResource("AnimationNodeStateMachineTransition_ln3ii"), "死亡1", "死亡2", SubResource("AnimationNodeStateMachineTransition_vc67u"), "下砸蓄力", "下砸下落过程", SubResource("AnimationNodeStateMachineTransition_qo8lv"), "下砸下落过程", "下砸落地", SubResource("AnimationNodeStateMachineTransition_tngs0")]
-graph_offset = Vector2(-246, 704)
+"states/黑波/position" = Vector2(156, 372)
+transitions = ["Start", "站立", SubResource("AnimationNodeStateMachineTransition_7r0p4"), "死亡1", "死亡2", SubResource("AnimationNodeStateMachineTransition_vc67u"), "下砸蓄力", "下砸下落过程", SubResource("AnimationNodeStateMachineTransition_qo8lv"), "下砸下落过程", "下砸落地", SubResource("AnimationNodeStateMachineTransition_tngs0"), "下劈", "站立", SubResource("AnimationNodeStateMachineTransition_o4lp2"), "上劈", "站立", SubResource("AnimationNodeStateMachineTransition_85dg7"), "横劈1", "站立", SubResource("AnimationNodeStateMachineTransition_fsqmq"), "横劈2", "站立", SubResource("AnimationNodeStateMachineTransition_ema0i"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_068os"), "跳跃", "二段跳", SubResource("AnimationNodeStateMachineTransition_p0e8l"), "二段跳", "下落", SubResource("AnimationNodeStateMachineTransition_6wujj"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_q2b3l"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_xx6un")]
+graph_offset = Vector2(-332, -219)
 
 [sub_resource type="Resource" id="Resource_bn8qb"]
 script = ExtResource("52_ytiye")
