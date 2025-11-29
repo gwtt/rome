@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rome"
-run/main_scene="uid://ccam6vsn5hhx"
+run/main_scene="uid://w3bvdfjfw6to"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=240
 boot_splash/bg_color=Color(0.0862745, 0.00392157, 0.2, 1)
@@ -27,6 +27,7 @@ GlobalSystem="*res://addons/rome/system/global_system.gd"
 AudioSystem="*res://addons/rome/system/tscn/audio_system.tscn"
 EventBugSystem="*res://addons/rome/utils/event_bus_system.gd"
 SpawnerSystem="*res://addons/rome/system/spawner_system.gd"
+GlobalSteam="*res://test/steam联机测试/p2p/global_steam.gd"
 
 [debug]
 

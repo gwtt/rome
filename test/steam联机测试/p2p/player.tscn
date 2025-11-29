@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://r5walqmlcw7c"]
+
+[ext_resource type="Script" uid="uid://chwtd6py4ve2o" path="res://test/steam联机测试/p2p/player.gd" id="1_hd60a"]
+[ext_resource type="Texture2D" uid="uid://brx0xp3dv545p" path="res://icon.svg" id="2_ej1fl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej1fl"]
+size = Vector2(125, 125)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hd60a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ej1fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ej1fl")

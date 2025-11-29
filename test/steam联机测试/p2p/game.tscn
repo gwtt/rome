@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bukhtn63rropj"]
+
+[ext_resource type="Script" uid="uid://jvg6v68fx60g" path="res://test/steam联机测试/p2p/game.gd" id="1_3gev6"]
+[ext_resource type="Texture2D" uid="uid://brx0xp3dv545p" path="res://icon.svg" id="1_ijr3s"]
+[ext_resource type="PackedScene" uid="uid://r5walqmlcw7c" path="res://test/steam联机测试/p2p/player.tscn" id="2_whjfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijr3s"]
+size = Vector2(125, 125)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3gev6")
+player = ExtResource("2_whjfx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 22.0
+offset_right = 32.0
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "游戏界面"
+
+[node name="P1" type="Marker2D" parent="."]
+position = Vector2(251, 310)
+
+[node name="P2" type="Marker2D" parent="."]
+position = Vector2(1119, 316)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(645, 541)
+scale = Vector2(10, 0.495)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_ijr3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+texture = ExtResource("1_ijr3s")
