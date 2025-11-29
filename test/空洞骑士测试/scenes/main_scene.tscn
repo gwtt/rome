@@ -180,7 +180,7 @@ tile_set = ExtResource("2_sx4d4")
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(-64, -72)
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 process_callback = 0
 rotation_smoothing_enabled = true
 editor_draw_limits = true
@@ -211,7 +211,7 @@ script = ExtResource("6_4c36b")
 follow_mode = 4
 follow_target = NodePath("../Player")
 follow_path = NodePath("../Path2D")
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 tween_resource = SubResource("Resource_jf5q1")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -219,7 +219,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="NoneCamera" type="Node2D" parent="."]
 position = Vector2(-424, -72)
 script = ExtResource("6_4c36b")
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 tween_resource = SubResource("Resource_f67no")
 draw_limits = true
 noise_emitter_layer = 1
