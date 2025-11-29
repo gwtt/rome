@@ -1,4 +1,4 @@
-#class_name AudioSystem 
+#class_name AudioSystem
 extends Node
 
 

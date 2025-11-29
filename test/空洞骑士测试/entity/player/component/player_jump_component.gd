@@ -16,7 +16,7 @@ func _on_jump_state_physics_processing(delta: float) -> void:
 	# 更新二段跳可用状态
 	_update_double_jump_availability(velocity)
 	owner.add_gravity(delta)
-	
+
 	if owner.is_on_floor(): return
 	if owner.velocity.y > 0:
 		player_stat_component.first_jump_over = true
@@ -24,9 +24,9 @@ func _on_jump_state_physics_processing(delta: float) -> void:
 		return
 	if owner.velocity.y < 0:
 		if player_stat_component.is_double_jumping and not player_stat_component.can_double_jump:
-			state_machine.travel("二段跳")	
+			state_machine.travel("二段跳")
 		else:
-			state_machine.travel("跳跃")	
+			state_machine.travel("跳跃")
 ## 更新地面相关状态
 func _update_ground_state() -> void:
 	if owner.is_on_floor():
@@ -42,7 +42,7 @@ func _update_ground_state() -> void:
 func _handle_jump_input() -> void:
 	if !Input.is_action_just_pressed("jump"):
 		return
-		
+
 	var velocity: Vector2 = owner.velocity
 	# 一段跳
 	if player_stat_component.can_jump:
@@ -50,7 +50,7 @@ func _handle_jump_input() -> void:
 		player_stat_component.can_jump = false
 		velocity.y = -player_stat_component.jump_speed
 		owner.velocity = velocity
-		return	
+		return
 	# 二段跳
 	if player_stat_component.can_double_jump:
 		DebugSystem.printDebug("二段跳", owner)
@@ -72,4 +72,3 @@ func _update_double_jump_availability(velocity: Vector2) -> void:
 	# 当开始下落且不在二段跳状态时，允许二段跳
 	if velocity.y > 0 and not player_stat_component.can_jump and not player_stat_component.is_double_jumping:
 		player_stat_component.can_double_jump = true
-

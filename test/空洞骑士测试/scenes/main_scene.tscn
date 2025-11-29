@@ -36,15 +36,31 @@
 script = ExtResource("3_mn5ec")
 audio_name = "苍绿之径战斗"
 audio_stream = ExtResource("4_x4lmn")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+mix_target = 0
 loop = true
+loop_offset = 0.0
 auto_play = true
+max_polyphony = 1
+bus = &"Master"
+playback_type = 0
 metadata/_custom_type_script = "uid://yl35t6f15xxs"
 
 [sub_resource type="Resource" id="Resource_jf5q1"]
 script = ExtResource("7_vi30e")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="Resource" id="Resource_f67no"]
 script = ExtResource("7_vi30e")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="Curve2D" id="Curve2D_q3lyl"]
 _data = {
@@ -53,12 +69,14 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jf5q1"]
-size = Vector2(19.200003, 8)
+size = Vector2(19.2, 8)
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_yys4y")
 metadata/_edit_vertical_guides_ = [-64.0, -560.0, -272.0]
 metadata/_edit_horizontal_guides_ = [-72.0]
+
+[node name="UI" parent="." instance=ExtResource("9_4axh6")]
 
 [node name="AudioSystem" parent="." instance=ExtResource("2_1h7jv")]
 audios_omni = Array[ExtResource("3_mn5ec")]([SubResource("Resource_ig5dg")])
@@ -162,6 +180,7 @@ tile_set = ExtResource("2_sx4d4")
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(-64, -72)
+zoom = Vector2(6, 6)
 process_callback = 0
 rotation_smoothing_enabled = true
 editor_draw_limits = true
@@ -192,6 +211,7 @@ script = ExtResource("6_4c36b")
 follow_mode = 4
 follow_target = NodePath("../Player")
 follow_path = NodePath("../Path2D")
+zoom = Vector2(6, 6)
 tween_resource = SubResource("Resource_jf5q1")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -199,6 +219,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="NoneCamera" type="Node2D" parent="."]
 position = Vector2(-424, -72)
 script = ExtResource("6_4c36b")
+zoom = Vector2(6, 6)
 tween_resource = SubResource("Resource_f67no")
 draw_limits = true
 noise_emitter_layer = 1
@@ -208,16 +229,14 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 curve = SubResource("Curve2D_q3lyl")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-424, -96.00001)
+position = Vector2(-424, -96)
 scale = Vector2(15, 15)
 collision_layer = 0
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.53333616, 2.4000013)
+position = Vector2(0.533336, 2.4)
 shape = SubResource("RectangleShape2D_jf5q1")
-
-[node name="UI" parent="." instance=ExtResource("9_4axh6")]
 
 [node name="Objects" type="Node2D" parent="."]
 z_index = -1

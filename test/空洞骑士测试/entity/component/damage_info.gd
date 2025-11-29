@@ -13,4 +13,3 @@ func _init(dmg: int, src: Node, type: String = ""):
 	damage = dmg
 	source = src
 	damage_type = type
-

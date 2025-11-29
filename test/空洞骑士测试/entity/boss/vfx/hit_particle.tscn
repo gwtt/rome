@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://6as7bdv7yuqk" path="res://test/空洞骑士测试/entity/boss/vfx/hit_particle.gd" id="2_d2upc"]
 
 [sub_resource type="Curve" id="Curve_75ano"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.089108914, 1), 0.0, 0.0, 0, 0, Vector2(0.869637, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0891089, 1), 0.0, 0.0, 0, 0, Vector2(0.869637, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="HitParticle" type="CPUParticles2D"]

@@ -25,7 +25,7 @@ func turn_direction() -> void:
 	if is_facing_right != was_facing_right:
 		is_facing_right = was_facing_right
 		self.scale.x = abs(self.scale.x) * -1
-		
+
 func add_gravity(delta: float) -> void:
 	self.velocity.y += player_stats_component.gravity * delta
 

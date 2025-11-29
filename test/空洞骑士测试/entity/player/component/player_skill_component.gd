@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("black_wave") and Input.get_action_strength("moveUp")  and player_stat_component.player_data.soul >= 3:
 		player_stat_component.skill_type = player_stat_component.SkillType.shout
 		player_stat_component.state_chart.send_event("to_skill")
-		return	
+		return
 	if Input.is_action_just_pressed("black_wave") and Input.get_action_strength("moveDown") and player_stat_component.player_data.soul >= 3:
 		player_stat_component.skill_type = player_stat_component.SkillType.crash_down
 		player_stat_component.state_chart.send_event("to_skill")
-		return		
+		return
 	if Input.is_action_just_pressed("black_wave") and player_stat_component.player_data.soul >= 3:
 		player_stat_component.skill_type = player_stat_component.SkillType.black_wave
 		player_stat_component.state_chart.send_event("to_skill")
@@ -40,11 +40,11 @@ func _on_skill_state_physics_processing(delta: float) -> void:
 				owner.velocity.y = 600
 				crach_down_status = 2
 				state_machine.travel("下砸下落过程")
-				
+
 func heal() -> void:
 	player_stat_component.player_data.soul -= 3
 	player_stat_component.player_data.health += 5
-	player_stat_component.state_chart.send_event("to_normal")	
+	player_stat_component.state_chart.send_event("to_normal")
 
 var black_wave_interval := 20
 func generate_black_wave() -> void:
@@ -61,12 +61,12 @@ func generate_shout() -> void:
 	shout_scene.tree_exiting.connect(func(): player_stat_component.state_chart.send_event("to_normal"))
 
 func generate_crash_down() -> void:
-	owner.shake_camera(40.0)	
+	owner.shake_camera(40.0)
 	var crash_down_scene := SpawnerSystem.spawn(crash_down, owner.get_parent(), owner.global_position)
 	crash_down_scene.tree_exiting.connect(
 		func():
 			player_stat_component.state_chart.send_event("to_normal")
-			await get_tree().create_timer(0.5).timeout 
+			await get_tree().create_timer(0.5).timeout
 			hurt_box.call_deferred("set_disabled", false)
 	)
 
@@ -76,7 +76,7 @@ func _on_skill_state_entered() -> void:
 	set_physics_process(false)
 	if player_stat_component.skill_type == player_stat_component.SkillType.heal:
 		state_machine.travel("回血")
-	if player_stat_component.skill_type == player_stat_component.SkillType.black_wave:	
+	if player_stat_component.skill_type == player_stat_component.SkillType.black_wave:
 		state_machine.travel("黑波")
 	if player_stat_component.skill_type == player_stat_component.SkillType.shout:
 		state_machine.travel("上吼")

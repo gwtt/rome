@@ -182,48 +182,48 @@ func printTrace(values: Array[Variant] = [], object: Variant = null, stackPositi
 
 
 ## 打印漂亮的堆栈转储，包括所有子节点和变量。
-func printStackDump(object: Variant, includeChildNodes: bool = true, includeLocalVariables: bool = true, includeMemberVariables: bool = false, includeGlobalVariables: bool = false) -> void:
-	const globalVariableColor:	String = "[color=dimgray]"
-	const memberVariableColor:	String = "[color=dimgray]"
-	const localVariableColor:	String = "[color=gray]"
-	const backgroundColor:		String = "[bgcolor=201030]"
-	var stack: Array[ScriptBacktrace]  = Engine.capture_script_backtraces(includeGlobalVariables or includeMemberVariables or includeLocalVariables)
-
-	print_rich(str("\n\n", backgroundColor, "[color=orange]↦ [b]STACK DUMP[/b] @ Rendering Frame:", Engine.get_frames_drawn(), " Time:", float(Time.get_ticks_msec()) / 1000),
-	"\n\t[color=cyan][b]", object, "[/b] ← ", object.get_parent() if object is Node else null)
-
-	if includeChildNodes and object is Node:
-		print_rich(str("\t[color=lightblue]", object.get_children(true))) # 包含内部节点
-
-	var backtrace: ScriptBacktrace
-	for backtraceIndex in stack.size():
-		backtrace = stack[backtraceIndex]
-		if stack.size() > 1: print(str("Backtrace ", backtraceIndex))
-
-		# 函数调用
-
-		if includeGlobalVariables:
-			for globalVariableIndex in backtrace.get_global_variable_count():
-				print_rich(str(globalVariableColor, "\t[b]", backtrace.get_global_variable_name(globalVariableIndex), "[/b]:\t", backtrace.get_global_variable_value(globalVariableIndex)))
-
-		# 函数调用
-
-		print_rich("\t[color=dimgray]0: 日志记录函数")
-
-		var topColor: String
-		for frameIndex in backtrace.get_frame_count():
-			if frameIndex == 0: continue # Skip this logging function
-			topColor = "[color=FF80FF]" if frameIndex == 1 else "[color=white]"
-
-			print_rich(str("\t", frameIndex, ": ", topColor, backtrace.get_frame_file(frameIndex), " [b]", backtrace.get_frame_function(frameIndex), "[/b]()[/color]\t Line:", backtrace.get_frame_line(frameIndex)))
-
-			if includeLocalVariables:
-				for localVariableIndex in backtrace.get_local_variable_count(frameIndex):
-					print_rich(str(localVariableColor, "\t\t[b]", backtrace.get_local_variable_name(frameIndex, localVariableIndex), "[/b]:\t", backtrace.get_local_variable_value(frameIndex, localVariableIndex)))
-
-			if includeMemberVariables:
-				for memberVariableIndex in backtrace.get_member_variable_count(frameIndex):
-					print_rich(str(memberVariableColor, "\t\t[b]", backtrace.get_member_variable_name(frameIndex, memberVariableIndex), "[/b]:\t", backtrace.get_member_variable_value(frameIndex, memberVariableIndex)))
+#func printStackDump(object: Variant, includeChildNodes: bool = true, includeLocalVariables: bool = true, includeMemberVariables: bool = false, includeGlobalVariables: bool = false) -> void:
+	#const globalVariableColor:	String = "[color=dimgray]"
+	#const memberVariableColor:	String = "[color=dimgray]"
+	#const localVariableColor:	String = "[color=gray]"
+	#const backgroundColor:		String = "[bgcolor=201030]"
+	#var stack: Array[ScriptBacktrace]  = Engine.capture_script_backtraces(includeGlobalVariables or includeMemberVariables or includeLocalVariables)
+#
+	#print_rich(str("\n\n", backgroundColor, "[color=orange]↦ [b]STACK DUMP[/b] @ Rendering Frame:", Engine.get_frames_drawn(), " Time:", float(Time.get_ticks_msec()) / 1000),
+	#"\n\t[color=cyan][b]", object, "[/b] ← ", object.get_parent() if object is Node else null)
+#
+	#if includeChildNodes and object is Node:
+		#print_rich(str("\t[color=lightblue]", object.get_children(true))) # 包含内部节点
+#
+	#var backtrace: ScriptBacktrace
+	#for backtraceIndex in stack.size():
+		#backtrace = stack[backtraceIndex]
+		#if stack.size() > 1: print(str("Backtrace ", backtraceIndex))
+#
+		## 函数调用
+#
+		#if includeGlobalVariables:
+			#for globalVariableIndex in backtrace.get_global_variable_count():
+				#print_rich(str(globalVariableColor, "\t[b]", backtrace.get_global_variable_name(globalVariableIndex), "[/b]:\t", backtrace.get_global_variable_value(globalVariableIndex)))
+#
+		## 函数调用
+#
+		#print_rich("\t[color=dimgray]0: 日志记录函数")
+#
+		#var topColor: String
+		#for frameIndex in backtrace.get_frame_count():
+			#if frameIndex == 0: continue # Skip this logging function
+			#topColor = "[color=FF80FF]" if frameIndex == 1 else "[color=white]"
+#
+			#print_rich(str("\t", frameIndex, ": ", topColor, backtrace.get_frame_file(frameIndex), " [b]", backtrace.get_frame_function(frameIndex), "[/b]()[/color]\t Line:", backtrace.get_frame_line(frameIndex)))
+#
+			#if includeLocalVariables:
+				#for localVariableIndex in backtrace.get_local_variable_count(frameIndex):
+					#print_rich(str(localVariableColor, "\t\t[b]", backtrace.get_local_variable_name(frameIndex, localVariableIndex), "[/b]:\t", backtrace.get_local_variable_value(frameIndex, localVariableIndex)))
+#
+			#if includeMemberVariables:
+				#for memberVariableIndex in backtrace.get_member_variable_count(frameIndex):
+					#print_rich(str(memberVariableColor, "\t\t[b]", backtrace.get_member_variable_name(frameIndex, memberVariableIndex), "[/b]:\t", backtrace.get_member_variable_value(frameIndex, memberVariableIndex)))
 
 
 ## 返回一个表示调用堆栈中指定[param stackPosition]的脚本文件和函数名称的字符串。

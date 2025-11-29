@@ -7,4 +7,3 @@ class_name DamageableComponent
 ## 接收伤害的接口，子类需要实现
 func take_damage(_damage_info: DamageInfo) -> void:
 	push_error("DamageableComponent.take_damage() 必须在子类中实现")
-

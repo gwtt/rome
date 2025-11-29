@@ -139,10 +139,22 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossPunchDownComponent:state")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_13sgp"]
 resource_name = "上挑"
-length = 0.40001002
+length = 0.40001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -298,7 +310,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ay6oa"]
 resource_name = "下戳"
-length = 0.40001002
+length = 0.40001
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -426,10 +438,22 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BossPunchDownComponent:state")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_p0g1d"]
 resource_name = "下戳结束"
-length = 0.40001002
+length = 0.40001
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -505,6 +529,18 @@ tracks/5/keys = {
 "method": &"play_audio_2d"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BossPunchDownComponent:state")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_6wf3u"]
 resource_name = "下落"
@@ -541,7 +577,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [3, 4, 5]
@@ -714,7 +750,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0]
@@ -844,7 +880,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.70000005),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 1, 2, 3]
@@ -923,7 +959,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -1002,7 +1038,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [3, 4, 5]
@@ -1067,7 +1103,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4000001, 1.5, 1.6, 1.7, 1.8000001, 1.9000001, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6000001, 2.7, 2.8, 2.8999999, 3, 3.1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
@@ -1191,7 +1227,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994),
+"times": PackedFloat32Array(-8.3819e-09, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -1412,7 +1448,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -1539,7 +1575,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -1599,7 +1635,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_uienk"]
 resource_name = "移动"
-length = 0.40001002
+length = 0.40001
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -1633,7 +1669,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -1698,7 +1734,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999, 0.3, 0.4, 0.5, 0.6, 0.70000005),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 1, 2, 3]
@@ -1763,7 +1799,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-8.381903e-09, 0.099999994, 0.19999999),
+"times": PackedFloat32Array(-8.3819e-09, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -2018,7 +2054,7 @@ states/Start/position = Vector2(-93, 100)
 "states/跳跃/node" = SubResource("AnimationNodeAnimation_6wr4x")
 "states/跳跃/position" = Vector2(389, 289)
 transitions = ["站立", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_6wf3u"), "挥砍准备", "挥砍", SubResource("AnimationNodeStateMachineTransition_np5dx"), "挥砍", "上挑准备", SubResource("AnimationNodeStateMachineTransition_y602f"), "上挑准备", "上挑", SubResource("AnimationNodeStateMachineTransition_6wr4x"), "上挑", "站立", SubResource("AnimationNodeStateMachineTransition_g813n"), "Start", "准备", SubResource("AnimationNodeStateMachineTransition_p0g1d"), "准备", "站立", SubResource("AnimationNodeStateMachineTransition_ay6oa"), "站立", "移动", SubResource("AnimationNodeStateMachineTransition_sdng6"), "站立", "跳跃", SubResource("AnimationNodeStateMachineTransition_43w2p"), "跳跃", "站立", SubResource("AnimationNodeStateMachineTransition_m82cs"), "移动", "挥砍准备", SubResource("AnimationNodeStateMachineTransition_g6qad"), "跳跃", "下落", SubResource("AnimationNodeStateMachineTransition_25k18"), "跳跃", "下戳准备", SubResource("AnimationNodeStateMachineTransition_m6pio"), "下戳准备", "下戳", SubResource("AnimationNodeStateMachineTransition_bgdh0"), "下戳", "下戳结束", SubResource("AnimationNodeStateMachineTransition_s8mos"), "站立", "后跳", SubResource("AnimationNodeStateMachineTransition_yh704"), "后跳", "后跳下落", SubResource("AnimationNodeStateMachineTransition_g53qt"), "后跳下落", "白波", SubResource("AnimationNodeStateMachineTransition_rpbf0"), "下落", "白波", SubResource("AnimationNodeStateMachineTransition_2gqqf"), "冲刺准备", "冲刺", SubResource("AnimationNodeStateMachineTransition_ilxn1"), "冲刺", "冲刺停下", SubResource("AnimationNodeStateMachineTransition_mxjbp"), "下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_l38h4"), "后跳下落", "冲刺准备", SubResource("AnimationNodeStateMachineTransition_h5d5k"), "僵直", "死亡", SubResource("AnimationNodeStateMachineTransition_cb0xu"), "僵直2", "站立", SubResource("AnimationNodeStateMachineTransition_6duba"), "战吼准备", "战吼", SubResource("AnimationNodeStateMachineTransition_rvvdo")]
-graph_offset = Vector2(-600, 460)
+graph_offset = Vector2(-336, 328)
 
 [sub_resource type="Resource" id="Resource_6duba"]
 script = ExtResource("43_s2j24")
@@ -2026,78 +2062,263 @@ amplitude = 40.0
 frequency = 30.0
 randomize_noise_seed = 1
 noise_seed = 296
+positional_noise = true
+rotational_noise = false
+positional_multiplier_x = 1.0
+positional_multiplier_y = 1.0
+rotational_multiplier = 1.0
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [sub_resource type="Resource" id="Resource_dfnxw"]
 script = ExtResource("49_vr1xv")
 audio_name = "爆炸前抽搐"
 audio_stream = ExtResource("50_8lreq")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_pk15x"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟下戳"
 audio_stream = ExtResource("51_f0drd")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_6swao"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟冲刺"
 audio_stream = ExtResource("52_aolg4")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_8y0wc"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟战吼"
 audio_stream = ExtResource("53_yroo4")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_tctac"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟挥砍"
 audio_stream = ExtResource("54_y3srw")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_01jl5"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟爆炸"
 audio_stream = ExtResource("55_mp3tk")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_8lreq"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟落地"
 audio_stream = ExtResource("56_t2jxo")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_cphun"]
 script = ExtResource("49_vr1xv")
 audio_name = "表弟起跳"
 audio_stream = ExtResource("57_v0d1d")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_t2jxo"]
 script = ExtResource("49_vr1xv")
 audio_name = "敌人僵直"
 audio_stream = ExtResource("58_yroo4")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_v0d1d"]
 script = ExtResource("49_vr1xv")
 audio_name = "敌人受击"
 audio_stream = ExtResource("59_y3srw")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_8yml6"]
 script = ExtResource("49_vr1xv")
 audio_name = "敌人死亡"
 audio_stream = ExtResource("60_mp3tk")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_mp3tk"]
 script = ExtResource("49_vr1xv")
 audio_name = "白波"
 audio_stream = ExtResource("61_y3srw")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("noise_emitter", "audio_system", "boss_stat_component", "hrif_hit_box_area")]
@@ -2383,6 +2604,7 @@ metadata/_custom_type_script = "uid://ctv33b6hvd2tt"
 [node name="BossPunchDownComponent" type="Node" parent="." node_paths=PackedStringArray("animation_player", "animation_tree", "boss_stat_component")]
 script = ExtResource("26_sdng6")
 bone_spur = ExtResource("27_43w2p")
+state = 1
 animation_player = NodePath("../AnimationPlayer")
 animation_tree = NodePath("../AnimationTree")
 boss_stat_component = NodePath("../BossStatsComponent")

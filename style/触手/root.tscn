@@ -6,20 +6,20 @@
 [ext_resource type="Shader" uid="uid://t2se1e1on5ef" path="res://style/触手/canvas_group_two_tone.gdshader" id="3_agn0j"]
 
 [sub_resource type="Curve" id="Curve_d13tw"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.55124223, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.498638, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6lo2n"]
 shader = ExtResource("2_d13tw")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_size = 1.0000000149012
-shader_parameter/alpha_threshold = 0.7999999821184
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.8
 shader_parameter/outline_samples = 4
 shader_parameter/shade_color = Color(1, 1, 1, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_agn0j"]
 shader = ExtResource("2_60ymn")
-shader_parameter/shadow_color = Color(0, 0, 0, 0.47058824)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.470588)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d13tw"]
 shader = ExtResource("3_agn0j")
@@ -31,7 +31,6 @@ shader_parameter/shade_ratio = 0.3
 script = ExtResource("1_i357l")
 base_node = NodePath("OutlinedSubViewportContainer/SubViewport/TwoToneCanvasGroup/BaseLine")
 shadow_node = NodePath("OutlinedSubViewportContainer/SubViewport/ShadowCanvasGroup/ShadowLine")
-max_length = 256.0
 width_curve = SubResource("Curve_d13tw")
 
 [node name="OutlinedSubViewportContainer" type="SubViewportContainer" parent="."]
@@ -49,7 +48,7 @@ material = SubResource("ShaderMaterial_agn0j")
 
 [node name="ShadowLine" type="Line2D" parent="OutlinedSubViewportContainer/SubViewport/ShadowCanvasGroup"]
 position = Vector2(128, 128)
-points = PackedVector2Array(0, 5, 8.989761, 11.401077, 15.133102, 3.2752686, 9.564026, -5.2857285, -1.2876968, -5.1041794, -12.101532, -3.07473, -22.500877, -5.668579, -29.252556, -13.510811, -28.252449, -23.611046, -18.513916, -27.592422, -9.2076645, -21.338348, -0.6180725, -13.9947815, 10.145889, -11.747238, 19.51802, -16.592056, 22.195145, -26.473152, 16.17604, -34.93721, 6.0651855, -38.62046, -3.9768753, -42.49475, -11.049065, -50.26326, -12.3214035, -60.50515, -6.8680344, -69.34227, 3.1734009, -73.01883, 14.066925, -72.0105, 24.797546, -72.70569, 31.701645, -80.28266)
+points = PackedVector2Array(0, 5, 8.98976, 11.4011, 15.1331, 3.27527, 9.56403, -5.28573, -1.2877, -5.10418, -12.1015, -3.07473, -22.5009, -5.66858, -29.2526, -13.5108, -28.2524, -23.611, -18.5139, -27.5924, -9.20766, -21.3383, -0.618073, -13.9948, 10.1459, -11.7472, 19.518, -16.5921, 22.1951, -26.4732, 16.176, -34.9372, 6.06519, -38.6205, -3.97688, -42.4948, -11.0491, -50.2633, -12.3214, -60.5051, -6.86803, -69.3423, 3.1734, -73.0188, 14.0669, -72.0105, 24.7975, -72.7057, 31.7016, -80.2827)
 width = 24.0
 width_curve = SubResource("Curve_d13tw")
 joint_mode = 2
@@ -61,7 +60,7 @@ material = SubResource("ShaderMaterial_d13tw")
 
 [node name="BaseLine" type="Line2D" parent="OutlinedSubViewportContainer/SubViewport/TwoToneCanvasGroup"]
 position = Vector2(128, 128)
-points = PackedVector2Array(0, 0, 8.989761, 5.7760773, 15.133102, -2.9747238, 9.564026, -12.160728, -1.2876968, -12.604179, -12.101532, -11.19973, -22.500877, -14.418579, -29.252556, -22.88581, -28.252449, -33.611046, -18.513916, -38.217422, -9.2076645, -32.58835, -0.6180725, -25.869781, 10.145889, -24.247238, 19.51802, -29.717056, 22.195145, -40.223152, 16.17604, -49.31221, 6.0651855, -53.62046, -3.9768753, -58.11975, -11.049065, -66.51326, -12.3214035, -77.38015, -6.8680344, -86.84227, 3.1734009, -91.14383, 14.066925, -90.7605, 24.797546, -92.08069, 31.701645, -100.28266)
+points = PackedVector2Array(0, 0, 8.98976, 5.77608, 15.1331, -2.97472, 9.56403, -12.1607, -1.2877, -12.6042, -12.1015, -11.1997, -22.5009, -14.4186, -29.2526, -22.8858, -28.2524, -33.611, -18.5139, -38.2174, -9.20766, -32.5883, -0.618073, -25.8698, 10.1459, -24.2472, 19.518, -29.7171, 22.1951, -40.2232, 16.176, -49.3122, 6.06519, -53.6205, -3.97688, -58.1198, -11.0491, -66.5133, -12.3214, -77.3801, -6.86803, -86.8423, 3.1734, -91.1438, 14.0669, -90.7605, 24.7975, -92.0807, 31.7016, -100.283)
 width = 24.0
 width_curve = SubResource("Curve_d13tw")
 joint_mode = 2

@@ -33,9 +33,7 @@ var health_dic = {
 func _ready() -> void:
 	player_data.changed.connect(on_changed)
 	player_data.changed.emit()
-	
+
 func on_changed() -> void:
 	soul.texture = load(soul_dic[player_data.soul])
 	health.texture = load(health_dic[player_data.health / 5])
-
-

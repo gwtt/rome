@@ -5,6 +5,9 @@ extends Node
 
 var boss_end = false
 
+func _ready() -> void:
+	pass
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player and boss_end == true:
 		none_camera.priority = 0

@@ -10,17 +10,17 @@ script = ExtResource("1_tjhf1")
 player_data = ExtResource("2_patkm")
 
 [node name="Soul" type="TextureRect" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 72.0
-offset_bottom = 48.0
+offset_right = 64.0
+offset_bottom = 32.0
+scale = Vector2(6, 6)
 texture = ExtResource("3_c1u78")
 stretch_mode = 2
 
 [node name="Health" type="TextureRect" parent="."]
-offset_left = 37.0
-offset_top = 13.0
-offset_right = 165.0
-offset_bottom = 29.0
+offset_left = 209.0
+offset_top = 28.0
+offset_right = 337.0
+offset_bottom = 44.0
+scale = Vector2(6, 6)
 texture = ExtResource("4_tjhf1")
 stretch_mode = 2

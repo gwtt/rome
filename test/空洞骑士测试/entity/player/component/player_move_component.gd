@@ -8,26 +8,26 @@ func _ready() -> void:
 
 func _on_move_state_physics_processing(delta: float) -> void:
 	if state == 1:
-		owner.velocity.x = 0 
+		owner.velocity.x = 0
 		state_machine.travel("抬头")
 		return
 	if Input.is_action_just_pressed("jump"):
 		player_stat_component.state_chart.send_event("to_jump")
 		return
-		
+
 	var move_vector = Input.get_action_strength("moveRight") - Input.get_action_strength("moveLeft")
 	var velocity: Vector2 = owner.velocity
-	
+
 	# 处理水平移动
 	velocity = _handle_horizontal_movement(delta, move_vector, velocity)
 	owner.velocity = velocity
-	
+
 	if not owner.is_on_floor(): return
 	if abs(velocity.x)<= 0.1:
-		state_machine.travel("站立")	
+		state_machine.travel("站立")
 	else:
 		state_machine.travel("移动")
-	
+
 	if Input.is_action_just_pressed("heal") and player_stat_component.player_data.soul >= 3:
 		player_stat_component.skill_type = player_stat_component.SkillType.heal
 		player_stat_component.state_chart.send_event("to_skill")

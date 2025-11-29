@@ -52,7 +52,7 @@ tracks/3/path = NodePath("CollisionShape2D:shape:points")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
+"times": PackedFloat32Array(0, 0.001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [PackedVector2Array(0, 0), PackedVector2Array()]
@@ -72,8 +72,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_hth8c"]
 resource_name = "close"
-length = 0.20000668
-step = 0.06666667
+length = 0.200007
+step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -105,7 +105,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 4, 3, 2]
@@ -117,7 +117,7 @@ tracks/3/path = NodePath("CollisionShape2D:shape:points")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.06666667),
+"times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [PackedVector2Array(0, 0), PackedVector2Array(0, 0, 16, 0, 16, 48, 0, 48)]
@@ -139,8 +139,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ms60n"]
 resource_name = "open"
-length = 0.20000668
-step = 0.06666667
+length = 0.200007
+step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -172,7 +172,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666666, 0.13333334, 0.20000002),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 3, 4, 0]
@@ -196,7 +196,7 @@ tracks/4/path = NodePath("CollisionShape2D:disabled")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.20000002),
+"times": PackedFloat32Array(0, 0.133333, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, true]
@@ -230,12 +230,42 @@ points = PackedVector2Array(0, 0)
 script = ExtResource("4_i6v2r")
 audio_name = "铁门关闭"
 audio_stream = ExtResource("5_5s2y4")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [sub_resource type="Resource" id="Resource_saojv"]
 script = ExtResource("4_i6v2r")
 audio_name = "铁门打开"
 audio_stream = ExtResource("6_5s2y4")
+use_clipper = false
+start_time = 0.0
+end_time = 0.0
+volume_db = 0.0
+pitch_scale = 1.0
+max_distance = 2000.0
+loop = false
+loop_offset = 0.0
+auto_play = false
+max_polyphony = 1
+panning_strength = 1.0
+area_mask = 1
+bus = &"Master"
+playback_type = 0
+attenuation = 1.0
 metadata/_custom_type_script = "uid://c26svf7yyt0nq"
 
 [node name="Door" type="CharacterBody2D"]
