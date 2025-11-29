@@ -37,7 +37,7 @@ class Groups:
 	const climbable		:= &"climbable" ## Areas & objects representing ladders, ropes or cliffs etc. See [ClimbComponent]
 	const props			:= &"props" ## Miscellaneous objects & superfluous decorations etc.
 	const zones			:= &"zones" ## Special game-specific areas representing different maps, regions or sections of the gameplay.
-	
+
 	const turnBased		:= &"turnBased"
 	const audio			:= &"audio" ## Temporary sound effects
 

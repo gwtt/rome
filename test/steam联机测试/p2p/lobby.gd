@@ -18,7 +18,6 @@ func _ready() -> void:
 	GlobalSteam.open_global_steam()
 	# 加载好友
 	load_friends()
-
 	# 大厅相关信号初始化
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
